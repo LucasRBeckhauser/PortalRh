@@ -1,11 +1,12 @@
-package br.com.PortalRh.Projeto.models;
+package br.com.PortalRh.Projeto.model;
 
+import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Dependente extends EntityId{
+public class Dependente extends EntityId {
 
     @Column(name = "nome_dep")
     private String nome;

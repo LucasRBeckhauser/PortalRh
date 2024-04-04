@@ -1,11 +1,12 @@
-package br.com.PortalRh.Projeto.models;
+package br.com.PortalRh.Projeto.model;
 
+import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-public class Filiacao extends EntityId{
+public class Filiacao extends EntityId {
 
     @Column(name = "nome_pai")
     private String nomePai;

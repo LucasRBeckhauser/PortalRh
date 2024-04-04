@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.models.Dependente;
+import br.com.PortalRh.Projeto.model.Dependente;
 import br.com.PortalRh.Projeto.service.DependenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
