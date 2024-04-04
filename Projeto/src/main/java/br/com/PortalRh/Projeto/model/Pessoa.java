@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,7 @@ public class Pessoa extends EntityId {
     @Column(name = "nacionalidade")
     private String nacionalidade;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List <ExpAnterior> expAnteriores;
+    private List <ExpAnterior> expAnteriores = new ArrayList<>();
     @Column(name = "idiomas")
     private String idiomas;
     @Column(name = "hora_extra")
@@ -44,7 +45,7 @@ public class Pessoa extends EntityId {
     @Column(name = "saida")
     private LocalTime saida;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Dependente> dependente;
+    private List<Dependente> dependentes = new ArrayList<>();
     @ManyToOne
     private Filiacao filiacao;
 
@@ -135,9 +136,11 @@ public class Pessoa extends EntityId {
         return certificacoes;
     }
 
-    public void setCertificacoes(List<Certificacao> certificacoes) {
-        this.certificacoes = certificacoes;
-    }
+    public void addCertificacoes(Certificacao certificacao) {
+        certificacoes.add(certificacao); }
+
+    public void removeCertificacoes(Certificacao certificacao) {
+        certificacoes.remove(certificacao); }
 
     public String getNacionalidade() {
         return nacionalidade;
@@ -151,9 +154,11 @@ public class Pessoa extends EntityId {
         return expAnteriores;
     }
 
-    public void setExpAnteriores(List<ExpAnterior> expAnteriores) {
-        this.expAnteriores = expAnteriores;
-    }
+    public void addExpAnterior(ExpAnterior expAnterior) {
+        expAnteriores.add(expAnterior); }
+
+    public void removeExpAnterior(ExpAnterior expAnterior) {
+        expAnteriores.remove(expAnterior); }
 
     public String getIdiomas() {
         return idiomas;
@@ -188,12 +193,14 @@ public class Pessoa extends EntityId {
     }
 
     public List<Dependente> getDependente() {
-        return dependente;
+        return dependentes;
     }
 
-    public void setDependente(List<Dependente> dependente) {
-        this.dependente = dependente;
-    }
+    public void addDependente(Dependente dependente) {
+        dependentes.add(dependente); }
+
+    public void removeExpAnterior(Dependente dependente) {
+        dependentes.remove(dependente); }
 
     public Filiacao getFiliacao() {
         return filiacao;
@@ -223,7 +230,7 @@ public class Pessoa extends EntityId {
                 ", horaExtra=" + horaExtra +
                 ", entrada=" + entrada +
                 ", saida=" + saida +
-                ", dependente=" + dependente +
+                ", dependente=" + dependentes +
                 ", filiacao=" + filiacao +
                 '}';
     }
