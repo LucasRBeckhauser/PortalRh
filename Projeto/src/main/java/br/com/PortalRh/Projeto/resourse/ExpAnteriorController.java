@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.models.ExpAnterior;
+import br.com.PortalRh.Projeto.model.ExpAnterior;
 import br.com.PortalRh.Projeto.service.ExpAnteriorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

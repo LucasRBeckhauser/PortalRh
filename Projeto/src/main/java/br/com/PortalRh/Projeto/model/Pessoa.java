@@ -1,4 +1,5 @@
-package br.com.PortalRh.Projeto.models;
+package br.com.PortalRh.Projeto.model;
+import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -6,7 +7,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 @Entity
-public class Pessoa extends EntityId{
+public class Pessoa extends EntityId {
 
     @Column(name = "nome")
     private String nome;
