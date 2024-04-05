@@ -48,6 +48,8 @@ public class Pessoa extends EntityId {
     private List<Dependente> dependentes = new ArrayList<>();
     @ManyToOne
     private Filiacao filiacao;
+    @ManyToOne
+    private List<RedeSocial> redesSociais = new ArrayList<>();
 
     public Pessoa() {
     }
@@ -192,7 +194,7 @@ public class Pessoa extends EntityId {
         this.saida = saida;
     }
 
-    public List<Dependente> getDependente() {
+    public List<Dependente> getDependentes() {
         return dependentes;
     }
 
@@ -209,6 +211,16 @@ public class Pessoa extends EntityId {
     public void setFiliacao(Filiacao filiacao) {
         this.filiacao = filiacao;
     }
+
+    public List<RedeSocial> getRedeSocial() {
+        return redesSociais;
+    }
+
+    public void addRedeSocial(RedeSocial redeSocial) {
+        redesSociais.add(redeSocial); }
+
+    public void removeRedeSocial(RedeSocial redeSocial) {
+        redesSociais.remove(redeSocial); }
 
     @Override
     public String toString() {
