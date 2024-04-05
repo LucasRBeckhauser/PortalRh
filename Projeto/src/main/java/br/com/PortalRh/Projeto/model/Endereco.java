@@ -1,16 +1,27 @@
 package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enuns.Estado;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
-public class Address {
+@Entity
+public class Endereco extends EntityId{
 
+    @Column(name = "numero_residencia")
     private Integer numeroResidencia;
+    @Column(name = "nome_rua")
     private String nomeRua;
+    @Column(name = "complemento")
     private String complemento;
+    @Column(name = "bairro")
     private String bairro;
+    @Column(name = "cidade")
     private String cidade;
+    @Column(name = "uf")
     private Estado estado;
+    @Column(name = "cep")
     private String cep;
+    @Column(name = "pais")
     private String pais;
 
 
@@ -80,7 +91,7 @@ public class Address {
     }
 
     // Constructor
-    public Address() {
+    public Endereco() {
     }
 
     // To String
