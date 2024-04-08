@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enuns.TipoCargo;
 
-public class Cargo{
+public class Cargo extends EntityId{
     private String descricao;
     private String nivel;
     private Boolean comissionado;
