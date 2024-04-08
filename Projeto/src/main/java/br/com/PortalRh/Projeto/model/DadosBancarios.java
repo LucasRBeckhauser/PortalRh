@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enuns.TipoConta;
 
-public class DadosBancarios {
+public class DadosBancarios extends EntityId {
     private TipoConta tipoconta;
     private String banco;
     private String agencia;
