@@ -1,5 +1,4 @@
 package br.com.PortalRh.Projeto.model;
-import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Pessoa extends EntityId {
+public class Person extends EntityId {
 
     @Column(name = "nome")
     private String nome;
@@ -31,11 +30,11 @@ public class Pessoa extends EntityId {
     @Column(name = "doador_sangue")
     private Boolean doadorSangue;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Certificacao> certificacoes;
+    private List<Certification> certificacoes;
     @Column(name = "nacionalidade")
     private String nacionalidade;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List <ExpAnterior> expAnteriores = new ArrayList<>();
+    private List <PrevExp> prevExpAnteriores = new ArrayList<>();
     @Column(name = "idiomas")
     private String idiomas;
     @Column(name = "hora_extra")
@@ -45,13 +44,13 @@ public class Pessoa extends EntityId {
     @Column(name = "saida")
     private LocalTime saida;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Dependente> dependentes = new ArrayList<>();
+    private List<Children> children = new ArrayList<>();
     @ManyToOne
-    private Filiacao filiacao;
+    private Parent parent;
     @ManyToOne
-    private List<RedeSocial> redesSociais = new ArrayList<>();
+    private List<SocialMedia> redesSociais = new ArrayList<>();
 
-    public Pessoa() {
+    public Person() {
     }
 
     public String getNome() {
@@ -134,15 +133,15 @@ public class Pessoa extends EntityId {
         this.doadorSangue = doadorSangue;
     }
 
-    public List<Certificacao> getCertificacoes() {
+    public List<Certification> getCertificacoes() {
         return certificacoes;
     }
 
-    public void addCertificacoes(Certificacao certificacao) {
-        certificacoes.add(certificacao); }
+    public void addCertificacoes(Certification certification) {
+        certificacoes.add(certification); }
 
-    public void removeCertificacoes(Certificacao certificacao) {
-        certificacoes.remove(certificacao); }
+    public void removeCertificacoes(Certification certification) {
+        certificacoes.remove(certification); }
 
     public String getNacionalidade() {
         return nacionalidade;
@@ -152,15 +151,15 @@ public class Pessoa extends EntityId {
         this.nacionalidade = nacionalidade;
     }
 
-    public List<ExpAnterior> getExpAnteriores() {
-        return expAnteriores;
+    public List<PrevExp> getExpAnteriores() {
+        return prevExpAnteriores;
     }
 
-    public void addExpAnterior(ExpAnterior expAnterior) {
-        expAnteriores.add(expAnterior); }
+    public void addExpAnterior(PrevExp prevExp) {
+        prevExpAnteriores.add(prevExp); }
 
-    public void removeExpAnterior(ExpAnterior expAnterior) {
-        expAnteriores.remove(expAnterior); }
+    public void removeExpAnterior(PrevExp prevExp) {
+        prevExpAnteriores.remove(prevExp); }
 
     public String getIdiomas() {
         return idiomas;
@@ -194,33 +193,33 @@ public class Pessoa extends EntityId {
         this.saida = saida;
     }
 
-    public List<Dependente> getDependentes() {
-        return dependentes;
+    public List<Children> getDependentes() {
+        return children;
     }
 
-    public void addDependente(Dependente dependente) {
-        dependentes.add(dependente); }
+    public void addDependente(Children children) {
+        this.children.add(children); }
 
-    public void removeExpAnterior(Dependente dependente) {
-        dependentes.remove(dependente); }
+    public void removeExpAnterior(Children children) {
+        this.children.remove(children); }
 
-    public Filiacao getFiliacao() {
-        return filiacao;
+    public Parent getFiliacao() {
+        return parent;
     }
 
-    public void setFiliacao(Filiacao filiacao) {
-        this.filiacao = filiacao;
+    public void setFiliacao(Parent parent) {
+        this.parent = parent;
     }
 
-    public List<RedeSocial> getRedeSocial() {
+    public List<SocialMedia> getRedeSocial() {
         return redesSociais;
     }
 
-    public void addRedeSocial(RedeSocial redeSocial) {
-        redesSociais.add(redeSocial); }
+    public void addRedeSocial(SocialMedia socialMedia) {
+        redesSociais.add(socialMedia); }
 
-    public void removeRedeSocial(RedeSocial redeSocial) {
-        redesSociais.remove(redeSocial); }
+    public void removeRedeSocial(SocialMedia socialMedia) {
+        redesSociais.remove(socialMedia); }
 
     @Override
     public String toString() {
@@ -237,13 +236,13 @@ public class Pessoa extends EntityId {
                 ", doadorSangue=" + doadorSangue +
                 ", certificacoes=" + certificacoes +
                 ", nacionalidade='" + nacionalidade + '\'' +
-                ", expAnteriores=" + expAnteriores +
+                ", expAnteriores=" + prevExpAnteriores +
                 ", idiomas='" + idiomas + '\'' +
                 ", horaExtra=" + horaExtra +
                 ", entrada=" + entrada +
                 ", saida=" + saida +
-                ", dependente=" + dependentes +
-                ", filiacao=" + filiacao +
+                ", dependente=" + children +
+                ", filiacao=" + parent +
                 '}';
     }
 }

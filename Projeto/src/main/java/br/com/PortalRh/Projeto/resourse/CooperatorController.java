@@ -1,7 +1,6 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.model.Colaborador;
-import br.com.PortalRh.Projeto.service.ColaboradorService;
+import br.com.PortalRh.Projeto.service.CooperatorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,26 +10,26 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/colaboradores")
-public class ColaboradorController {
+public class CooperatorController {
 
     @Autowired
-    private ColaboradorService service;
+    private CooperatorService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Colaborador entity) {
-        Colaborador save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody br.com.PortalRh.Projeto.model.Cooperator entity) {
+        br.com.PortalRh.Projeto.model.Cooperator save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/colaboradores/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<Colaborador> colaboradores = service.buscaTodos();
+        List<br.com.PortalRh.Projeto.model.Cooperator> colaboradores = service.buscaTodos();
         return ResponseEntity.ok(colaboradores);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Colaborador colaboradores = service.buscaPorId(id);
+        br.com.PortalRh.Projeto.model.Cooperator colaboradores = service.buscaPorId(id);
         return ResponseEntity.ok(colaboradores);
     }
 
@@ -41,8 +40,8 @@ public class ColaboradorController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Colaborador entity) {
-        Colaborador alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody br.com.PortalRh.Projeto.model.Cooperator entity) {
+        br.com.PortalRh.Projeto.model.Cooperator alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

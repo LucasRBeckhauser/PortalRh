@@ -1,21 +1,20 @@
 package br.com.PortalRh.Projeto.model;
 
-import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Dependente extends EntityId {
+public class Children extends EntityId {
 
     @Column(name = "nome_dep")
     private String nome;
     @Column(name = "idade_dep")
     private Integer idade;
     @ManyToOne
-    private Pessoa pessoa;
+    private Person person;
 
-    public Dependente() {
+    public Children() {
     }
 
     public String getNome() {
@@ -34,12 +33,12 @@ public class Dependente extends EntityId {
         this.idade = idade;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Person getPessoa() {
+        return person;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setPessoa(Person person) {
+        this.person = person;
     }
 
     @Override
@@ -47,7 +46,7 @@ public class Dependente extends EntityId {
         return "Dependente{" +
                 "nome='" + nome + '\'' +
                 ", idade=" + idade +
-                ", pessoa=" + pessoa +
+                ", pessoa=" + person +
                 '}';
     }
 }

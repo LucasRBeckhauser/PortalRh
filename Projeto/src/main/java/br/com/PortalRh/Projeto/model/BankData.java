@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enuns.TipoConta;
 
-public class DadosBancarios {
+public class BankData {
     private TipoConta tipoconta;
     private String banco;
     private String agencia;
@@ -42,7 +42,7 @@ public class DadosBancarios {
     }
 
     //Constructor
-    public DadosBancarios() {
+    public BankData() {
     }
 
     // To String

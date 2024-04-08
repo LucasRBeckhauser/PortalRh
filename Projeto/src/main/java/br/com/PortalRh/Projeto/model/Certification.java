@@ -1,12 +1,11 @@
 package br.com.PortalRh.Projeto.model;
 
-import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Certificacao extends EntityId {
+public class Certification extends EntityId {
 
     @Column(name = "titulo")
     private String titulo;
@@ -17,9 +16,9 @@ public class Certificacao extends EntityId {
     @Column(name = "descricao_certif")
     private String descricao;
     @ManyToOne
-    private Pessoa pessoa;
+    private Person person;
 
-    public Certificacao() {
+    public Certification() {
     }
 
     public String getTitulo() {

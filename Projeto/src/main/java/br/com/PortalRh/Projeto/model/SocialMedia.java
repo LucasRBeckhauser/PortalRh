@@ -3,13 +3,13 @@ package br.com.PortalRh.Projeto.model;
 import jakarta.persistence.*;
 
 @Entity
-public class RedeSocial {
+public class SocialMedia {
     @Column(name = "nome")
     private String nome;
     @Column(name = "url")
     private String url;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private Pessoa pessoa;
+    private Person person;
 
     public String getName() {
         return nome;
@@ -27,7 +27,7 @@ public class RedeSocial {
         this.url = link;
     }
 
-    public RedeSocial() {
+    public SocialMedia() {
     }
 
     @Override

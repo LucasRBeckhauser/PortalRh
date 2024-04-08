@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.model.Endereco;
-import br.com.PortalRh.Projeto.service.EnderecoService;
+import br.com.PortalRh.Projeto.model.Address;
+import br.com.PortalRh.Projeto.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,26 +11,26 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/enderecos")
-public class EnderecoController {
+public class AddressController {
 
     @Autowired
-    private EnderecoService service;
+    private AddressService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Endereco entity) {
-        Endereco save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody Address entity) {
+        Address save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/enderecos/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<Endereco> enderecos = service.buscaTodos();
-        return ResponseEntity.ok(enderecos);
+        List<Address> addresses = service.buscaTodos();
+        return ResponseEntity.ok(addresses);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Endereco enderecos = service.buscaPorId(id);
+        Address enderecos = service.buscaPorId(id);
         return ResponseEntity.ok(enderecos);
     }
 
@@ -41,8 +41,8 @@ public class EnderecoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Endereco entity) {
-        Endereco alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Address entity) {
+        Address alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

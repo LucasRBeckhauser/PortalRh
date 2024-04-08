@@ -6,19 +6,19 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Colaborador extends Pessoa{
+public class Cooperator extends Person {
     @Column(name = "salario")
     private double salario;
     @Column(name = "pis_pasep")
     private String pisPasep;
     @Column(name = "cargo")
-    private Cargo cargo;
+    private Position position;
     @Column(name = "modalidade_contratual")
     private ModalidadeContratual modalidadeContratual;
     @Column(name = "turno")
     private Turno turno;
 
-    public Colaborador() {
+    public Cooperator() {
     }
 
     public double getSalario() {
@@ -37,12 +37,12 @@ public class Colaborador extends Pessoa{
         this.pisPasep = pisPasep;
     }
 
-    public Cargo getCargo() {
-        return cargo;
+    public Position getCargo() {
+        return position;
     }
 
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
+    public void setCargo(Position position) {
+        this.position = position;
     }
 
     public ModalidadeContratual getModalidadeContratual() {
@@ -66,7 +66,7 @@ public class Colaborador extends Pessoa{
         return "Colaborador{" +
                 "salario=" + salario +
                 ", pisPasep='" + pisPasep + '\'' +
-                ", cargo=" + cargo +
+                ", cargo=" + position +
                 ", modalidadeContratual=" + modalidadeContratual +
                 ", turno=" + turno +
                 '}';

@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enuns.TipoCargo;
 
-public class Cargo{
+public class Position {
     private String descricao;
     private String nivel;
     private Boolean comissionado;
@@ -43,7 +43,7 @@ public class Cargo{
     }
 
     // Constructor vazio
-    public Cargo() {
+    public Position() {
     }
 
 

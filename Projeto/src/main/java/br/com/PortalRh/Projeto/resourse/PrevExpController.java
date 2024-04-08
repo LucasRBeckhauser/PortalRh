@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.model.ExpAnterior;
-import br.com.PortalRh.Projeto.service.ExpAnteriorService;
+import br.com.PortalRh.Projeto.model.PrevExp;
+import br.com.PortalRh.Projeto.service.PrevExpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,27 +11,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/expAnteriores/")
-public class ExpAnteriorController {
+public class PrevExpController {
 
     @Autowired
-    private ExpAnteriorService service;
+    private PrevExpService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody ExpAnterior entity) {
-        ExpAnterior save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody PrevExp entity) {
+        PrevExp save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/expAnteriores/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<ExpAnterior> expAnteriores = service.buscaTodos();
-        return ResponseEntity.ok(expAnteriores);
+        List<PrevExp> prevExpAnteriores = service.buscaTodos();
+        return ResponseEntity.ok(prevExpAnteriores);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        ExpAnterior expAnteriores = service.buscaPorId(id);
-        return ResponseEntity.ok(expAnteriores);
+        PrevExp prevExpAnteriores = service.buscaPorId(id);
+        return ResponseEntity.ok(prevExpAnteriores);
     }
 
     @DeleteMapping("{id}")
@@ -41,8 +41,8 @@ public class ExpAnteriorController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody ExpAnterior entity) {
-        ExpAnterior alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody PrevExp entity) {
+        PrevExp alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

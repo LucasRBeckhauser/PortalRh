@@ -5,7 +5,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Endereco extends EntityId{
+public class Address extends EntityId{
 
     @Column(name = "numero_residencia")
     private Integer numeroResidencia;
@@ -91,7 +91,7 @@ public class Endereco extends EntityId{
     }
 
     // Constructor
-    public Endereco() {
+    public Address() {
     }
 
     // To String
