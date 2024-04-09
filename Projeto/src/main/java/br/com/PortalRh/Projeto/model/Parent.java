@@ -1,12 +1,12 @@
 package br.com.PortalRh.Projeto.model;
 
-import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Filiacao extends EntityId {
+public class Parent extends EntityId {
 
     @Column(name = "nome_pai")
     private String nomePai;
@@ -17,9 +17,9 @@ public class Filiacao extends EntityId {
     @Column(name = "tel_mae")
     private String telMae;
     @OneToMany(mappedBy = "filiacao", cascade = CascadeType.ALL)
-    private List<Pessoa> filho;
+    private List<Person> filhos = new ArrayList<>();
 
-    public Filiacao() {
+    public Parent() {
     }
 
     public String getNomePai() {
@@ -54,13 +54,13 @@ public class Filiacao extends EntityId {
         this.telMae = telMae;
     }
 
-    public List<Pessoa> getFilho() {
-        return filho;
+    public List<Person> getFilho() {
+        return filhos;
     }
 
-    public void setFilho(List<Pessoa> filho) {
-        this.filho = filho;
-    }
+    public void addPessoa(Person filho) { filhos.add(filho); }
+
+    public void  removePessoa(Person filho) { filhos.remove(filho); }
 
     @Override
     public String toString() {
@@ -69,7 +69,7 @@ public class Filiacao extends EntityId {
                 ", nomeMae='" + nomeMae + '\'' +
                 ", telPai='" + telPai + '\'' +
                 ", telMae='" + telMae + '\'' +
-                ", filho=" + filho +
+                ", filho=" + filhos +
                 '}';
     }
 }

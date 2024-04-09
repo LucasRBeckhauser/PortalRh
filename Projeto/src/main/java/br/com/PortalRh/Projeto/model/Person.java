@@ -1,13 +1,13 @@
 package br.com.PortalRh.Projeto.model;
-import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Pessoa extends EntityId {
+public class Person extends EntityId {
 
     @Column(name = "nome")
     private String nome;
@@ -30,11 +30,11 @@ public class Pessoa extends EntityId {
     @Column(name = "doador_sangue")
     private Boolean doadorSangue;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Certificacao> certificacoes;
+    private List<Certification> certificacoes;
     @Column(name = "nacionalidade")
     private String nacionalidade;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List <ExpAnterior> expAnteriores;
+    private List <PrevExp> prevExpAnteriores = new ArrayList<>();
     @Column(name = "idiomas")
     private String idiomas;
     @Column(name = "hora_extra")
@@ -44,11 +44,13 @@ public class Pessoa extends EntityId {
     @Column(name = "saida")
     private LocalTime saida;
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List<Dependente> dependente;
+    private List<Children> children = new ArrayList<>();
     @ManyToOne
-    private Filiacao filiacao;
+    private Parent parent;
+    @ManyToOne
+    private List<SocialMedia> redesSociais = new ArrayList<>();
 
-    public Pessoa() {
+    public Person() {
     }
 
     public String getNome() {
@@ -131,13 +133,15 @@ public class Pessoa extends EntityId {
         this.doadorSangue = doadorSangue;
     }
 
-    public List<Certificacao> getCertificacoes() {
+    public List<Certification> getCertificacoes() {
         return certificacoes;
     }
 
-    public void setCertificacoes(List<Certificacao> certificacoes) {
-        this.certificacoes = certificacoes;
-    }
+    public void addCertificacoes(Certification certification) {
+        certificacoes.add(certification); }
+
+    public void removeCertificacoes(Certification certification) {
+        certificacoes.remove(certification); }
 
     public String getNacionalidade() {
         return nacionalidade;
@@ -147,13 +151,15 @@ public class Pessoa extends EntityId {
         this.nacionalidade = nacionalidade;
     }
 
-    public List<ExpAnterior> getExpAnteriores() {
-        return expAnteriores;
+    public List<PrevExp> getExpAnteriores() {
+        return prevExpAnteriores;
     }
 
-    public void setExpAnteriores(List<ExpAnterior> expAnteriores) {
-        this.expAnteriores = expAnteriores;
-    }
+    public void addExpAnterior(PrevExp prevExp) {
+        prevExpAnteriores.add(prevExp); }
+
+    public void removeExpAnterior(PrevExp prevExp) {
+        prevExpAnteriores.remove(prevExp); }
 
     public String getIdiomas() {
         return idiomas;
@@ -187,21 +193,33 @@ public class Pessoa extends EntityId {
         this.saida = saida;
     }
 
-    public List<Dependente> getDependente() {
-        return dependente;
+    public List<Children> getDependentes() {
+        return children;
     }
 
-    public void setDependente(List<Dependente> dependente) {
-        this.dependente = dependente;
+    public void addDependente(Children children) {
+        this.children.add(children); }
+
+    public void removeExpAnterior(Children children) {
+        this.children.remove(children); }
+
+    public Parent getFiliacao() {
+        return parent;
     }
 
-    public Filiacao getFiliacao() {
-        return filiacao;
+    public void setFiliacao(Parent parent) {
+        this.parent = parent;
     }
 
-    public void setFiliacao(Filiacao filiacao) {
-        this.filiacao = filiacao;
+    public List<SocialMedia> getRedeSocial() {
+        return redesSociais;
     }
+
+    public void addRedeSocial(SocialMedia socialMedia) {
+        redesSociais.add(socialMedia); }
+
+    public void removeRedeSocial(SocialMedia socialMedia) {
+        redesSociais.remove(socialMedia); }
 
     @Override
     public String toString() {
@@ -218,13 +236,13 @@ public class Pessoa extends EntityId {
                 ", doadorSangue=" + doadorSangue +
                 ", certificacoes=" + certificacoes +
                 ", nacionalidade='" + nacionalidade + '\'' +
-                ", expAnteriores=" + expAnteriores +
+                ", expAnteriores=" + prevExpAnteriores +
                 ", idiomas='" + idiomas + '\'' +
                 ", horaExtra=" + horaExtra +
                 ", entrada=" + entrada +
                 ", saida=" + saida +
-                ", dependente=" + dependente +
-                ", filiacao=" + filiacao +
+                ", dependente=" + children +
+                ", filiacao=" + parent +
                 '}';
     }
 }

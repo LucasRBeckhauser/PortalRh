@@ -1,12 +1,11 @@
 package br.com.PortalRh.Projeto.model;
 
-import br.com.PortalRh.Projeto.model.EntityId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class ExpAnterior extends EntityId {
+public class PrevExp extends EntityId {
 
     @Column(name = "empresa")
     private String empresa;
@@ -17,9 +16,9 @@ public class ExpAnterior extends EntityId {
     @Column(name = "descricao_exp")
     private String descricao;
     @ManyToOne
-    private Pessoa pessoa;
+    private Person person;
 
-    public ExpAnterior() {
+    public PrevExp() {
     }
 
     public String getEmpresa() {

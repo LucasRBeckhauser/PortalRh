@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.model.Pessoa;
-import br.com.PortalRh.Projeto.service.PessoaService;
+import br.com.PortalRh.Projeto.model.Person;
+import br.com.PortalRh.Projeto.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,26 +11,26 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pessoas")
-public class PessoaController {
+public class PersonController {
 
     @Autowired
-    private PessoaService service;
+    private PersonService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Pessoa entitu) {
-        Pessoa save = service.salvar(entitu);
+    public ResponseEntity create(@RequestBody Person entitu) {
+        Person save = service.salvar(entitu);
         return ResponseEntity.created(URI.create("/api/pessoas/" + entitu.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<Pessoa> pessoas = service.buscaTodos();
-        return ResponseEntity.ok(pessoas);
+        List<Person> people = service.buscaTodos();
+        return ResponseEntity.ok(people);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Pessoa pessoas = service.buscaPorId(id);
+        Person pessoas = service.buscaPorId(id);
         return ResponseEntity.ok(pessoas);
     }
 
@@ -41,8 +41,8 @@ public class PessoaController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Pessoa entity) {
-        Pessoa alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Person entity) {
+        Person alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

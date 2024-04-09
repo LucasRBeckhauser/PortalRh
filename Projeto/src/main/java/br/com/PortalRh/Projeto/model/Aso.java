@@ -1,17 +1,31 @@
 package br.com.PortalRh.Projeto.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
 import java.time.LocalDate;
 
-public class ASO {
+@Entity
+public class Aso extends EntityId{
+    @Column(name = "historico_saude")
     private String historicoDeSaude;
+    @Column(name = "processos_medicos")
     private String processosMedicos;
+    @Column(name = "data_exames_complementares")
     private LocalDate dataExamesComplementares;
+    @Column(name = "medico_encarregado")
     private String nomeMedicoEncarregado;
+    @Column(name = "crm_medico_encarregado")
     private String crmMedicoEncarregado;
+    @Column(name = "medico_coordenador")
     private String nomeMedicoCoordenador;
+    @Column(name = "crm_medico_coordenador")
     private String crmMedicoCoordenador;
+    @Column(name = "riscos_ocupacionais")
     private String riscosOcupacionais;
+    @Column(name = "julgamento_final")
     private String julgamentoFinal;
+    @Column(name = "data_assinatura_medico")
     private LocalDate dataAssinaturaMedico;
 
     // Getters and Setters
@@ -95,7 +109,7 @@ public class ASO {
         this.dataAssinaturaMedico = dataAssinaturaMedico;
     }
 
-    public ASO() {
+    public Aso() {
     }
 
     @Override

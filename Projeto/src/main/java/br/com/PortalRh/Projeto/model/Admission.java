@@ -11,7 +11,7 @@ public class Admission {
     private LocalDate dataAdmissao;
 
 
-    private List<ASO> asoList;
+    private List<Aso> asoList;
 
     public LocalDate getDataAdmissao() {
         return dataAdmissao;
@@ -21,11 +21,11 @@ public class Admission {
         this.dataAdmissao = dataAdmissao;
     }
 
-    public List<ASO> getAsoList() {
+    public List<Aso> getAsoList() {
         return asoList;
     }
 
-    public void setAsoList(List<ASO> asoList) {
+    public void setAsoList(List<Aso> asoList) {
         this.asoList = asoList;
     }
 
