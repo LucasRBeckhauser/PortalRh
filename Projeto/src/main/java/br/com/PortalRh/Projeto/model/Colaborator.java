@@ -1,6 +1,9 @@
 package br.com.PortalRh.Projeto.model;
 
-public class Colaborator extends Person{
+import br.com.PortalRh.Projeto.model.enuns.ModalidadeContratual;
+import br.com.PortalRh.Projeto.model.enuns.Turno;
+
+public class Colaborator extends Pessoa{
     private double salary;
     private String pisPasepRegistration;
     private String professionalRegistration; // verificar
@@ -8,8 +11,8 @@ public class Colaborator extends Person{
     private String position;
     private String fieldOfWork;
     private int workingHours;
-    private ContractType contractType;
-    private WorkShift workShift;
+    private ModalidadeContratual modalidadeContratual;
+    private Turno turno;
 
     public Colaborator() {
     }
@@ -70,20 +73,20 @@ public class Colaborator extends Person{
         this.workingHours = workingHours;
     }
 
-    public ContractType getContractType() {
-        return contractType;
+    public ModalidadeContratual getModalidadeContratual() {
+        return modalidadeContratual;
     }
 
-    public void setContractType(ContractType contractType) {
-        this.contractType = contractType;
+    public void setModalidadeContratual(ModalidadeContratual modalidadeContratual) {
+        this.modalidadeContratual = modalidadeContratual;
     }
 
-    public WorkShift getWorkShift() {
-        return workShift;
+    public Turno getTurno() {
+        return turno;
     }
 
-    public void setWorkShift(WorkShift workShift) {
-        this.workShift = workShift;
+    public void setTurno(Turno turno) {
+        this.turno = turno;
     }
 
     @Override
@@ -96,8 +99,8 @@ public class Colaborator extends Person{
                 ", position='" + position + '\'' +
                 ", fieldOfWork='" + fieldOfWork + '\'' +
                 ", workingHours=" + workingHours +
-                ", contractType=" + contractType +
-                ", workShift=" + workShift +
+                ", modalidadeContratual=" + modalidadeContratual +
+                ", turno=" + turno +
                 '}';
     }
 }
