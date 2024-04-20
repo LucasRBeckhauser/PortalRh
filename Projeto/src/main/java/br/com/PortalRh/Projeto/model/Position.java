@@ -2,58 +2,54 @@ package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enuns.TipoCargo;
 
-public class Position {
-    private String descricao;
-    private String nivel;
-    private Boolean comissionado;
-    private TipoCargo tipoCargo;
+public class Position extends EntityId{
+    private String description;
+    private String level;
+    private Boolean commissioned;
+    private TipoCargo positionType;
 
-    // Getters and Setters
-
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getNivel() {
-        return nivel;
+    public String getLevel() {
+        return level;
     }
 
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
-    public Boolean getComissionado() {
-        return comissionado;
+    public Boolean getCommissioned() {
+        return commissioned;
     }
 
-    public void setComissionado(Boolean comissionado) {
-        this.comissionado = comissionado;
+    public void setCommissioned(Boolean commissioned) {
+        this.commissioned = commissioned;
     }
 
-    public TipoCargo getTipoCargo() {
-        return tipoCargo;
+    public TipoCargo getPositionType() {
+        return positionType;
     }
 
-    public void setTipoCargo(TipoCargo tipoCargo) {
-        this.tipoCargo = tipoCargo;
+    public void setPositionType(TipoCargo positionType) {
+        this.positionType = positionType;
     }
 
-    // Constructor vazio
     public Position() {
     }
 
-
     @Override
     public String toString() {
-        return "Cargo{" +
-                "descricao='" + descricao + '\'' +
-                ", nivel='" + nivel + '\'' +
-                ", comissionado=" + comissionado +
-                ", tipoCargo=" + tipoCargo +
+        return "Position{" +
+                "description='" + description + '\'' +
+                ", level='" + level + '\'' +
+                ", commissioned=" + commissioned +
+                ", positionType=" + positionType +
                 '}';
     }
 }
