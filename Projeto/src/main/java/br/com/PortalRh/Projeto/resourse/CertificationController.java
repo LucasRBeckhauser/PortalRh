@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.model.Certification;
+import br.com.PortalRh.Projeto.entities.Certification;
 import br.com.PortalRh.Projeto.service.CertificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

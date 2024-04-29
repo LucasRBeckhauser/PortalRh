@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.model.Certification;
+import br.com.PortalRh.Projeto.entities.Certification;
 import br.com.PortalRh.Projeto.repository.CertificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model;
+package br.com.PortalRh.Projeto.entities;
 
 import jakarta.persistence.*;
 

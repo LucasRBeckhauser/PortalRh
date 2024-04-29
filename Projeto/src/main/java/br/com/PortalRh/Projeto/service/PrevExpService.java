@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.model.PrevExp;
+import br.com.PortalRh.Projeto.entities.PrevExp;
 import br.com.PortalRh.Projeto.repository.PrevExpRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model;
+package br.com.PortalRh.Projeto.entities;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -9,7 +9,6 @@ public class Admission {
     //private Colaborator colaborator
 
     private LocalDate dataAdmissao;
-
 
     private List<Aso> asoList;
 

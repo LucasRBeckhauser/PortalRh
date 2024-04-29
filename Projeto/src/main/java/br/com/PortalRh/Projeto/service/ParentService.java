@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.model.Parent;
+import br.com.PortalRh.Projeto.entities.Parent;
 import br.com.PortalRh.Projeto.repository.ParentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

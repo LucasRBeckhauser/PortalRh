@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model.enuns;
+package br.com.PortalRh.Projeto.entities.enuns;
 
 public enum Turno {
     MATUTUNO,
