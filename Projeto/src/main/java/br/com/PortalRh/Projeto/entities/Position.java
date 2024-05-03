@@ -1,12 +1,12 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.TipoCargo;
+import br.com.PortalRh.Projeto.entities.enuns.JobType;
 
 public class Position {
     private String description;
     private String level;
     private Boolean commission;
-    private TipoCargo positionType;
+    private JobType positionType;
 
     public Position() {
     }
@@ -35,11 +35,11 @@ public class Position {
         this.commission = commission;
     }
 
-    public TipoCargo getPositionType() {
+    public JobType getPositionType() {
         return positionType;
     }
 
-    public void setPositionType(TipoCargo positionType) {
+    public void setPositionType(JobType positionType) {
         this.positionType = positionType;
     }
 

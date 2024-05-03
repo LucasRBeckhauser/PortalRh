@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.Estado;
+import br.com.PortalRh.Projeto.entities.enuns.State;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
@@ -18,7 +18,7 @@ public class Address extends EntityId{
     @Column(name = "cidade")
     private String city;
     @Column(name = "uf")
-    private Estado state;
+    private State state;
     @Column(name = "cep")
     private String cep;
     @Column(name = "pais")
@@ -67,11 +67,11 @@ public class Address extends EntityId{
         this.city = city;
     }
 
-    public Estado getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(Estado state) {
+    public void setState(State state) {
         this.state = state;
     }
 

@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.entities.enuns;
 
-public enum Escolaridade {
+public enum Education {
     FUNDAMENTALCOMPLETO,
     FUNDAMENTALINCOMPLETO,
     MEDIOCOMPLETO,

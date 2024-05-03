@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.entities.enuns;
 
-public enum ModalidadeContratual {
+public enum ContractModality {
     PJ,
     CLT;
 }

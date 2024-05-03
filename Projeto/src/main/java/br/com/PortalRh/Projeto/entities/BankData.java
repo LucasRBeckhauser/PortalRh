@@ -1,9 +1,9 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.TipoConta;
+import br.com.PortalRh.Projeto.entities.enuns.AccType;
 
 public class BankData {
-    private TipoConta accType;
+    private AccType accType;
     private String bank;
     private String agency;
     private String acc;
@@ -11,11 +11,11 @@ public class BankData {
     public BankData() {
     }
 
-    public TipoConta getAccType() {
+    public AccType getAccType() {
         return accType;
     }
 
-    public void setAccType(TipoConta accType) {
+    public void setAccType(AccType accType) {
         this.accType = accType;
     }
 

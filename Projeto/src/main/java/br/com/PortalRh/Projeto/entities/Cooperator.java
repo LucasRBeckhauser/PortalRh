@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.ModalidadeContratual;
-import br.com.PortalRh.Projeto.entities.enuns.Turno;
+import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
+import br.com.PortalRh.Projeto.entities.enuns.Shift;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
@@ -14,9 +14,9 @@ public class Cooperator extends Person {
     @Column(name = "cargo")
     private Position position;
     @Column(name = "modalidade_contratual")
-    private ModalidadeContratual contractModel;
+    private ContractModality contractModel;
     @Column(name = "turno")
-    private Turno shift;
+    private Shift shift;
 
     public Cooperator() {
     }
@@ -45,19 +45,19 @@ public class Cooperator extends Person {
         this.position = position;
     }
 
-    public ModalidadeContratual getContractModel() {
+    public ContractModality getContractModel() {
         return contractModel;
     }
 
-    public void setContractModel(ModalidadeContratual contractModel) {
+    public void setContractModel(ContractModality contractModel) {
         this.contractModel = contractModel;
     }
 
-    public Turno getShift() {
+    public Shift getShift() {
         return shift;
     }
 
-    public void setShift(Turno shift) {
+    public void setShift(Shift shift) {
         this.shift = shift;
     }
 
