@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.entities.enuns;
 
-public enum Genero {
+public enum Gender {
     MASCULINO,
     FEMININO,
     OUTROS;
