@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.resource;
 
+import br.com.PortalRh.Projeto.entities.Position;
 import br.com.PortalRh.Projeto.service.PositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

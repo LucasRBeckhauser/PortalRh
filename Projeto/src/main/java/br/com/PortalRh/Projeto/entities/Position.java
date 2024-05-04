@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.entities;
 
 import br.com.PortalRh.Projeto.entities.enuns.JobType;
 
-public class Position {
+public class Position extends EntityId {
     private String description;
     private String level;
     private Boolean commission;

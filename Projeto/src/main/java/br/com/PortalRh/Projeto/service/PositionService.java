@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.entities.Position;
 import br.com.PortalRh.Projeto.repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class PositionService {
             position.setPositionType(changed.getPositionType());
             position.setDescription(changed.getDescription());
             position.setLevel(changed.getLevel());
-            position.setCommissioned(changed.getCommissioned());
+            position.setCommission(changed.getCommission());
 
         }
         return null;
