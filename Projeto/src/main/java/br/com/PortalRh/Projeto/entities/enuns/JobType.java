@@ -1,6 +1,6 @@
-package br.com.PortalRh.Projeto.model.enuns;
+package br.com.PortalRh.Projeto.entities.enuns;
 
-public enum TipoCargo {
+public enum JobType {
 
     ASSISTENTEDEDESENVOLVIMENTO,
     ASSISTENTEFINANCEIRO,

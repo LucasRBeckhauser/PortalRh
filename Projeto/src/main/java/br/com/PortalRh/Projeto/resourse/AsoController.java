@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resourse;
 
-import br.com.PortalRh.Projeto.model.Aso;
+import br.com.PortalRh.Projeto.entities.Aso;
 import br.com.PortalRh.Projeto.service.AsoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

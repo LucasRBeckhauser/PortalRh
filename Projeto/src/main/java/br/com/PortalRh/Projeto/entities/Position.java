@@ -1,12 +1,15 @@
-package br.com.PortalRh.Projeto.model;
+package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.model.enuns.TipoCargo;
+import br.com.PortalRh.Projeto.entities.enuns.JobType;
 
-public class Position extends EntityId{
+public class Position {
     private String description;
     private String level;
-    private Boolean commissioned;
-    private TipoCargo positionType;
+    private Boolean commission;
+    private JobType positionType;
+
+    public Position() {
+    }
 
     public String getDescription() {
         return description;
@@ -24,23 +27,20 @@ public class Position extends EntityId{
         this.level = level;
     }
 
-    public Boolean getCommissioned() {
-        return commissioned;
+    public Boolean getCommission() {
+        return commission;
     }
 
-    public void setCommissioned(Boolean commissioned) {
-        this.commissioned = commissioned;
+    public void setCommission(Boolean commission) {
+        this.commission = commission;
     }
 
-    public TipoCargo getPositionType() {
+    public JobType getPositionType() {
         return positionType;
     }
 
-    public void setPositionType(TipoCargo positionType) {
+    public void setPositionType(JobType positionType) {
         this.positionType = positionType;
-    }
-
-    public Position() {
     }
 
     @Override
@@ -48,9 +48,8 @@ public class Position extends EntityId{
         return "Position{" +
                 "description='" + description + '\'' +
                 ", level='" + level + '\'' +
-                ", commissioned=" + commissioned +
+                ", commission=" + commission +
                 ", positionType=" + positionType +
                 '}';
     }
 }
-
