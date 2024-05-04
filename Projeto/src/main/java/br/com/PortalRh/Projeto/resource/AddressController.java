@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/enderecos")
+@RequestMapping("/api/address")
 public class AddressController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class AddressController {
     @PostMapping
     public ResponseEntity create(@RequestBody Address entity) {
         Address save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/enderecos/" + entity.getId())).body(save);
+        return ResponseEntity.created(URI.create("/api/address/" + entity.getId())).body(save);
     }
 
     @GetMapping

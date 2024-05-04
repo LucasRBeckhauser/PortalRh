@@ -47,6 +47,10 @@ public class Address extends EntityId{
         return complement;
     }
 
+    public String getCep() {return cep;}
+
+    public void setCep(String cep) {this.cep = cep;}
+
     public void setComplement(String complement) {
         this.complement = complement;
     }

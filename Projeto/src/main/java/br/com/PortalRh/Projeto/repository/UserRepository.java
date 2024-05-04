@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.repository;
 
-import br.com.PortalRh.Projeto.model.User;
+import br.com.PortalRh.Projeto.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

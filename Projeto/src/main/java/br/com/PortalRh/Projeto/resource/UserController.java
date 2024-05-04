@@ -1,8 +1,6 @@
 package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.model.Filiacao;
-import br.com.PortalRh.Projeto.model.User;
-import br.com.PortalRh.Projeto.service.FiliacaoService;
+import br.com.PortalRh.Projeto.entities.User;
 import br.com.PortalRh.Projeto.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

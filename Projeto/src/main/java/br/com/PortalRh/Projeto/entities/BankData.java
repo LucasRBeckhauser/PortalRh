@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.entities;
 
 import br.com.PortalRh.Projeto.entities.enuns.AccType;
 
-public class BankData {
+public class BankData extends EntityId {
     private AccType accType;
     private String bank;
     private String agency;
