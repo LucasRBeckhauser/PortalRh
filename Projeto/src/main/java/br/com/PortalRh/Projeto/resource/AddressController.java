@@ -1,7 +1,7 @@
-package br.com.PortalRh.Projeto.resourse;
+package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.entities.Aso;
-import br.com.PortalRh.Projeto.service.AsoService;
+import br.com.PortalRh.Projeto.entities.Address;
+import br.com.PortalRh.Projeto.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,27 +10,27 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/ASOs")
-public class AsoController {
+@RequestMapping("/api/enderecos")
+public class AddressController {
 
     @Autowired
-    private AsoService service;
+    private AddressService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Aso entity) {
-        Aso save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody Address entity) {
+        Address save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/enderecos/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<Aso> asoses = service.buscaTodos();
-        return ResponseEntity.ok(asoses);
+        List<Address> addresses = service.buscaTodos();
+        return ResponseEntity.ok(addresses);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Aso enderecos = service.buscaPorId(id);
+        Address enderecos = service.buscaPorId(id);
         return ResponseEntity.ok(enderecos);
     }
 
@@ -41,8 +41,8 @@ public class AsoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Aso entity) {
-        Aso alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Address entity) {
+        Address alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.resourse;
+package br.com.PortalRh.Projeto.resource;
 
 import br.com.PortalRh.Projeto.model.Certificacao;
 import br.com.PortalRh.Projeto.model.DadosBancarios;

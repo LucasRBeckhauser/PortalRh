@@ -1,6 +1,5 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.model.Position;
 import br.com.PortalRh.Projeto.repository.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

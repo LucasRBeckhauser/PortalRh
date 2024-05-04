@@ -1,7 +1,7 @@
-package br.com.PortalRh.Projeto.resourse;
+package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.entities.Address;
-import br.com.PortalRh.Projeto.service.AddressService;
+import br.com.PortalRh.Projeto.entities.Aso;
+import br.com.PortalRh.Projeto.service.AsoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,27 +10,27 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/enderecos")
-public class AddressController {
+@RequestMapping("/api/ASOs")
+public class AsoController {
 
     @Autowired
-    private AddressService service;
+    private AsoService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Address entity) {
-        Address save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody Aso entity) {
+        Aso save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/enderecos/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<Address> addresses = service.buscaTodos();
-        return ResponseEntity.ok(addresses);
+        List<Aso> asoses = service.buscaTodos();
+        return ResponseEntity.ok(asoses);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Address enderecos = service.buscaPorId(id);
+        Aso enderecos = service.buscaPorId(id);
         return ResponseEntity.ok(enderecos);
     }
 
@@ -41,8 +41,8 @@ public class AddressController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Address entity) {
-        Address alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Aso entity) {
+        Aso alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

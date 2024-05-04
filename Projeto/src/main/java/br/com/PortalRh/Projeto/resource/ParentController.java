@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.resourse;
+package br.com.PortalRh.Projeto.resource;
 
 import br.com.PortalRh.Projeto.entities.Parent;
 import br.com.PortalRh.Projeto.service.ParentService;

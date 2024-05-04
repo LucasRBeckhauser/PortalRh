@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.resourse;
+package br.com.PortalRh.Projeto.resource;
 
 import br.com.PortalRh.Projeto.service.CooperatorService;
 import org.springframework.beans.factory.annotation.Autowired;
