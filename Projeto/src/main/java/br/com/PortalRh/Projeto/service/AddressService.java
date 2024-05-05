@@ -25,14 +25,14 @@ public class AddressService {
         if (encontrado.isPresent()){
             Address address = encontrado.get();
 
-            address.setCity(address.getCity());
-            address.setComplement(address.getComplement());
-            address.setCountry(address.getCountry());
-            address.setState(address.getState());
-            address.setNeighborhood(address.getNeighborhood());
-            address.setHouseNumber(address.getHouseNumber());
-            address.setStName(address.getStName());
-            address.setCep(address.getCep());
+            address.setCity(alterado.getCity());
+            address.setComplement(alterado.getComplement());
+            address.setCountry(alterado.getCountry());
+            address.setState(alterado.getState());
+            address.setNeighborhood(alterado.getNeighborhood());
+            address.setHouseNumber(alterado.getHouseNumber());
+            address.setStName(alterado.getStName());
+            address.setCep(alterado.getCep());
 
 
         }

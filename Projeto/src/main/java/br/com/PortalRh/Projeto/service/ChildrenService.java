@@ -25,9 +25,9 @@ public class ChildrenService {
         if (encontrado.isPresent()){
             Children children = encontrado.get();
 
-            children.setAge(children.getAge());
-            children.setName(children.getName());
-            children.setPerson(children.getPerson());
+            children.setAge(alterado.getAge());
+            children.setName(alterado.getName());
+            children.setPerson(alterado.getPerson());
 
         }
         return null;

@@ -25,11 +25,11 @@ public class CertificationService {
         if (encontrado.isPresent()){
             Certification certification = encontrado.get();
 
-            certification.setDescription(certification.getDescription());
-            certification.setPerson(certification.getPerson());
-            certification.setSkills(certification.getSkills());
-            certification.setTitle(certification.getTitle());
-            certification.setWorkload(certification.getWorkload());
+            certification.setDescription(alterado.getDescription());
+            certification.setPerson(alterado.getPerson());
+            certification.setSkills(alterado.getSkills());
+            certification.setTitle(alterado.getTitle());
+            certification.setWorkload(alterado.getWorkload());
 
         }
         return null;
