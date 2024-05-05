@@ -25,10 +25,10 @@ public class ParentService {
         if (encontrado.isPresent()){
             Parent parent = encontrado.get();
 
-            parent.setNomePai(alterado.getNomePai());
-            parent.setNomeMae(alterado.getNomeMae());
-            parent.setTelPai(alterado.getTelPai());
-            parent.setTelMae(alterado.getTelMae());
+            parent.setDadsName(alterado.getDadsName());
+            parent.setDadsPhone(alterado.getDadsPhone());
+            parent.setMomsName(alterado.getMomsName());
+            parent.setMomsPhone(alterado.getMomsPhone());
 
         }
         return null;

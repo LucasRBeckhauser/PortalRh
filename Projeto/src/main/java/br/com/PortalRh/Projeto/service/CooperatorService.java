@@ -25,12 +25,11 @@ public class CooperatorService {
         if (encontrado.isPresent()){
             Cooperator cooperator = encontrado.get();
 
-            cooperator.setSalario(alterado.getSalario());
+            cooperator.setContractModel(alterado.getContractModel());
+            cooperator.setPosition(alterado.getPosition());
+            cooperator.setWage(alterado.getWage());
             cooperator.setPisPasep(alterado.getPisPasep());
-            cooperator.setCargo(alterado.getCargo());
-            cooperator.setModalidadeContratual(alterado.getModalidadeContratual());
-            cooperator.setTurno(alterado.getTurno());
-
+            cooperator.setShift(alterado.getShift());
         }
         return null;
     }

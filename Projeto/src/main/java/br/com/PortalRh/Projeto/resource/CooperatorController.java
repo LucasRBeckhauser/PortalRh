@@ -9,7 +9,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/colaboradores")
+@RequestMapping("/api/cooperators")
 public class CooperatorController {
 
     @Autowired
@@ -18,7 +18,7 @@ public class CooperatorController {
     @PostMapping
     public ResponseEntity create(@RequestBody br.com.PortalRh.Projeto.entities.Cooperator entity) {
         br.com.PortalRh.Projeto.entities.Cooperator save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/colaboradores/" + entity.getId())).body(save);
+        return ResponseEntity.created(URI.create("/api/cooperators/" + entity.getId())).body(save);
     }
 
     @GetMapping

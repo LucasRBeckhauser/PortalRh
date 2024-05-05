@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/filiacoes")
+@RequestMapping("/api/parents")
 public class ParentController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class ParentController {
     @PostMapping
     public ResponseEntity create(@RequestBody Parent entity) {
         Parent save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/filiacoes/" + entity.getId())).body(save);
+        return ResponseEntity.created(URI.create("/api/parents/" + entity.getId())).body(save);
     }
 
     @GetMapping
