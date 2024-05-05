@@ -1,7 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
 import br.com.PortalRh.Projeto.entities.User;
-import br.com.PortalRh.Projeto.repository.FiliacaoRepository;
 import br.com.PortalRh.Projeto.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

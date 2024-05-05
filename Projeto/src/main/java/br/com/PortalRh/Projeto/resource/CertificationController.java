@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/certificacoes")
+@RequestMapping("/api/certification")
 public class CertificationController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class CertificationController {
     @PostMapping
     public ResponseEntity create(@RequestBody Certification entity) {
         Certification save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/certificacoes/" + entity.getId())).body(save);
+        return ResponseEntity.created(URI.create("/api/certification/" + entity.getId())).body(save);
     }
 
     @GetMapping

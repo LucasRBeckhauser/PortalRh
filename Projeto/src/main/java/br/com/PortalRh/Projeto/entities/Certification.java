@@ -61,6 +61,8 @@ public class Certification extends EntityId {
         this.person = person;
     }
 
+
+
     @Override
     public String toString() {
         return "Certification{" +

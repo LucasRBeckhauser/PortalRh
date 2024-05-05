@@ -3,7 +3,6 @@ package br.com.PortalRh.Projeto.service;
 import br.com.PortalRh.Projeto.model.Cargo;
 import br.com.PortalRh.Projeto.model.Certificacao;
 import br.com.PortalRh.Projeto.repository.CargoRepository;
-import br.com.PortalRh.Projeto.repository.CertificacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
