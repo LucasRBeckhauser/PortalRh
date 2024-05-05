@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class SocialMedia {
+public class SocialMedia extends EntityId {
     @Column(name = "nome")
     private String name;
     @Column(name = "url")

@@ -19,7 +19,7 @@ public class AsoController {
     @PostMapping
     public ResponseEntity create(@RequestBody Aso entity) {
         Aso save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/enderecos/" + entity.getId())).body(save);
+        return ResponseEntity.created(URI.create("/api/ASOs/" + entity.getId())).body(save);
     }
 
     @GetMapping

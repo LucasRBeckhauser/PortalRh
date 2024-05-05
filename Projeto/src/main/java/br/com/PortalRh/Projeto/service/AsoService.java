@@ -25,16 +25,17 @@ public class AsoService {
         if (encontrado.isPresent()){
             Aso aso = encontrado.get();
 
-            aso.setHistoricoDeSaude(alterado.getHistoricoDeSaude());
-            aso.setProcessosMedicos(alterado.getProcessosMedicos());
-            aso.setDataExamesComplementares(alterado.getDataExamesComplementares());
-            aso.setNomeMedicoEncarregado(alterado.getNomeMedicoEncarregado());
-            aso.setCrmMedicoEncarregado(alterado.getCrmMedicoEncarregado());
-            aso.setNomeMedicoCoordenador(alterado.getNomeMedicoCoordenador());
-            aso.setCrmMedicoCoordenador(alterado.getCrmMedicoCoordenador());
-            aso.setRiscosOcupacionais(alterado.getRiscosOcupacionais());
-            aso.setJulgamentoFinal(alterado.getJulgamentoFinal());
-            aso.setDataAssinaturaMedico(alterado.getDataAssinaturaMedico());
+            aso.setHealthHist(alterado.getHealthHist());
+            aso.setMedicalProcess(alterado.getMedicalProcess());
+            aso.setExamsDate(alterado.getExamsDate());
+            aso.setCoordDocName(alterado.getCoordDocName());
+            aso.setCoordDocCrm(alterado.getCoordDocCrm());
+            aso.setInChargeDocName(alterado.getInChargeDocName());
+            aso.setInChargeDocCrm(alterado.getInChargeDocCrm());
+            aso.setOccupRysc(alterado.getOccupRysc());
+            aso.setFinalJudg(alterado.getFinalJudg());
+            aso.setDocAssignDate(alterado.getDocAssignDate());
+
 
         }
         return null;
