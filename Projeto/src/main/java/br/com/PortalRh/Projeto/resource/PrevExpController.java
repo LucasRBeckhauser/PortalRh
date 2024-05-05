@@ -10,7 +10,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/expAnteriores/")
+@RequestMapping("/api/prevexp/")
 public class PrevExpController {
 
     @Autowired
@@ -19,7 +19,7 @@ public class PrevExpController {
     @PostMapping
     public ResponseEntity create(@RequestBody PrevExp entity) {
         PrevExp save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/expAnteriores/" + entity.getId())).body(save);
+        return ResponseEntity.created(URI.create("/api/prevexp/" + entity.getId())).body(save);
     }
 
     @GetMapping

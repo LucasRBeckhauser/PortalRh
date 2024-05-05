@@ -25,10 +25,11 @@ public class PrevExpService {
         if (encontrado.isPresent()){
             PrevExp prevExp = encontrado.get();
 
-            prevExp.setEmpresa(alterado.getEmpresa());
-            prevExp.setMesesExp(alterado.getMesesExp());
-            prevExp.setAnosExp(alterado.getAnosExp());
-            prevExp.setDescricao(alterado.getDescricao());
+            prevExp.setCompany(alterado.getCompany());
+            prevExp.setExpMonths(alterado.getExpMonths());
+            prevExp.setExpYears(alterado.getExpYears());
+            prevExp.setDescription(alterado.getDescription());
+            prevExp.setPerson(alterado.getPerson());
 
         }
         return null;

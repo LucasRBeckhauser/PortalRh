@@ -25,23 +25,24 @@ public class PersonService {
         if (encontrado.isPresent()){
             Person person = encontrado.get();
 
-            person.setNome(alterado.getNome());
+            person.setName(alterado.getName());
             person.setCpf(alterado.getCpf());
             person.setRg(alterado.getRg());
-            person.setTituloEleitor(alterado.getTituloEleitor());
-            person.setDataNascimento(alterado.getDataNascimento());
-            person.setCarteiraReservista(alterado.getCarteiraReservista());
+            person.setVoterRegist(alterado.getVoterRegist());
+            person.setBirthday(alterado.getBirthday());
+            person.setReservist(alterado.getReservist());
             person.setCnh(alterado.getCnh());
-            person.setRacaCor(alterado.getRacaCor());
-            person.setReligiao(alterado.getReligiao());
-            person.setDoadorSangue(alterado.getDoadorSangue());
+            person.setRaceColor(alterado.getRaceColor());
+            person.setReligion(alterado.getReligion());
+            person.setBloodDonor(alterado.getBloodDonor());
 //            pessoa.setCertificacoes(alterado.getCertificacoes());
-            person.setNacionalidade(alterado.getNacionalidade());
+            person.setNacionality(alterado.getNacionality());
 //            pessoa.setExpAnteriores(alterado.getExpAnteriores());
-            person.setIdiomas(alterado.getIdiomas());
+            person.setLanguages(alterado.getLanguages());
             person.setHoraExtra(alterado.getHoraExtra());
-            person.setEntrada(alterado.getEntrada());
-            person.setSaida(alterado.getSaida());
+            person.setClockIn(alterado.getClockIn());
+            person.setClockOut(alterado.getClockOut());
+            //verificar novamente se está faltando algo
         }
         return null;
     }
