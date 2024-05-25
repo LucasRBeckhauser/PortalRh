@@ -23,8 +23,8 @@ public class PersonDTO {
     private LocalTime clockOut;
     private ParentDTO parent;
     private List<SocialMediaDTO> socialMedia;
-    private List<CertificationDTO> certifications;
-    private List<ChildrenDTO> children;
+    private List<CertificationDto> certifications;
+    private List<ChildrenDto> children;
 
     // Getters and Setters
     public String getName() {
@@ -171,19 +171,19 @@ public class PersonDTO {
         this.socialMedia = socialMedia;
     }
 
-    public List<CertificationDTO> getCertifications() {
+    public List<CertificationDto> getCertifications() {
         return certifications;
     }
 
-    public void setCertifications(List<CertificationDTO> certifications) {
+    public void setCertifications(List<CertificationDto> certifications) {
         this.certifications = certifications;
     }
 
-    public List<ChildrenDTO> getChildren() {
+    public List<ChildrenDto> getChildren() {
         return children;
     }
 
-    public void setChildren(List<ChildrenDTO> children) {
+    public void setChildren(List<ChildrenDto> children) {
         this.children = children;
     }
 }
