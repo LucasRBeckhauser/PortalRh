@@ -1,7 +1,9 @@
 package br.com.PortalRh.Projeto.resource;
 
+import br.com.PortalRh.Projeto.dto.AddressDto;
 import br.com.PortalRh.Projeto.entities.Address;
 import br.com.PortalRh.Projeto.service.AddressService;
+import org.apache.catalina.mapper.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,10 +18,11 @@ public class AddressController {
     @Autowired
     private AddressService service;
 
+
     @PostMapping
-    public ResponseEntity create(@RequestBody Address entity) {
-        Address save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/address/" + entity.getId())).body(save);
+    public ResponseEntity<AddressDto> create(@RequestBody AddressDto dto) {
+        AddressDto savedDto = service.salvar(dto);
+        return ResponseEntity.created(URI.create("/api/address/" + savedDto.getCep())).body(savedDto);
     }
 
     @GetMapping

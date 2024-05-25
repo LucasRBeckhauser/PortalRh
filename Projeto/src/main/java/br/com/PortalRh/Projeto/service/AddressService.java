@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.dto.AddressDto;
 import br.com.PortalRh.Projeto.entities.Address;
 import br.com.PortalRh.Projeto.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,32 @@ public class AddressService {
     @Autowired
     private AddressRepository repository;
 
-    public Address salvar (Address entity){return repository.save(entity); }
+
+    public AddressDto salvar(AddressDto dto) {
+        Address address = new Address();
+        address.setHouseNumber(dto.getHouseNumber());
+        address.setStName(dto.getStName());
+        address.setComplement(dto.getComplement());
+        address.setNeighborhood(dto.getNeighborhood());
+        address.setCity(dto.getCity());
+        address.setState(dto.getState());
+        address.setCep(dto.getCep());
+        address.setCountry(dto.getCountry());
+
+
+        Address savedAddress = repository.save(address);
+
+        return new AddressDto(
+                savedAddress.getHouseNumber(),
+                savedAddress.getStName(),
+                savedAddress.getComplement(),
+                savedAddress.getNeighborhood(),
+                savedAddress.getCity(),
+                savedAddress.getState(),
+                savedAddress.getCep(),
+                savedAddress.getCountry()
+        );
+    }
 
     public List<Address> buscaTodos(){return repository.findAll(); }
 
