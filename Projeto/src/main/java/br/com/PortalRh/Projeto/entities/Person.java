@@ -31,8 +31,8 @@ public class Person extends EntityId {
     private Boolean bloodDonor;
     @Column(name = "nacionalidade")
     private String nacionality;
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-    private List <PrevExp> prevExp = new ArrayList<>();
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<PrevExp> prevExp = new ArrayList<>();
     @Column(name = "idiomas")
     private String languages;
     @Column(name = "hora_extra")
@@ -44,10 +44,10 @@ public class Person extends EntityId {
     @ManyToOne
     private Parent parent;
     @ManyToOne
-    private List<SocialMedia> socialMedia = new ArrayList<>();
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    private SocialMedia socialMedia;
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Certification> certifications = new ArrayList<>();
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Children> childrem = new ArrayList<>();
 
     public Person() {
@@ -189,11 +189,11 @@ public class Person extends EntityId {
         this.parent = parent;
     }
 
-    public List<SocialMedia> getSocialMedia() {
+    public SocialMedia getSocialMedia() {
         return socialMedia;
     }
 
-    public void setSocialMedia(List<SocialMedia> socialMedia) {
+    public void setSocialMedia(SocialMedia socialMedia) {
         this.socialMedia = socialMedia;
     }
 

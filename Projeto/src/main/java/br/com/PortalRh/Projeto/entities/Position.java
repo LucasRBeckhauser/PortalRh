@@ -1,7 +1,11 @@
 package br.com.PortalRh.Projeto.entities;
 
 import br.com.PortalRh.Projeto.entities.enuns.JobType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
+@Entity
 public class Position extends EntityId {
     private String description;
     private String level;

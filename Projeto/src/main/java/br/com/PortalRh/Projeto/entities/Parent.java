@@ -16,7 +16,7 @@ public class Parent extends EntityId {
     private String dadsPhone;
     @Column(name = "tel_mae")
     private String momsPhone;
-    @OneToMany(mappedBy = "filiacao", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
     private List<Person> person = new ArrayList<>();
 
     public Parent() {

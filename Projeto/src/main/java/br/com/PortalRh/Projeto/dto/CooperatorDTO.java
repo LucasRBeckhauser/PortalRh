@@ -1,5 +1,8 @@
 package br.com.PortalRh.Projeto.dto;
 
+import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
+import br.com.PortalRh.Projeto.entities.enuns.Shift;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -25,8 +28,8 @@ public class CooperatorDTO {
     private LocalTime clockOut;
     private ParentDTO parent;
     private List<SocialMediaDTO> socialMedia;
-    private List<CertificationDTO> certifications;
-    private List<ChildrenDTO> childrem;
+    private List<CertificationDto> certifications;
+    private List<ChildrenDto> childrem;
     
     // Cooperator
     private double wage;
@@ -179,19 +182,19 @@ public class CooperatorDTO {
         this.socialMedia = socialMedia;
     }
 
-    public List<CertificationDTO> getCertifications() {
+    public List<CertificationDto> getCertifications() {
         return certifications;
     }
 
-    public void setCertifications(List<CertificationDTO> certifications) {
+    public void setCertifications(List<CertificationDto> certifications) {
         this.certifications = certifications;
     }
 
-    public List<ChildrenDTO> getChildrem() {
+    public List<ChildrenDto> getChildrem() {
         return childrem;
     }
 
-    public void setChildrem(List<ChildrenDTO> childrem) {
+    public void setChildrem(List<ChildrenDto> childrem) {
         this.childrem = childrem;
     }
 

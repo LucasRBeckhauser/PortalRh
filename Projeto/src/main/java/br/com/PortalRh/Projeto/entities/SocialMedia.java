@@ -11,7 +11,7 @@ public class SocialMedia extends EntityId {
     private String name;
     @Column(name = "url")
     private String url;
-    @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "socialMedia", cascade = CascadeType.ALL)
     private List<Person> persons = new ArrayList<>();
 
     public SocialMedia() {
