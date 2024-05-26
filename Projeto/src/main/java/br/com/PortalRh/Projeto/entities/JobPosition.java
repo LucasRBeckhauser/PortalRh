@@ -1,18 +1,23 @@
 package br.com.PortalRh.Projeto.entities;
 
 import br.com.PortalRh.Projeto.entities.enuns.JobType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
+
 
 @Entity
-public class Position extends EntityId {
+@Table(name = "job_position")
+public class JobPosition extends EntityId {
+    @Column (name = "description")
     private String description;
+    @Column(name = "level")
     private String level;
+    @Column (name = "comission")
     private Boolean commission;
+    @Column (name = "position_Type")
+    @Enumerated(EnumType.STRING)
     private JobType positionType;
 
-    public Position() {
+    public JobPosition() {
     }
 
     public String getDescription() {

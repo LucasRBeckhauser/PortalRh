@@ -1,4 +1,4 @@
 package br.com.PortalRh.Projeto.entities;
 
-public class Demission {
-}
+//public class Demission {
+//}
