@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.entities.User;
-import br.com.PortalRh.Projeto.service.UserService;
+import br.com.PortalRh.Projeto.entities.Users;
+import br.com.PortalRh.Projeto.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,27 +11,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
-public class UserController {
+public class UsersController {
 
     @Autowired
-    private UserService service;
+    private UsersService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody User entity) {
-        User save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody Users entity) {
+        Users save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/users/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<User> users = service.buscaTodos();
+        List<Users> users = service.buscaTodos();
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        User user = service.buscaPorId(id);
-        return ResponseEntity.ok(user);
+        Users users = service.buscaPorId(id);
+        return ResponseEntity.ok(users);
     }
 
     @DeleteMapping("{id}")
@@ -41,8 +41,8 @@ public class UserController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody User entity) {
-        User alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Users entity) {
+        Users alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

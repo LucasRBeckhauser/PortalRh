@@ -1,10 +1,16 @@
 package br.com.PortalRh.Projeto.entities;
 
-public class User extends EntityId {
-    String username;
-    String password;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
-    public User() {
+@Entity
+public class Users extends EntityId {
+    @Column (name = "usarname")
+    private String username;
+    @Column (name = "password")
+    private String password;
+
+    public Users() {
     }
 
     public String getUsername() {

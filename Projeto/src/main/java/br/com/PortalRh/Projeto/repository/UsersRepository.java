@@ -1,9 +1,9 @@
 package br.com.PortalRh.Projeto.repository;
 
-import br.com.PortalRh.Projeto.entities.Position;
+import br.com.PortalRh.Projeto.entities.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PositionRepository extends JpaRepository <Position, Long> {
+public interface UsersRepository extends JpaRepository <Users, Long> {
 }
