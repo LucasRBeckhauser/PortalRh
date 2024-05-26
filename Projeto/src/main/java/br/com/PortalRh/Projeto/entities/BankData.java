@@ -1,11 +1,18 @@
 package br.com.PortalRh.Projeto.entities;
 
 import br.com.PortalRh.Projeto.entities.enuns.AccType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
+@Entity
 public class BankData extends EntityId {
+    @Column (name = "accType" )
     private AccType accType;
+    @Column (name = "bank")
     private String bank;
+    @Column (name = "agency")
     private String agency;
+    @Column(name = "acc")
     private String acc;
 
     public BankData() {

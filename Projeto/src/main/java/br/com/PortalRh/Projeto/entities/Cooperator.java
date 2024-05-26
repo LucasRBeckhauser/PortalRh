@@ -12,7 +12,7 @@ public class Cooperator extends Person {
     @Column(name = "pis_pasep")
     private String pisPasep;
     @Column(name = "cargo")
-    private Position position;
+    private JobPosition jobPosition;
     @Column(name = "modalidade_contratual")
     private ContractModality contractModel;
     @Column(name = "turno")
@@ -37,12 +37,12 @@ public class Cooperator extends Person {
         this.pisPasep = pisPasep;
     }
 
-    public Position getPosition() {
-        return position;
+    public JobPosition getPosition() {
+        return jobPosition;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setPosition(JobPosition jobPosition) {
+        this.jobPosition = jobPosition;
     }
 
     public ContractModality getContractModel() {
@@ -66,7 +66,7 @@ public class Cooperator extends Person {
         return "Cooperator{" +
                 "wage=" + wage +
                 ", pisPasep='" + pisPasep +
-        ", position=" + position +
+        ", position=" + jobPosition +
                 ", contractModel=" + contractModel +
                 ", shift=" + shift +
                 '}';
