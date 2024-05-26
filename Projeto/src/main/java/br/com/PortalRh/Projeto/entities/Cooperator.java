@@ -4,6 +4,7 @@ import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
 import br.com.PortalRh.Projeto.entities.enuns.Shift;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Cooperator extends Person {
@@ -11,7 +12,7 @@ public class Cooperator extends Person {
     private double wage;
     @Column(name = "pis_pasep")
     private String pisPasep;
-    @Column(name = "cargo")
+    @ManyToOne
     private JobPosition jobPosition;
     @Column(name = "modalidade_contratual")
     private ContractModality contractModel;
