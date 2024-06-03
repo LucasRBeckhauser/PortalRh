@@ -80,7 +80,8 @@ public class Person extends EntityId {
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private BankData bankData;
 
-    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToMany
+    @JoinColumn(name = "address_id")
     private List<Address> addres;
 
     @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
