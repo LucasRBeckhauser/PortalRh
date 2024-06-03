@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.PortalRh.Projeto.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.entities.Address;
+import br.com.PortalRh.Projeto.entities.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController

@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.entities.Address;
+import br.com.PortalRh.Projeto.entities.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

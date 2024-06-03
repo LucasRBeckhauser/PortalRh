@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.dtos;
+package br.com.PortalRh.Projeto.entities.dtos;
 
 public class UserDTO {
     private String username;
