@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 import br.com.PortalRh.Projeto.model.BankData;
 
 @Repository
-public interface BankDataRepository extends JpaRepository <BankData, Long> {
-}
+public interface BankDataRepository extends JpaRepository <BankData, Long> {}

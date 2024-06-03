@@ -77,7 +77,8 @@ public class Person extends EntityId {
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Children> children;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "bank_data_id")
     private BankData bankData;
 
     @OneToMany

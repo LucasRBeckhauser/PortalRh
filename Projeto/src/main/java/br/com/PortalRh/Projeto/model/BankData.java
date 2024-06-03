@@ -1,9 +1,9 @@
 package br.com.PortalRh.Projeto.model;
 
 import br.com.PortalRh.Projeto.model.enums.AccountType;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -22,18 +22,21 @@ public class BankData extends EntityId {
     @Column(name = "account")
     private String account;
 
-    @OneToOne
-    @JoinColumn(name = "bank_data_id")
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private Person person;
 
     public BankData() {}
 
-    public BankData(AccountType accountType, String bank, String agency, String account, Person person) {
+    public BankData(
+        AccountType accountType, 
+        String bank, 
+        String agency, 
+        String account
+        ) {
         this.accountType = accountType;
         this.bank = bank;
         this.agency = agency;
         this.account = account;
-        this.person = person;
     }
 
     public AccountType getAccountType() {
@@ -67,18 +70,9 @@ public class BankData extends EntityId {
     public void setAccount(String account) {
         this.account = account;
     }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
+    
     @Override
     public String toString() {
-        return "BankData [accountType=" + accountType + ", bank=" + bank + ", agency=" + agency + ", account=" + account
-                + ", person=" + person + "]";
+        return "BankData [accountType=" + accountType + ", bank=" + bank + ", agency=" + agency + ", account=" + account + "]";
     }
 }

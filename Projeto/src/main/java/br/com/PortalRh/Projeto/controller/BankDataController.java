@@ -1,48 +1,59 @@
 package br.com.PortalRh.Projeto.controller;
 
-import br.com.PortalRh.Projeto.model.BankData;
-import br.com.PortalRh.Projeto.service.BankDataService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.net.URI;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.PortalRh.Projeto.model.BankData;
+import br.com.PortalRh.Projeto.model.dtos.BankDataDTO;
+import br.com.PortalRh.Projeto.service.BankDataService;
+
 @RestController
-@RequestMapping("/api/bankDatas")
+@RequestMapping("/api/bankdata")
 public class BankDataController {
+    private final BankDataService bankDataService;
 
     @Autowired
-    private BankDataService service;
+    public BankDataController(BankDataService bankDataService) {
+        this.bankDataService = bankDataService;
+    }
 
     @PostMapping
-    public ResponseEntity create(@RequestBody BankData entity) {
-        BankData save = service.salvar(entity);
-        return ResponseEntity.created(URI.create("/api/bankDatas/" + entity.getId())).body(save);
+    public ResponseEntity<BankData> createBankData(@RequestBody BankDataDTO bankDataDTO) {
+        return bankDataService.create(bankDataDTO);
     }
 
     @GetMapping
-    public ResponseEntity findAll() {
-        List<BankData> bankData = service.buscaTodos();
-        return ResponseEntity.ok(bankData);
+    public List<BankData> getAllBankData() {
+        return bankDataService.findAll();
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity findById(@PathVariable("id") Long id) {
-        BankData bankData = service.buscaPorId(id);
-        return ResponseEntity.ok(bankData);
+    @GetMapping("/{id}")
+    public ResponseEntity<BankData> getBankDataById(@PathVariable Long id) {
+        BankData bankData = bankDataService.findById(id);
+        if (bankData != null) {
+            return ResponseEntity.ok(bankData);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity remove(@PathVariable("id") Long id) {
-        service.remover(id);
-        return ResponseEntity.noContent().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<BankData> updateBankData(@RequestBody BankDataDTO bankDataDTO, @PathVariable Long id) {
+        return bankDataService.update(bankDataDTO, id);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody BankData entity) {
-        BankData alterado = service.alterar(id, entity);
-        return ResponseEntity.ok().body(alterado);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<BankData> deleteBankData(@PathVariable Long id) {
+        return bankDataService.delete(id);
     }
 }
