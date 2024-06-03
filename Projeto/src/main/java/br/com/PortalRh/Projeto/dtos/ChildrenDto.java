@@ -1,8 +1,6 @@
-package br.com.PortalRh.Projeto.dto;
+package br.com.PortalRh.Projeto.dtos;
 
 import br.com.PortalRh.Projeto.entities.Person;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
 
 public class ChildrenDto {
     private String name;

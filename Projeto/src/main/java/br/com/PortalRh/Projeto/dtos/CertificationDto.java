@@ -1,7 +1,6 @@
-package br.com.PortalRh.Projeto.dto;
+package br.com.PortalRh.Projeto.dtos;
 
 import br.com.PortalRh.Projeto.entities.Person;
-import jakarta.persistence.Column;
 
 public class CertificationDto {
 

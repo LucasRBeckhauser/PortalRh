@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.entities.enuns;
 
-public enum AccType {
+public enum AccountType {
     CORRENTE,
     SALARIO,
     POUPANCA;

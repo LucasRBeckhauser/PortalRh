@@ -1,10 +1,8 @@
-package br.com.PortalRh.Projeto.dto;
-
-import jakarta.persistence.Column;
+package br.com.PortalRh.Projeto.dtos;
 
 import java.time.LocalDate;
 
-public class AsoDto {
+public class AsoDTO {
 
     private String healthHist;
     private String medicalProcess;
@@ -17,10 +15,10 @@ public class AsoDto {
     private String finalJudg;
     private LocalDate docAssignDate;
 
-    public AsoDto() {
+    public AsoDTO() {
     }
 
-    public AsoDto(String healthHist, String medicalProcess, LocalDate examsDate, String inChargeDocName, String inChargeDocCrm, String coordDocName, String coordDocCrm, String occupRysc, String finalJudg, LocalDate docAssignDate) {
+    public AsoDTO(String healthHist, String medicalProcess, LocalDate examsDate, String inChargeDocName, String inChargeDocCrm, String coordDocName, String coordDocCrm, String occupRysc, String finalJudg, LocalDate docAssignDate) {
         this.healthHist = healthHist;
         this.medicalProcess = medicalProcess;
         this.examsDate = examsDate;

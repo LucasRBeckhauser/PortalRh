@@ -1,24 +1,21 @@
-package br.com.PortalRh.Projeto.entities;
+package br.com.PortalRh.Projeto.dtos;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-
-@Entity
-public class PrevExp extends EntityId {
-
-    @Column(name = "empresa")
+public class PrevExpDTO {
     private String company;
-    @Column(name = "meses_exp")
     private Integer expMonths;
-    @Column(name = "anos_exp")
     private Integer expYears;
-    @Column(name = "descricao_exp")
     private String description;
-    @ManyToOne
-    private Person person;
+    private Long personId;
 
-    public PrevExp() {
+    public PrevExpDTO() {
+    }
+
+    public PrevExpDTO(String company, Integer expMonths, Integer expYears, String description, Long personId) {
+        this.company = company;
+        this.expMonths = expMonths;
+        this.expYears = expYears;
+        this.description = description;
+        this.personId = personId;
     }
 
     public String getCompany() {
@@ -53,22 +50,22 @@ public class PrevExp extends EntityId {
         this.description = description;
     }
 
-    public Person getPerson() {
-        return person;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     @Override
     public String toString() {
-        return "PrevExp{" +
+        return "PrevExpDTO{" +
                 "company='" + company + '\'' +
                 ", expMonths=" + expMonths +
                 ", expYears=" + expYears +
                 ", description='" + description + '\'' +
-                ", person=" + person +
+                ", personId=" + personId +
                 '}';
     }
 }

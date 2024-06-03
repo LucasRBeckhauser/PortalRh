@@ -2,16 +2,22 @@ package br.com.PortalRh.Projeto.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "children")
 public class Children extends EntityId {
 
-    @Column(name = "nome_dep")
+    @Column(name = "name")
     private String name;
-    @Column(name = "idade_dep")
+
+    @Column(name = "age")
     private Integer age;
+    
     @ManyToOne
+    @JoinColumn(name = "child_id")
     private Person person;
 
     public Children() {

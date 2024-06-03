@@ -1,42 +1,63 @@
-//package br.com.PortalRh.Projeto.entities;
-//
-//import java.time.LocalDate;
-//import java.util.List;
-//
-//public class Admission {
-//
-//    //Será implementada
-//    //private Colaborator colaborator
-//
-//    private LocalDate dataAdmissao;
-//
-//    private List<Aso> asoList;
-//
-//    public LocalDate getDataAdmissao() {
-//        return dataAdmissao;
-//    }
-//
-//    public void setDataAdmissao(LocalDate dataAdmissao) {
-//        this.dataAdmissao = dataAdmissao;
-//    }
-//
-//    public List<Aso> getAsoList() {
-//        return asoList;
-//    }
-//
-//    public void setAsoList(List<Aso> asoList) {
-//        this.asoList = asoList;
-//    }
-//
-//
-//    public Admission() {
-//    }
-//
-//    @Override
-//    public String toString() {
-//        return "Admission{" +
-//                "dataAdmissao=" + dataAdmissao +
-//                ", asoList=" + asoList +
-//                '}';
-//    }
-//}
+package br.com.PortalRh.Projeto.entities;
+
+import java.time.LocalDate;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "admissions")
+public class Admission extends EntityId{
+    
+    @CreationTimestamp
+    private LocalDate AdmissionDate;
+
+    @OneToOne(mappedBy = "admissions", cascade = CascadeType.ALL)
+    private Aso aso;
+
+    @OneToOne
+    @JoinColumn(name = "admission_id")
+    private Collaborator collaborator;
+
+    public Admission() {}
+
+    public Admission(LocalDate admissionDate, Aso aso, Collaborator collaborator) {
+        AdmissionDate = admissionDate;
+        this.aso = aso;
+        this.collaborator = collaborator;
+    }
+
+    public LocalDate getAdmissionDate() {
+        return AdmissionDate;
+    }
+
+    public void setAdmissionDate(LocalDate admissionDate) {
+        AdmissionDate = admissionDate;
+    }
+
+    public Aso getAso() {
+        return aso;
+    }
+
+    public void setAso(Aso aso) {
+        this.aso = aso;
+    }
+
+    public Collaborator getCollaborator() {
+        return collaborator;
+    }
+
+    public void setCollaborator(Collaborator collaborator) {
+        this.collaborator = collaborator;
+    }
+
+    @Override
+    public String toString() {
+        return "Admission [AdmissionDate=" + AdmissionDate + ", aso=" + aso + ", collaborator=" + collaborator + "]";
+    }
+}

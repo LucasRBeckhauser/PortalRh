@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.PrevExp;
+import br.com.PortalRh.Projeto.entities.PreviousExperience;
 import br.com.PortalRh.Projeto.entities.SocialMedia;
 import br.com.PortalRh.Projeto.repository.PrevExpRepository;
 import br.com.PortalRh.Projeto.repository.SocialMediaRepository;

@@ -1,129 +1,166 @@
 package br.com.PortalRh.Projeto.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
 @Entity
-public class Aso extends EntityId{
-    @Column(name = "historico_saude")
-    private String healthHist;
-    @Column(name = "processos_medicos")
-    private String medicalProcess;
-    @Column(name = "data_exames_complementares")
-    private LocalDate examsDate;
-    @Column(name = "medico_encarregado")
-    private String inChargeDocName;
-    @Column(name = "crm_medico_encarregado")
-    private String inChargeDocCrm;
-    @Column(name = "medico_coordenador")
-    private String coordDocName;
-    @Column(name = "crm_medico_coordenador")
-    private String coordDocCrm;
-    @Column(name = "riscos_ocupacionais")
-    private String occupRysc;
-    @Column(name = "julgamento_final")
-    private String finalJudg;
-    @Column(name = "data_assinatura_medico")
-    private LocalDate docAssignDate;
+@Table(name = "aso")
+public class Aso extends EntityId {
+    @Column(name = "health_history")
+    private String healthHistory;
 
-    public Aso() {
+    @Column(name = "medical_processes")
+    private String medicalProcesses;
+
+    @Column(name = "supplementary_exams_date")
+    private LocalDate supplementaryExamsDate;
+
+    @Column(name = "responsible_doctor_name")
+    private String responsibleDoctorName;
+
+    @Column(name = "responsible_doctor_crm")
+    private String responsibleDoctorCrm;
+
+    @Column(name = "coordinating_doctor_name")
+    private String coordinatingDoctorName;
+
+    @Column(name = "coordinating_doctor_crm")
+    private String coordinatingDoctorCrm;
+
+    @Column(name = "occupational_risks")
+    private String occupationalRisks;
+
+    @Column(name = "final_judgment")
+    private String finalJudgment;
+
+    @Column(name = "doctor_signature_date")
+    private LocalDate doctorSignatureDate;
+
+    @OneToOne
+    @JoinColumn(name = "aso_id")
+    private Admission admission;
+
+    public Aso() {}
+
+    public Aso(
+        String healthHistory, String medicalProcesses, LocalDate supplementaryExamsDate,
+        String responsibleDoctorName, String responsibleDoctorCrm, String coordinatingDoctorName,
+        String coordinatingDoctorCrm, String occupationalRisks, String finalJudgment,
+        LocalDate doctorSignatureDate, Admission admission) {
+
+        this.healthHistory = healthHistory;
+        this.medicalProcesses = medicalProcesses;
+        this.supplementaryExamsDate = supplementaryExamsDate;
+        this.responsibleDoctorName = responsibleDoctorName;
+        this.responsibleDoctorCrm = responsibleDoctorCrm;
+        this.coordinatingDoctorName = coordinatingDoctorName;
+        this.coordinatingDoctorCrm = coordinatingDoctorCrm;
+        this.occupationalRisks = occupationalRisks;
+        this.finalJudgment = finalJudgment;
+        this.doctorSignatureDate = doctorSignatureDate;
+        this.admission = admission;
     }
 
-    public String getHealthHist() {
-        return healthHist;
+    public String getHealthHistory() {
+        return healthHistory;
     }
 
-    public void setHealthHist(String healthHist) {
-        this.healthHist = healthHist;
+    public void setHealthHistory(String healthHistory) {
+        this.healthHistory = healthHistory;
     }
 
-    public String getMedicalProcess() {
-        return medicalProcess;
+    public String getMedicalProcesses() {
+        return medicalProcesses;
     }
 
-    public void setMedicalProcess(String medicalProcess) {
-        this.medicalProcess = medicalProcess;
+    public void setMedicalProcesses(String medicalProcesses) {
+        this.medicalProcesses = medicalProcesses;
     }
 
-    public LocalDate getExamsDate() {
-        return examsDate;
+    public LocalDate getSupplementaryExamsDate() {
+        return supplementaryExamsDate;
     }
 
-    public void setExamsDate(LocalDate examsDate) {
-        this.examsDate = examsDate;
+    public void setSupplementaryExamsDate(LocalDate supplementaryExamsDate) {
+        this.supplementaryExamsDate = supplementaryExamsDate;
     }
 
-    public String getInChargeDocName() {
-        return inChargeDocName;
+    public String getResponsibleDoctorName() {
+        return responsibleDoctorName;
     }
 
-    public void setInChargeDocName(String inChargeDocName) {
-        this.inChargeDocName = inChargeDocName;
+    public void setResponsibleDoctorName(String responsibleDoctorName) {
+        this.responsibleDoctorName = responsibleDoctorName;
     }
 
-    public String getInChargeDocCrm() {
-        return inChargeDocCrm;
+    public String getResponsibleDoctorCrm() {
+        return responsibleDoctorCrm;
     }
 
-    public void setInChargeDocCrm(String inChargeDocCrm) {
-        this.inChargeDocCrm = inChargeDocCrm;
+    public void setResponsibleDoctorCrm(String responsibleDoctorCrm) {
+        this.responsibleDoctorCrm = responsibleDoctorCrm;
     }
 
-    public String getCoordDocName() {
-        return coordDocName;
+    public String getCoordinatingDoctorName() {
+        return coordinatingDoctorName;
     }
 
-    public void setCoordDocName(String coordDocName) {
-        this.coordDocName = coordDocName;
+    public void setCoordinatingDoctorName(String coordinatingDoctorName) {
+        this.coordinatingDoctorName = coordinatingDoctorName;
     }
 
-    public String getCoordDocCrm() {
-        return coordDocCrm;
+    public String getCoordinatingDoctorCrm() {
+        return coordinatingDoctorCrm;
     }
 
-    public void setCoordDocCrm(String coordDocCrm) {
-        this.coordDocCrm = coordDocCrm;
+    public void setCoordinatingDoctorCrm(String coordinatingDoctorCrm) {
+        this.coordinatingDoctorCrm = coordinatingDoctorCrm;
     }
 
-    public String getOccupRysc() {
-        return occupRysc;
+    public String getOccupationalRisks() {
+        return occupationalRisks;
     }
 
-    public void setOccupRysc(String occupRysc) {
-        this.occupRysc = occupRysc;
+    public void setOccupationalRisks(String occupationalRisks) {
+        this.occupationalRisks = occupationalRisks;
     }
 
-    public String getFinalJudg() {
-        return finalJudg;
+    public String getFinalJudgment() {
+        return finalJudgment;
     }
 
-    public void setFinalJudg(String finalJudg) {
-        this.finalJudg = finalJudg;
+    public void setFinalJudgment(String finalJudgment) {
+        this.finalJudgment = finalJudgment;
     }
 
-    public LocalDate getDocAssignDate() {
-        return docAssignDate;
+    public LocalDate getDoctorSignatureDate() {
+        return doctorSignatureDate;
     }
 
-    public void setDocAssignDate(LocalDate docAssignDate) {
-        this.docAssignDate = docAssignDate;
+    public void setDoctorSignatureDate(LocalDate doctorSignatureDate) {
+        this.doctorSignatureDate = doctorSignatureDate;
+    }
+
+    public Admission getAdmission() {
+        return admission;
+    }
+
+    public void setAdmission(Admission admission) {
+        this.admission = admission;
     }
 
     @Override
     public String toString() {
-        return "Aso{" +
-                "healthHist='" + healthHist + '\'' +
-                ", medicalProcess='" + medicalProcess + '\'' +
-                ", examsDate=" + examsDate +
-                ", inChargeDocName='" + inChargeDocName + '\'' +
-                ", inChargeDocCrm='" + inChargeDocCrm + '\'' +
-                ", coordDocName='" + coordDocName + '\'' +
-                ", coordDocCrm='" + coordDocCrm + '\'' +
-                ", occupRysc='" + occupRysc + '\'' +
-                ", finalJudg='" + finalJudg + '\'' +
-                ", docAssignDate=" + docAssignDate +
-                '}';
+        return "Aso [healthHistory=" + healthHistory + ", medicalProcesses=" + medicalProcesses
+                + ", supplementaryExamsDate=" + supplementaryExamsDate + ", responsibleDoctorName="
+                + responsibleDoctorName + ", responsibleDoctorCrm=" + responsibleDoctorCrm + ", coordinatingDoctorName="
+                + coordinatingDoctorName + ", coordinatingDoctorCrm=" + coordinatingDoctorCrm + ", occupationalRisks="
+                + occupationalRisks + ", finalJudgment=" + finalJudgment + ", doctorSignatureDate="
+                + doctorSignatureDate + ", admission=" + admission + "]";
     }
 }

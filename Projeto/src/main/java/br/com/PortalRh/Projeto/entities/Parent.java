@@ -1,75 +1,87 @@
 package br.com.PortalRh.Projeto.entities;
 
-import jakarta.persistence.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
 @Entity
+@Table(name = "parents")
 public class Parent extends EntityId {
+    @Column(name = "fathers_name")
+    private String fathersName;
+  
+    @Column(name = "fathers_phone")
+    private String fathersPhone;
+  
+    @Column(name = "mothers_name")
+    private String mothersName;
 
-    @Column(name = "nome_pai")
-    private String dadsName;
-    @Column(name = "nome_mae")
-    private String momsName;
-    @Column(name = "tel_pai")
-    private String dadsPhone;
-    @Column(name = "tel_mae")
-    private String momsPhone;
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
-    private List<Person> person = new ArrayList<>();
+    @Column(name = "mothers_phone")
+    private String mothersPhone;
 
-    public Parent() {
+    @OneToMany
+    @JoinColumn(name = "parent_id")
+    private List<Person> person;
+
+    public Parent() {}
+
+    public Parent(String fathersName, String fathersPhone, String mothersName, String mothersPhone, List<Person> person) {
+        this.fathersName = fathersName;
+        this.fathersPhone = fathersPhone;
+        this.mothersName = mothersName;
+        this.mothersPhone = mothersPhone;
+        this.person = person;
     }
 
-    public String getDadsName() {
-        return dadsName;
+    public String getFathersName() {
+        return fathersName;
     }
 
-    public void setDadsName(String dadsName) {
-        this.dadsName = dadsName;
+    public void setFathersName(String fathersName) {
+        this.fathersName = fathersName;
     }
 
-    public String getMomsName() {
-        return momsName;
+    public String getFathersPhone() {
+        return fathersPhone;
     }
 
-    public void setMomsName(String momsName) {
-        this.momsName = momsName;
+    public void setFathersPhone(String fathersPhone) {
+        this.fathersPhone = fathersPhone;
     }
 
-    public String getDadsPhone() {
-        return dadsPhone;
+    public String getMothersName() {
+        return mothersName;
     }
 
-    public void setDadsPhone(String dadsPhone) {
-        this.dadsPhone = dadsPhone;
+    public void setMothersName(String mothersName) {
+        this.mothersName = mothersName;
     }
 
-    public String getMomsPhone() {
-        return momsPhone;
+    public String getMothersPhone() {
+        return mothersPhone;
     }
 
-    public void setMomsPhone(String momsPhone) {
-        this.momsPhone = momsPhone;
+    public void setMothersPhone(String mothersPhone) {
+        this.mothersPhone = mothersPhone;
     }
 
-    public List<Person> getChildrem() {
+    public List<Person> getPerson() {
         return person;
     }
 
-    public void addPessoa(Person filho) { person.add(filho); }
-
-    public void  removePessoa(Person filho) { person.remove(filho); }
+    public void setPerson(List<Person> person) {
+        this.person = person;
+    }
 
     @Override
     public String toString() {
-        return "Parent{" +
-                "dadsName='" + dadsName + '\'' +
-                ", momsName='" + momsName + '\'' +
-                ", dadsPhone='" + dadsPhone + '\'' +
-                ", momsPhone='" + momsPhone + '\'' +
-                ", childrem=" + person +
-                '}';
+        return "Parent [fathersName=" + fathersName 
+                + ", fathersPhone=" + fathersPhone + ", mothersName=" + mothersName
+                + ", mothersPhone=" + mothersPhone + ", person=" + person + "]";
     }
+    
 }

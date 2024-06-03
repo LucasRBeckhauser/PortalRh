@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.entities.Users;
+import br.com.PortalRh.Projeto.entities.User;
 import br.com.PortalRh.Projeto.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +17,20 @@ public class UsersController {
     private UsersService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody Users entity) {
-        Users save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody User entity) {
+        User save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/users/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<Users> users = service.buscaTodos();
+        List<User> users = service.buscaTodos();
         return ResponseEntity.ok(users);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        Users users = service.buscaPorId(id);
+        User users = service.buscaPorId(id);
         return ResponseEntity.ok(users);
     }
 
@@ -41,8 +41,8 @@ public class UsersController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Users entity) {
-        Users alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody User entity) {
+        User alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.entities.PrevExp;
+import br.com.PortalRh.Projeto.entities.PreviousExperience;
 import br.com.PortalRh.Projeto.service.PrevExpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,20 +17,20 @@ public class PrevExpController {
     private PrevExpService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody PrevExp entity) {
-        PrevExp save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody PreviousExperience entity) {
+        PreviousExperience save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/prevexp/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<PrevExp> prevExpAnteriores = service.buscaTodos();
+        List<PreviousExperience> prevExpAnteriores = service.buscaTodos();
         return ResponseEntity.ok(prevExpAnteriores);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        PrevExp prevExpAnteriores = service.buscaPorId(id);
+        PreviousExperience prevExpAnteriores = service.buscaPorId(id);
         return ResponseEntity.ok(prevExpAnteriores);
     }
 
@@ -41,8 +41,8 @@ public class PrevExpController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody PrevExp entity) {
-        PrevExp alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody PreviousExperience entity) {
+        PreviousExperience alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

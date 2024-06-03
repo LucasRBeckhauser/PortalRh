@@ -1,9 +1,8 @@
-package br.com.PortalRh.Projeto.dto;
+package br.com.PortalRh.Projeto.dtos;
 
 import br.com.PortalRh.Projeto.entities.enuns.State;
-import jakarta.persistence.Column;
 
-public class AddressDto {
+public class AddressDTO {
     private Integer houseNumber;
     private String stName;
     private String complement;
@@ -13,10 +12,10 @@ public class AddressDto {
     private String cep;
     private String country;
 
-    public AddressDto() {
+    public AddressDTO() {
     }
 
-    public AddressDto(Integer houseNumber, String stName, String complement, String neighborhood, String city, State state, String cep, String country) {
+    public AddressDTO(Integer houseNumber, String stName, String complement, String neighborhood, String city, State state, String cep, String country) {
         this.houseNumber = houseNumber;
         this.stName = stName;
         this.complement = complement;

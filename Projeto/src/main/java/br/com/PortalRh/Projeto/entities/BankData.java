@@ -1,29 +1,47 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.AccType;
+import br.com.PortalRh.Projeto.entities.enuns.AccountType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "bank_datas")
 public class BankData extends EntityId {
-    @Column (name = "accType" )
-    private AccType accType;
+    @Column (name = "accountType" )
+    private AccountType accountType;
+
     @Column (name = "bank")
     private String bank;
+
     @Column (name = "agency")
     private String agency;
-    @Column(name = "acc")
-    private String acc;
 
-    public BankData() {
+    @Column(name = "account")
+    private String account;
+
+    @OneToOne
+    @JoinColumn(name = "bank_data_id")
+    private Person person;
+
+    public BankData() {}
+
+    public BankData(AccountType accountType, String bank, String agency, String account, Person person) {
+        this.accountType = accountType;
+        this.bank = bank;
+        this.agency = agency;
+        this.account = account;
+        this.person = person;
     }
 
-    public AccType getAccType() {
-        return accType;
+    public AccountType getAccountType() {
+        return accountType;
     }
 
-    public void setAccType(AccType accType) {
-        this.accType = accType;
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 
     public String getBank() {
@@ -42,21 +60,25 @@ public class BankData extends EntityId {
         this.agency = agency;
     }
 
-    public String getAcc() {
-        return acc;
+    public String getAccount() {
+        return account;
     }
 
-    public void setAcc(String acc) {
-        this.acc = acc;
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override
     public String toString() {
-        return "BankData{" +
-                "accType=" + accType +
-                ", bank='" + bank + '\'' +
-                ", agency='" + agency + '\'' +
-                ", acc='" + acc + '\'' +
-                '}';
+        return "BankData [accountType=" + accountType + ", bank=" + bank + ", agency=" + agency + ", account=" + account
+                + ", person=" + person + "]";
     }
 }

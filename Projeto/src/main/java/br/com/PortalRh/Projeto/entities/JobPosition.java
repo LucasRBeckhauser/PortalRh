@@ -9,15 +9,28 @@ import jakarta.persistence.*;
 public class JobPosition extends EntityId {
     @Column (name = "description")
     private String description;
+
     @Column(name = "level")
     private String level;
+
     @Column (name = "comission")
     private Boolean commission;
-    @Column (name = "position_Type")
+
     @Enumerated(EnumType.STRING)
     private JobType positionType;
 
-    public JobPosition() {
+    @OneToOne
+    @JoinColumn(name = "position_type_id")
+    private Collaborator collaborator;
+
+    public JobPosition() {}
+
+    public JobPosition(String description, String level, Boolean commission, JobType positionType, Collaborator collaborator) {
+        this.description = description;
+        this.level = level;
+        this.commission = commission;
+        this.positionType = positionType;
+        this.collaborator = collaborator;
     }
 
     public String getDescription() {
@@ -51,14 +64,18 @@ public class JobPosition extends EntityId {
     public void setPositionType(JobType positionType) {
         this.positionType = positionType;
     }
+    
+    public Collaborator getCollaborator() {
+        return collaborator;
+    }
+
+    public void setCollaborator(Collaborator collaborator) {
+        this.collaborator = collaborator;
+    }
 
     @Override
     public String toString() {
-        return "Position{" +
-                "description='" + description + '\'' +
-                ", level='" + level + '\'' +
-                ", commission=" + commission +
-                ", positionType=" + positionType +
-                '}';
+        return "JobPosition [description=" + description + ", level=" + level + ", commission=" + commission
+                + ", positionType=" + positionType + ", collaborator=" + collaborator + "]";
     }
 }

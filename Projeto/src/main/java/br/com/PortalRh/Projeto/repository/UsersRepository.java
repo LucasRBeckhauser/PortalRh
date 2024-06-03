@@ -1,9 +1,10 @@
 package br.com.PortalRh.Projeto.repository;
 
-import br.com.PortalRh.Projeto.entities.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.PortalRh.Projeto.entities.User;
+
 @Repository
-public interface UsersRepository extends JpaRepository <Users, Long> {
+public interface UsersRepository extends JpaRepository <User, Long> {
 }

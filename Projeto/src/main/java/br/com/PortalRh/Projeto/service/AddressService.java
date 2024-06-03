@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.dto.AddressDto;
+import br.com.PortalRh.Projeto.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.entities.Address;
 import br.com.PortalRh.Projeto.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class AddressService {
     private AddressRepository repository;
 
 
-    public AddressDto salvar(AddressDto dto) {
+    public AddressDTO salvar(AddressDTO dto) {
         Address address = new Address();
         address.setHouseNumber(dto.getHouseNumber());
         address.setStName(dto.getStName());
@@ -30,7 +30,7 @@ public class AddressService {
 
         Address savedAddress = repository.save(address);
 
-        return new AddressDto(
+        return new AddressDTO(
                 savedAddress.getHouseNumber(),
                 savedAddress.getStName(),
                 savedAddress.getComplement(),

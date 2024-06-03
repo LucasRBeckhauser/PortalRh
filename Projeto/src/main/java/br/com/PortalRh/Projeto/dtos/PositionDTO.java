@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.dto;
+package br.com.PortalRh.Projeto.dtos;
 
 import br.com.PortalRh.Projeto.entities.enuns.JobType;
 

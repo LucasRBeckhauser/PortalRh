@@ -1,15 +1,13 @@
-package br.com.PortalRh.Projeto.dto;
-
-import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
-import br.com.PortalRh.Projeto.entities.enuns.Shift;
+package br.com.PortalRh.Projeto.dtos;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
+import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
+import br.com.PortalRh.Projeto.entities.enuns.Shift;
+
 public class CooperatorDTO {
-    
-    // Person
     private String name;
     private String cpf;
     private String rg;
@@ -31,7 +29,6 @@ public class CooperatorDTO {
     private List<CertificationDto> certifications;
     private List<ChildrenDto> childrem;
     
-    // Cooperator
     private double wage;
     private String pisPasep;
     private PositionDTO position;

@@ -4,24 +4,22 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
-public class SocialMedia extends EntityId {
-    @Column(name = "nome")
+@Table(name = "languages")
+public class Language {
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "url")
-    private String url;
-
     @ManyToOne
-    @JoinColumn(name = "social_media_id")
+    @JoinColumn(name = "language_id")
     private Person person;
 
-    public SocialMedia() {}
+    public Language() {}
 
-    public SocialMedia(String name, String url, Person person) {
+    public Language(String name, Person person) {
         this.name = name;
-        this.url = url;
         this.person = person;
     }
 
@@ -31,14 +29,6 @@ public class SocialMedia extends EntityId {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     public Person getPerson() {
@@ -51,6 +41,6 @@ public class SocialMedia extends EntityId {
 
     @Override
     public String toString() {
-        return "SocialMedia [name=" + name + ", url=" + url + ", person=" + person + "]";
+        return "Language [name=" + name + ", person=" + person + "]";
     }
 }
