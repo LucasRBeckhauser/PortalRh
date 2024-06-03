@@ -59,31 +59,31 @@ public class Person extends EntityId {
     @Column(name = "clockOut")
     private LocalTime clockOut;
 
-    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<PreviousExperience> previousExperiences;
     
-    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Language> language;
 
-    @OneToOne(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private Parent parent;
 
-    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<SocialMedia> socialMedia;
 
-    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Certification> certification;
 
-    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Children> children;
 
-    @OneToOne(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private BankData bankData;
 
-    @OneToMany(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Address> addres;
 
-    @OneToOne(mappedBy = "people", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
     private User user;
 
     @OneToOne

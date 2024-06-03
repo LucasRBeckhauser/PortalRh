@@ -17,7 +17,7 @@ public class Admission extends EntityId{
     @CreationTimestamp
     private LocalDate AdmissionDate;
 
-    @OneToOne(mappedBy = "admissions", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "admission", cascade = CascadeType.ALL)
     private Aso aso;
 
     @OneToOne

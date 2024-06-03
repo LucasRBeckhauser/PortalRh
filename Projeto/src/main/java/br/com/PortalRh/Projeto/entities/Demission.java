@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "demissions")
-public class Demission {
+public class Demission extends EntityId{
     @CreationTimestamp
     private LocalDate demissionDate;
 

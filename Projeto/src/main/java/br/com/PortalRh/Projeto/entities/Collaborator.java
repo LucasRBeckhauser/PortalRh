@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
-import br.com.PortalRh.Projeto.entities.enuns.Shift;
+import br.com.PortalRh.Projeto.entities.enums.ContractModality;
+import br.com.PortalRh.Projeto.entities.enums.Shift;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,7 +9,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "collaborator")
+@Table(name = "collaborators")
 public class Collaborator extends EntityId {
     @Column(name = "wage")
     private double wage;

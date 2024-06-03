@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.entities;
 
-import br.com.PortalRh.Projeto.entities.enuns.JobType;
+import br.com.PortalRh.Projeto.entities.enums.JobType;
 import jakarta.persistence.*;
 
 

@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.dtos;
 
-import br.com.PortalRh.Projeto.entities.enuns.State;
+import br.com.PortalRh.Projeto.entities.enums.State;
 
 public class AddressDTO {
     private Integer houseNumber;

@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.dtos;
 
-import br.com.PortalRh.Projeto.entities.enuns.JobType;
+import br.com.PortalRh.Projeto.entities.enums.JobType;
 
 public class PositionDTO {
     private String description;

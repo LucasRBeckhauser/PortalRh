@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.dtos;
 
-import br.com.PortalRh.Projeto.entities.enuns.AccountType;
+import br.com.PortalRh.Projeto.entities.enums.AccountType;
 
 public class BankDataDTO {
     private AccountType accountType;
@@ -11,8 +11,8 @@ public class BankDataDTO {
     public BankDataDTO() {
     }
 
-    public BankDataDTO(AccountType accType, String bank, String agency, String account) {
-        this.accountType = accType;
+    public BankDataDTO(AccountType accountType, String bank, String agency, String account) {
+        this.accountType = accountType;
         this.bank = bank;
         this.agency = agency;
         this.account = account;

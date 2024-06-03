@@ -1,11 +1,9 @@
 package br.com.PortalRh.Projeto.entities;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,13 +21,13 @@ public class Parent extends EntityId {
     @Column(name = "mothers_phone")
     private String mothersPhone;
 
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "parent_id")
-    private List<Person> person;
+    private Person person;
 
     public Parent() {}
 
-    public Parent(String fathersName, String fathersPhone, String mothersName, String mothersPhone, List<Person> person) {
+    public Parent(String fathersName, String fathersPhone, String mothersName, String mothersPhone, Person person) {
         this.fathersName = fathersName;
         this.fathersPhone = fathersPhone;
         this.mothersName = mothersName;
@@ -69,11 +67,11 @@ public class Parent extends EntityId {
         this.mothersPhone = mothersPhone;
     }
 
-    public List<Person> getPerson() {
+    public Person getPerson() {
         return person;
     }
 
-    public void setPerson(List<Person> person) {
+    public void setPerson(Person person) {
         this.person = person;
     }
 

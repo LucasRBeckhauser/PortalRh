@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import br.com.PortalRh.Projeto.entities.enuns.ContractModality;
-import br.com.PortalRh.Projeto.entities.enuns.Shift;
+import br.com.PortalRh.Projeto.entities.enums.ContractModality;
+import br.com.PortalRh.Projeto.entities.enums.Shift;
 
 public class CooperatorDTO {
     private String name;

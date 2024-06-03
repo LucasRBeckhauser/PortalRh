@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "languages")
-public class Language {
+public class Language extends EntityId{
     @Column(name = "name")
     private String name;
 
