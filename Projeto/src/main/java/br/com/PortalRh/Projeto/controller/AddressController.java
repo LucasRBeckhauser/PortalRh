@@ -19,40 +19,39 @@ import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController
-@RequestMapping("/api/address")
+@RequestMapping("api/address")
 public class AddressController {
 
     @Autowired
-    private AddressService service;
-
+    private AddressService addressService;
 
     @PostMapping
-    public ResponseEntity<AddressDTO> create(@RequestBody AddressDTO dto) {
-        AddressDTO savedDto = service.salvar(dto);
-        return ResponseEntity.created(URI.create("/api/address/" + savedDto.getCep())).body(savedDto);
+    public ResponseEntity<Address> createAddress(@RequestBody AddressDTO addressDTO) {
+        return addressService.create(addressDTO);
     }
 
     @GetMapping
-    public ResponseEntity findAll() {
-        List<Address> addresses = service.buscaTodos();
-        return ResponseEntity.ok(addresses);
+    public List<Address> getAllAddresses() {
+        return addressService.findAll();
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity findById(@PathVariable("id") Long id) {
-        Address enderecos = service.buscaPorId(id);
-        return ResponseEntity.ok(enderecos);
+    @GetMapping("/{id}")
+    public ResponseEntity<Address> getAddressById(@PathVariable Long id) {
+        Address address = addressService.findById(id);
+        if (address != null) {
+            return ResponseEntity.ok(address);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @DeleteMapping("{id}")
-    public ResponseEntity remove(@PathVariable("id") Long id) {
-        service.remover(id);
-        return ResponseEntity.noContent().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Address> updateAddress(@RequestBody AddressDTO addressDTO, @PathVariable Long id) {
+        return addressService.update(addressDTO, id);
     }
 
-    @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody Address entity) {
-        Address alterado = service.alterar(id, entity);
-        return ResponseEntity.ok().body(alterado);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Address> deleteAddress(@PathVariable Long id) {
+        return addressService.delete(id);
     }
 }

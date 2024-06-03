@@ -1,69 +1,77 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.model.Address;
-import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
-import br.com.PortalRh.Projeto.repository.AddressRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import br.com.PortalRh.Projeto.model.Address;
+import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
+import br.com.PortalRh.Projeto.repository.AddressRepository;
+
 @Service
 public class AddressService {
-
     @Autowired
-    private AddressRepository repository;
+    private AddressRepository addressRepository;
 
-
-    public AddressDTO salvar(AddressDTO dto) {
-        Address address = new Address();
-        address.setHouseNumber(dto.getHouseNumber());
-        address.setStName(dto.getStName());
-        address.setComplement(dto.getComplement());
-        address.setNeighborhood(dto.getNeighborhood());
-        address.setCity(dto.getCity());
-        address.setState(dto.getState());
-        address.setCep(dto.getCep());
-        address.setCountry(dto.getCountry());
-
-
-        Address savedAddress = repository.save(address);
-
-        return new AddressDTO(
-                savedAddress.getHouseNumber(),
-                savedAddress.getStName(),
-                savedAddress.getComplement(),
-                savedAddress.getNeighborhood(),
-                savedAddress.getCity(),
-                savedAddress.getState(),
-                savedAddress.getCep(),
-                savedAddress.getCountry()
-        );
+    public AddressService(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
     }
 
-    public List<Address> buscaTodos(){return repository.findAll(); }
+    public ResponseEntity<Address> create(AddressDTO addressDTO) {
+        Address address = new Address(
+            addressDTO.houseNumber(),
+            addressDTO.streetName(),
+            addressDTO.complement(),
+            addressDTO.neighborhood(),
+            addressDTO.city(),
+            addressDTO.state(),
+            addressDTO.cep()
+            );
+                            
 
-    public Address buscaPorId(Long id){return repository.findById(id).orElse(null); }
+        addressRepository.save(address);
+        return ResponseEntity.ok(address);
+    }
 
-    public Address alterar(Long id, Address alterado){
-        Optional<Address> encontrado = repository.findById(id);
-        if (encontrado.isPresent()){
-            Address address = encontrado.get();
+    public List<Address> findAll() {
+        return addressRepository.findAll();
+    }
 
-            address.setCity(alterado.getCity());
-            address.setComplement(alterado.getComplement());
-            address.setCountry(alterado.getCountry());
-            address.setState(alterado.getState());
-            address.setNeighborhood(alterado.getNeighborhood());
-            address.setHouseNumber(alterado.getHouseNumber());
-            address.setStName(alterado.getStName());
-            address.setCep(alterado.getCep());
+    public Address findById(Long id) {
+        Optional<Address> address = addressRepository.findById(id);
+        return address.orElse(null);
+    }
 
+    public ResponseEntity<Address> update(AddressDTO addressDTO, Long id) {
+        Address address = findById(id);
 
+        if (address != null) {
+            address.setHouseNumber(addressDTO.houseNumber());
+            address.setStreetName(addressDTO.streetName());
+            address.setComplement(addressDTO.complement());
+            address.setNeighborhood(addressDTO.neighborhood());
+            address.setCity(addressDTO.city());
+            address.setState(addressDTO.state());
+            address.setCep(addressDTO.cep());
+
+            addressRepository.save(address);
+            return ResponseEntity.ok(address);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
-    public void remover(Long id) { repository.deleteById(id);}
+    public ResponseEntity<Address> delete(Long id) {
+        Address address = findById(id);
+
+        if (address != null) {
+            addressRepository.delete(address);
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

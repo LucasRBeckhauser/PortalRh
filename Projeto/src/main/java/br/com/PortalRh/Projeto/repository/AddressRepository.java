@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 import br.com.PortalRh.Projeto.model.Address;
 
 @Repository
-public interface AddressRepository extends JpaRepository<Address, Long> {
-}
+public interface AddressRepository extends JpaRepository<Address, Long> {}

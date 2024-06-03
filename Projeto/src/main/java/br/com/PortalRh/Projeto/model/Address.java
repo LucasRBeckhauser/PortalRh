@@ -31,17 +31,21 @@ public class Address extends EntityId{
     @Column(name = "cep")
     private String cep;
 
-    @Column(name = "country")
-    private String country;
-
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Person person;
 
     public Address() {}
 
-    public Address(Integer houseNumber, String streetName, String complement, String neighborhood, String city,
-            State state, String cep, String country, Person person) {
+    public Address(
+        Integer houseNumber, 
+        String streetName, 
+        String complement, 
+        String neighborhood, 
+        String city,
+        State state, 
+        String cep
+        ) {
         this.houseNumber = houseNumber;
         this.streetName = streetName;
         this.complement = complement;
@@ -49,8 +53,6 @@ public class Address extends EntityId{
         this.city = city;
         this.state = state;
         this.cep = cep;
-        this.country = country;
-        this.person = person;
     }
 
     public Integer getHouseNumber() {
@@ -109,14 +111,6 @@ public class Address extends EntityId{
         this.state = state;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
     public String getStreetName() {
         return streetName;
     }
@@ -143,7 +137,6 @@ public class Address extends EntityId{
                 ", city='" + city + '\'' +
                 ", state=" + state +
                 ", cep='" + cep + '\'' +
-                ", country='" + country + '\'' +
                 '}';
     }
 }
