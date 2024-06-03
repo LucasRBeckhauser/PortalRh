@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.resource;
+package br.com.PortalRh.Projeto.controller;
 
 import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.service.BankDataService;

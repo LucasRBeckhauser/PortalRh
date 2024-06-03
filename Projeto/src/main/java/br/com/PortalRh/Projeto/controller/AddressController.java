@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.resource;
+package br.com.PortalRh.Projeto.controller;
 
 import java.net.URI;
 import java.util.List;
