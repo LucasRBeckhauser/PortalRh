@@ -16,20 +16,20 @@ public class CooperatorController {
     private CooperatorService service;
 
     @PostMapping
-    public ResponseEntity create(@RequestBody br.com.PortalRh.Projeto.entities.Collaborator entity) {
-        br.com.PortalRh.Projeto.entities.Collaborator save = service.salvar(entity);
+    public ResponseEntity create(@RequestBody br.com.PortalRh.Projeto.model.Collaborator entity) {
+        br.com.PortalRh.Projeto.model.Collaborator save = service.salvar(entity);
         return ResponseEntity.created(URI.create("/api/cooperators/" + entity.getId())).body(save);
     }
 
     @GetMapping
     public ResponseEntity findAll() {
-        List<br.com.PortalRh.Projeto.entities.Collaborator> colaboradores = service.buscaTodos();
+        List<br.com.PortalRh.Projeto.model.Collaborator> colaboradores = service.buscaTodos();
         return ResponseEntity.ok(colaboradores);
     }
 
     @GetMapping("{id}")
     public ResponseEntity findById(@PathVariable("id") Long id) {
-        br.com.PortalRh.Projeto.entities.Collaborator colaboradores = service.buscaPorId(id);
+        br.com.PortalRh.Projeto.model.Collaborator colaboradores = service.buscaPorId(id);
         return ResponseEntity.ok(colaboradores);
     }
 
@@ -40,8 +40,8 @@ public class CooperatorController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody br.com.PortalRh.Projeto.entities.Collaborator entity) {
-        br.com.PortalRh.Projeto.entities.Collaborator alterado = service.alterar(id, entity);
+    public ResponseEntity update(@PathVariable("id") Long id, @RequestBody br.com.PortalRh.Projeto.model.Collaborator entity) {
+        br.com.PortalRh.Projeto.model.Collaborator alterado = service.alterar(id, entity);
         return ResponseEntity.ok().body(alterado);
     }
 }

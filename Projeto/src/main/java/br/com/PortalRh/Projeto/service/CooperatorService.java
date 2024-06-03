@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.Collaborator;
+import br.com.PortalRh.Projeto.model.Collaborator;
 import br.com.PortalRh.Projeto.repository.CooperatorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

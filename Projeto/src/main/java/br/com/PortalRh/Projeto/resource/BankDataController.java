@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.resource;
 
-import br.com.PortalRh.Projeto.entities.BankData;
+import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.service.BankDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

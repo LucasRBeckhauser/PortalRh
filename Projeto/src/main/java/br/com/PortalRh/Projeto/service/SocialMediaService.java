@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.PreviousExperience;
-import br.com.PortalRh.Projeto.entities.SocialMedia;
+import br.com.PortalRh.Projeto.model.PreviousExperience;
+import br.com.PortalRh.Projeto.model.SocialMedia;
 import br.com.PortalRh.Projeto.repository.PrevExpRepository;
 import br.com.PortalRh.Projeto.repository.SocialMediaRepository;
 import org.springframework.beans.factory.annotation.Autowired;

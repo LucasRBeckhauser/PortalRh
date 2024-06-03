@@ -1,6 +1,6 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.BankData;
+import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.repository.BankDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
