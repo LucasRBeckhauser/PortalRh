@@ -20,12 +20,9 @@ import br.com.PortalRh.Projeto.service.BankDataService;
 @RestController
 @RequestMapping("/api/bankdata")
 public class BankDataController {
-    private final BankDataService bankDataService;
-
+    
     @Autowired
-    public BankDataController(BankDataService bankDataService) {
-        this.bankDataService = bankDataService;
-    }
+    private BankDataService bankDataService;
 
     @PostMapping
     public ResponseEntity<BankData> createBankData(@RequestBody BankDataDTO bankDataDTO) {
