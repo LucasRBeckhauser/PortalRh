@@ -9,5 +9,6 @@ public record AddressDTO(
     String neighborhood,
     String city,
     State state,
-    String cep
+    String cep,
+    Long personId
 ) {}

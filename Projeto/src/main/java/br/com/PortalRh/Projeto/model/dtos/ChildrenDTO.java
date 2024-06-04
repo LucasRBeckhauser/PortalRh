@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.model.dtos;
 
-public record SocialMediaDTO(
+public record ChildrenDTO(
     String name,
-    String url,
+    Integer age,
     Long personId
 ) {}
