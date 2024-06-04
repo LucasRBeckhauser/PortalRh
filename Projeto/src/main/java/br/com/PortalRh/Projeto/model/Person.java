@@ -92,35 +92,4 @@ public class Person extends EntityId {
     @OneToOne
     @JoinColumn(name = "collaborator_id")
     private Collaborator collaborator;
-
-    // public Person() {
-    // }
-    
-    // public static class Builder {
-    //     private String name;
-    //     private String cpf;
-    //     private String rg;
-    //     private String voterRegist;
-    //     private LocalDate birthday;
-    //     private String reservist;
-    //     private String cnh;
-    //     private String raceColor;
-    //     private String religion;
-    //     private Boolean bloodDonor;
-    //     private String nacionality;
-    //     private String languages;
-    //     private Integer overtime;
-    //     private LocalTime clockIn;
-    //     private LocalTime clockOut;
-    //     private List<PreviousExperience> previousExperiences;
-    //     private List<Language> language;
-    //     private Parent parent;
-    //     private List<SocialMedia> socialMedia;
-    //     private List<Certification> certification;
-    //     private List<Children> children;
-    //     private BankData bankData;
-    //     private List<Address> addres;
-    //     private User user;
-    //     private Collaborator collaborator;        
-    // }   
 }
