@@ -2,6 +2,7 @@ package br.com.PortalRh.Projeto.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -41,8 +42,7 @@ public class Aso extends EntityId {
     @Column(name = "doctor_signature_date")
     private LocalDate doctorSignatureDate;
 
-    @OneToOne
-    @JoinColumn(name = "aso_id")
+    @OneToOne(mappedBy = "aso", cascade = CascadeType.ALL)
     private Admission admission;
 
     public Aso() {}

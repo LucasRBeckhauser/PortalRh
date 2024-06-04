@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -21,8 +22,7 @@ public class Parent extends EntityId {
     @Column(name = "mothers_phone")
     private String mothersPhone;
 
-    @OneToOne
-    @JoinColumn(name = "parent_id")
+    @OneToOne(mappedBy = "parent", cascade = CascadeType.ALL)
     private Person person;
 
     public Parent() {}

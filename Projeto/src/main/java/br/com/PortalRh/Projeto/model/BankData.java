@@ -4,12 +4,15 @@ import br.com.PortalRh.Projeto.model.enums.AccountType;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bank_datas")
 public class BankData extends EntityId {
+    @Enumerated(EnumType.STRING)
     @Column (name = "accountType" )
     private AccountType accountType;
 
@@ -22,7 +25,7 @@ public class BankData extends EntityId {
     @Column(name = "account")
     private String account;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "bankData", cascade = CascadeType.ALL)
     private Person person;
 
     public BankData() {}

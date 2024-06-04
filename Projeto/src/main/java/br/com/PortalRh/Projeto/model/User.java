@@ -1,12 +1,13 @@
 package br.com.PortalRh.Projeto.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
-
+@Table(name = "users")
 public class User extends EntityId {
     @Column (name = "usarname")
     private String username;
@@ -14,8 +15,7 @@ public class User extends EntityId {
     @Column (name = "password")
     private String password;
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Person person;
 
     public User() {}

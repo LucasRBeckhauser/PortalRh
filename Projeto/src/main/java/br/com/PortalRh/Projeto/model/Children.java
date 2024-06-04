@@ -17,7 +17,7 @@ public class Children extends EntityId {
     private Integer age;
     
     @ManyToOne
-    @JoinColumn(name = "child_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     public Children() {

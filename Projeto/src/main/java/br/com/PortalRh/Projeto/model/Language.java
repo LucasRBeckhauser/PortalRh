@@ -13,7 +13,7 @@ public class Language extends EntityId{
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "language_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     public Language() {}

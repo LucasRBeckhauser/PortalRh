@@ -17,11 +17,11 @@ public class Admission extends EntityId{
     @CreationTimestamp
     private LocalDate AdmissionDate;
 
-    @OneToOne(mappedBy = "admission", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "aso_id")
     private Aso aso;
 
-    @OneToOne
-    @JoinColumn(name = "admission_id")
+    @OneToOne(mappedBy = "admission", cascade = CascadeType.ALL)
     private Collaborator collaborator;
 
     public Admission() {}

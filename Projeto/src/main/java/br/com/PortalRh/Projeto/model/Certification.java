@@ -22,11 +22,10 @@ public class Certification extends EntityId {
     private String certificateDescription;
 
     @ManyToOne
-    @JoinColumn(name = "certificate_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
-    public Certification() {
-    }
+    public Certification() {}
 
     public Certification(String title, String skills, Double workload, String certificateDescription, Person person) {
         this.title = title;

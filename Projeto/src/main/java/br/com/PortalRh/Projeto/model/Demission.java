@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -15,8 +15,7 @@ public class Demission extends EntityId{
     @CreationTimestamp
     private LocalDate demissionDate;
 
-    @OneToOne
-    @JoinColumn(name = "demission_id")
+    @OneToOne(mappedBy = "demission", cascade = CascadeType.ALL)
     private Collaborator collaborator;
 
     public Demission() {

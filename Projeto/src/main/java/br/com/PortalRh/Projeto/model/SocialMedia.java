@@ -14,7 +14,7 @@ public class SocialMedia extends EntityId {
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "social_media_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     public SocialMedia() {}

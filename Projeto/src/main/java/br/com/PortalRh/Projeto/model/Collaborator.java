@@ -5,6 +5,7 @@ import br.com.PortalRh.Projeto.model.enums.Shift;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -26,13 +27,16 @@ public class Collaborator extends EntityId {
     @OneToOne(mappedBy = "collaborator", cascade = CascadeType.ALL)
     private Person person;
 
-    @OneToOne(mappedBy = "collaborator", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "job_position_id")
     private JobPosition jobPosition;
 
-    @OneToOne(mappedBy = "collaborator", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "admission_id")
     private Admission admission;
 
-    @OneToOne(mappedBy = "collaborator", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "demission_id")
     private Demission demission;
 
     public Collaborator() {}

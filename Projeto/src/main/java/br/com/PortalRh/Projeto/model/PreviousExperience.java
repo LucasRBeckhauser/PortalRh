@@ -19,7 +19,7 @@ public class PreviousExperience extends EntityId {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "previous_experience_id")
+    @JoinColumn(name = "person_id")
     private Person person;
 
     public PreviousExperience() {}

@@ -19,8 +19,7 @@ public class JobPosition extends EntityId {
     @Enumerated(EnumType.STRING)
     private JobType positionType;
 
-    @OneToOne
-    @JoinColumn(name = "position_type_id")
+    @OneToOne(mappedBy = "jobPosition", cascade = CascadeType.ALL)
     private Collaborator collaborator;
 
     public JobPosition() {}

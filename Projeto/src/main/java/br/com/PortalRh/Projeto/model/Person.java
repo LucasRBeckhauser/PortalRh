@@ -65,9 +65,6 @@ public class Person extends EntityId {
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Language> language;
 
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
-    private Parent parent;
-
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<SocialMedia> socialMedia;
 
@@ -76,20 +73,54 @@ public class Person extends EntityId {
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
     private List<Children> children;
+    
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+    private List<Address> addres;
+
+    @OneToOne
+    @JoinColumn(name = "parent_id")
+    private Parent parent;
 
     @OneToOne
     @JoinColumn(name = "bank_data_id")
     private BankData bankData;
 
-    @OneToMany
-    @JoinColumn(name = "address_id")
-    private List<Address> addres;
-
-    @OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name = "user_id")
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "collaborator_id")
     private Collaborator collaborator;
+
+    // public Person() {
+    // }
     
+    // public static class Builder {
+    //     private String name;
+    //     private String cpf;
+    //     private String rg;
+    //     private String voterRegist;
+    //     private LocalDate birthday;
+    //     private String reservist;
+    //     private String cnh;
+    //     private String raceColor;
+    //     private String religion;
+    //     private Boolean bloodDonor;
+    //     private String nacionality;
+    //     private String languages;
+    //     private Integer overtime;
+    //     private LocalTime clockIn;
+    //     private LocalTime clockOut;
+    //     private List<PreviousExperience> previousExperiences;
+    //     private List<Language> language;
+    //     private Parent parent;
+    //     private List<SocialMedia> socialMedia;
+    //     private List<Certification> certification;
+    //     private List<Children> children;
+    //     private BankData bankData;
+    //     private List<Address> addres;
+    //     private User user;
+    //     private Collaborator collaborator;        
+    // }   
 }
