@@ -92,4 +92,227 @@ public class Person extends EntityId {
     @OneToOne
     @JoinColumn(name = "collaborator_id")
     private Collaborator collaborator;
+
+    public Person() {}
+
+    public Person(Builder builder) {
+        this.name = builder.name;
+        this.cpf = builder.cpf;
+        this.rg = builder.rg;
+        this.voterRegist = builder.voterRegist;
+        this.birthday = builder.birthday;
+        this.reservist = builder.reservist;
+        this.cnh = builder.cnh;
+        this.raceColor = builder.raceColor;
+        this.religion = builder.religion;
+        this.bloodDonor = builder.bloodDonor;
+        this.nacionality = builder.nacionality;
+        this.languages = builder.languages;
+        this.overtime = builder.overtime;
+        this.clockIn = builder.clockIn;
+        this.clockOut = builder.clockOut;
+        this.parent = builder.parent;
+        this.bankData = builder.bankData;
+        this.user = builder.user;
+        this.collaborator = builder.collaborator;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public String getVoterRegist() {
+        return voterRegist;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public String getReservist() {
+        return reservist;
+    }
+
+    public String getCnh() {
+        return cnh;
+    }
+
+    public String getRaceColor() {
+        return raceColor;
+    }
+
+    public String getReligion() {
+        return religion;
+    }
+
+    public Boolean getBloodDonor() {
+        return bloodDonor;
+    }
+
+    public String getNacionality() {
+        return nacionality;
+    }
+
+    public String getLanguages() {
+        return languages;
+    }
+
+    public Integer getOvertime() {
+        return overtime;
+    }
+
+    public LocalTime getClockIn() {
+        return clockIn;
+    }
+
+    public LocalTime getClockOut() {
+        return clockOut;
+    }
+
+    public Parent getParent() {
+        return parent;
+    }
+
+    public BankData getBankData() {
+        return bankData;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Collaborator getCollaborator() {
+        return collaborator;
+    }
+
+    public static class Builder {
+        private String name;
+        private String cpf;
+        private String rg;
+        private String voterRegist;
+        private LocalDate birthday;
+        private String reservist;
+        private String cnh;
+        private String raceColor;
+        private String religion;
+        private Boolean bloodDonor;
+        private String nacionality;
+        private String languages;
+        private Integer overtime;
+        private LocalTime clockIn;
+        private LocalTime clockOut;
+        private Parent parent;
+        private BankData bankData;
+        private User user;
+        private Collaborator collaborator;
+
+        public Builder() {}
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+    
+        public Builder cpf(String cpf) {
+            this.cpf = cpf;
+            return this;
+        }
+    
+        public Builder rg(String rg) {
+            this.rg = rg;
+            return this;
+        }
+    
+        public Builder voterRegist(String voterRegist) {
+            this.voterRegist = voterRegist;
+            return this;
+        }
+    
+        public Builder birthday(LocalDate birthday) {
+            this.birthday = birthday;
+            return this;
+        }
+    
+        public Builder reservist(String reservist) {
+            this.reservist = reservist;
+            return this;
+        }
+    
+        public Builder cnh(String cnh) {
+            this.cnh = cnh;
+            return this;
+        }
+    
+        public Builder raceColor(String raceColor) {
+            this.raceColor = raceColor;
+            return this;
+        }
+    
+        public Builder religion(String religion) {
+            this.religion = religion;
+            return this;
+        }
+    
+        public Builder bloodDonor(Boolean bloodDonor) {
+            this.bloodDonor = bloodDonor;
+            return this;
+        }
+    
+        public Builder nacionality(String nacionality) {
+            this.nacionality = nacionality;
+            return this;
+        }
+    
+        public Builder languages(String languages) {
+            this.languages = languages;
+            return this;
+        }
+    
+        public Builder overtime(Integer overtime) {
+            this.overtime = overtime;
+            return this;
+        }
+    
+        public Builder clockIn(LocalTime clockIn) {
+            this.clockIn = clockIn;
+            return this;
+        }
+    
+        public Builder clockOut(LocalTime clockOut) {
+            this.clockOut = clockOut;
+            return this;
+        }
+
+        public Builder parent(Parent parent) {
+            this.parent = parent;
+            return this;
+        }
+    
+        public Builder bankData(BankData bankData) {
+            this.bankData = bankData;
+            return this;
+        }
+    
+        public Builder user(User user) {
+            this.user = user;
+            return this;
+        }
+    
+        public Builder collaborator(Collaborator collaborator) {
+            this.collaborator = collaborator;
+            return this;
+        }
+
+        public Person build() {
+            return new Person(this);
+        }
+    }
 }
