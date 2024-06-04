@@ -19,7 +19,7 @@ public class Collaborator extends EntityId {
     private String pisPasep;
 
     @Column(name = "contract_modality")
-    private ContractModality contractModelity;
+    private ContractModality contractModality;
 
     @Column(name = "shift")
     private Shift shift;
@@ -44,7 +44,7 @@ public class Collaborator extends EntityId {
     public Collaborator(double wage, String pisPasep, ContractModality contractModelity, Shift shift, Person person, JobPosition jobPosition, Admission admission, Demission demission) {
         this.wage = wage;
         this.pisPasep = pisPasep;
-        this.contractModelity = contractModelity;
+        this.contractModality = contractModelity;
         this.shift = shift;
         this.person = person;
         this.jobPosition = jobPosition;
@@ -68,12 +68,12 @@ public class Collaborator extends EntityId {
         this.pisPasep = pisPasep;
     }
 
-    public ContractModality getContractModelity() {
-        return contractModelity;
+    public ContractModality getContractModality() {
+        return contractModality;
     }
 
-    public void setContractModelity(ContractModality contractModelity) {
-        this.contractModelity = contractModelity;
+    public void setContractModality(ContractModality contractModality) {
+        this.contractModality = contractModality;
     }
 
     public Shift getShift() {
@@ -118,7 +118,7 @@ public class Collaborator extends EntityId {
 
     @Override
     public String toString() {
-        return "Collaborator [wage=" + wage + ", pisPasep=" + pisPasep + ", contractModelity=" + contractModelity
+        return "Collaborator [wage=" + wage + ", pisPasep=" + pisPasep + ", contractModelity=" + contractModality
                 + ", shift=" + shift + ", person=" + person + ", jobPosition=" + jobPosition + ", admission="
                 + admission + ", demission=" + demission + "]";
     }    
