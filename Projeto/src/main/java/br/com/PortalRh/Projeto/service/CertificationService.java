@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import br.com.PortalRh.Projeto.model.Address;
 import br.com.PortalRh.Projeto.model.Certification;
-import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.model.dtos.CertificationDTO;
 import br.com.PortalRh.Projeto.repository.CertificationRepository;
 
