@@ -9,7 +9,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "children")
 public class Children extends EntityId {
-
     @Column(name = "name")
     private String name;
 
@@ -20,7 +19,12 @@ public class Children extends EntityId {
     @JoinColumn(name = "person_id")
     private Person person;
 
-    public Children() {
+    public Children() {}
+
+    public Children(String name, Integer age, Person person) {
+        this.name = name;
+        this.age = age;
+        this.person = person;
     }
 
     public String getName() {
