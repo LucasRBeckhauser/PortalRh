@@ -28,27 +28,33 @@ public class AddressService {
             addressDTO.neighborhood(),
             addressDTO.city(),
             addressDTO.state(),
-            addressDTO.cep()
-            );
-                            
+            addressDTO.cep(),
+            addressDTO.person()
+        );
 
         addressRepository.save(address);
         return ResponseEntity.ok(address);
     }
 
-    public List<Address> findAll() {
-        return addressRepository.findAll();
+    public ResponseEntity<List<Address>> findAll() {
+        List<Address> addresses = addressRepository.findAll();
+        return ResponseEntity.ok(addresses);
     }
 
-    public Address findById(Long id) {
+    public ResponseEntity<Address> findById(Long id) {
         Optional<Address> address = addressRepository.findById(id);
-        return address.orElse(null);
+        if (address.isPresent()) {
+            return ResponseEntity.ok(address.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     public ResponseEntity<Address> update(AddressDTO addressDTO, Long id) {
-        Address address = findById(id);
+        Optional<Address> optionalAddress = addressRepository.findById(id);
 
-        if (address != null) {
+        if (optionalAddress.isPresent()) {
+            Address address = optionalAddress.get();
             address.setHouseNumber(addressDTO.houseNumber());
             address.setStreetName(addressDTO.streetName());
             address.setComplement(addressDTO.complement());
@@ -56,6 +62,7 @@ public class AddressService {
             address.setCity(addressDTO.city());
             address.setState(addressDTO.state());
             address.setCep(addressDTO.cep());
+            address.setPerson(addressDTO.person());
 
             addressRepository.save(address);
             return ResponseEntity.ok(address);
@@ -64,11 +71,11 @@ public class AddressService {
         }
     }
 
-    public ResponseEntity<Address> delete(Long id) {
-        Address address = findById(id);
+    public ResponseEntity<Void> delete(Long id) {
+        Optional<Address> optionalAddress = addressRepository.findById(id);
 
-        if (address != null) {
-            addressRepository.delete(address);
+        if (optionalAddress.isPresent()) {
+            addressRepository.delete(optionalAddress.get());
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();

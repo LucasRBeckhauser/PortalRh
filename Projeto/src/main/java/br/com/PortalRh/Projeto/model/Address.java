@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "Adresses")
 public class Address extends EntityId{
     @Column(name = "house_number")
-    private Integer houseNumber;
+    private String houseNumber;
 
     @Column(name = "street_name")
     private String streetName;
@@ -38,13 +38,14 @@ public class Address extends EntityId{
     public Address() {}
 
     public Address(
-        Integer houseNumber, 
+        String houseNumber, 
         String streetName, 
         String complement, 
         String neighborhood, 
         String city,
         State state, 
-        String cep
+        String cep,
+        Person person
         ) {
         this.houseNumber = houseNumber;
         this.streetName = streetName;
@@ -53,22 +54,15 @@ public class Address extends EntityId{
         this.city = city;
         this.state = state;
         this.cep = cep;
+        this.person = person;
     }
 
-    public Integer getHouseNumber() {
+    public String getHouseNumber() {
         return houseNumber;
     }
 
-    public void setHouseNumber(Integer houseNumber) {
+    public void setHouseNumber(String houseNumber) {
         this.houseNumber = houseNumber;
-    }
-
-    public String getStName() {
-        return streetName;
-    }
-
-    public void setStName(String stName) {
-        this.streetName = stName;
     }
 
     public String getComplement() {
@@ -137,6 +131,7 @@ public class Address extends EntityId{
                 ", city='" + city + '\'' +
                 ", state=" + state +
                 ", cep='" + cep + '\'' +
+                ", person'" +person+ '\''+
                 '}';
     }
 }

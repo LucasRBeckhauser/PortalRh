@@ -18,7 +18,7 @@ import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController
-@RequestMapping("api/address")
+@RequestMapping("/api/address")
 public class AddressController {
 
     @Autowired
@@ -30,18 +30,13 @@ public class AddressController {
     }
 
     @GetMapping
-    public List<Address> getAllAddresses() {
+    public ResponseEntity<List<Address>> getAllAddresses() {
         return addressService.findAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Address> getAddressById(@PathVariable Long id) {
-        Address address = addressService.findById(id);
-        if (address != null) {
-            return ResponseEntity.ok(address);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return addressService.findById(id);
     }
 
     @PutMapping("/{id}")
@@ -50,7 +45,7 @@ public class AddressController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Address> deleteAddress(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteAddress(@PathVariable Long id) {
         return addressService.delete(id);
     }
 }
