@@ -26,12 +26,11 @@ public class Parent extends EntityId {
 
     public Parent() {}
 
-    public Parent(String fathersName, String fathersPhone, String mothersName, String mothersPhone, Person person) {
+    public Parent(String fathersName, String fathersPhone, String mothersName, String mothersPhone) {
         this.fathersName = fathersName;
         this.fathersPhone = fathersPhone;
         this.mothersName = mothersName;
         this.mothersPhone = mothersPhone;
-        this.person = person;
     }
 
     public String getFathersName() {
@@ -65,15 +64,7 @@ public class Parent extends EntityId {
     public void setMothersPhone(String mothersPhone) {
         this.mothersPhone = mothersPhone;
     }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
-    }
-
+    
     @Override
     public String toString() {
         return "Parent [fathersName=" + fathersName 
