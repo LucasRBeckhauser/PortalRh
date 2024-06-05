@@ -1,9 +1,11 @@
 package br.com.PortalRh.Projeto.model.dtos;
 
+import br.com.PortalRh.Projeto.model.Person;
+
 public record CertificationDTO(
     String title,
     String skills,
-    Double workload,
+    Integer workload,
     String certificateDescription,
-    Long personId
+    Person person
 ) {}

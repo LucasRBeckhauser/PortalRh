@@ -15,8 +15,8 @@ public class Certification extends EntityId {
     @Column(name = "skills")
     private String skills;
 
-    @Column(name = "workload", columnDefinition = "REAL")
-    private Double workload;
+    @Column(name = "workload")
+    private Integer workload;
 
     @Column(name = "certificate_description")
     private String certificateDescription;
@@ -27,7 +27,7 @@ public class Certification extends EntityId {
 
     public Certification() {}
 
-    public Certification(String title, String skills, Double workload, String certificateDescription, Person person) {
+    public Certification(String title, String skills, Integer workload, String certificateDescription, Person person) {
         this.title = title;
         this.skills = skills;
         this.workload = workload;
@@ -51,11 +51,11 @@ public class Certification extends EntityId {
         this.skills = skills;
     }
 
-    public Double getWorkload() {
+    public Integer getWorkload() {
         return workload;
     }
 
-    public void setWorkload(Double workload) {
+    public void setWorkload(Integer workload) {
         this.workload = workload;
     }
 
