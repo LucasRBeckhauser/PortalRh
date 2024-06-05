@@ -1,5 +1,9 @@
 package br.com.PortalRh.Projeto.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AdmissionRepository extends JpaRepository<AdmissionRepository, Long>{}
+import br.com.PortalRh.Projeto.model.Admission;
+
+@Repository
+public interface AdmissionRepository extends JpaRepository<Admission, Long>{}
