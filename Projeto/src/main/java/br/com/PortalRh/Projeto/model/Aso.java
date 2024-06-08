@@ -46,12 +46,9 @@ public class Aso extends EntityId {
 
     public Aso() {}
 
-    public Aso(
-        String healthHistory, String medicalProcesses, LocalDate supplementaryExamsDate,
-        String responsibleDoctorName, String responsibleDoctorCrm, String coordinatingDoctorName,
-        String coordinatingDoctorCrm, String occupationalRisks, String finalJudgment,
-        LocalDate doctorSignatureDate, Admission admission) {
-
+    public Aso(String healthHistory, String medicalProcesses, LocalDate supplementaryExamsDate, String responsibleDoctorName,
+               String responsibleDoctorCrm, String coordinatingDoctorName, String coordinatingDoctorCrm, String occupationalRisks,
+               String finalJudgment, LocalDate doctorSignatureDate) {
         this.healthHistory = healthHistory;
         this.medicalProcesses = medicalProcesses;
         this.supplementaryExamsDate = supplementaryExamsDate;
@@ -62,7 +59,6 @@ public class Aso extends EntityId {
         this.occupationalRisks = occupationalRisks;
         this.finalJudgment = finalJudgment;
         this.doctorSignatureDate = doctorSignatureDate;
-        this.admission = admission;
     }
 
     public String getHealthHistory() {
