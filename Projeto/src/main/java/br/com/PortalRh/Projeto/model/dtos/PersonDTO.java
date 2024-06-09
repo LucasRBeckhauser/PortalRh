@@ -1,5 +1,10 @@
 package br.com.PortalRh.Projeto.model.dtos;
 
+import br.com.PortalRh.Projeto.model.BankData;
+import br.com.PortalRh.Projeto.model.Collaborator;
+import br.com.PortalRh.Projeto.model.Parent;
+import br.com.PortalRh.Projeto.model.User;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -21,10 +26,8 @@ public record PersonDTO(
     Integer overtime,
     LocalTime clockIn,
     LocalTime clockOut,
-    List<Long> previousExperiencesIds,
-    List<Long> languagesIds,
-    List<Long> socialMediaIds,
-    List<Long> certificationsIds,
-    List<Long> childrenIds,
-    List<Long> addressesIds
+    Parent parent,
+    BankData bankData,
+    User user,
+    Collaborator collaborator
 ) {}

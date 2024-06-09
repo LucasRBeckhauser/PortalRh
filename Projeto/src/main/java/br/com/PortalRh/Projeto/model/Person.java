@@ -95,6 +95,28 @@ public class Person extends EntityId {
 
     public Person() {}
 
+    public Person(String name, String cpf, String rg, String voterRegist, LocalDate birthday, String reservist, String cnh, String raceColor, String religion, Boolean bloodDonor, String nacionality, String languages, Integer overtime, LocalTime clockIn, LocalTime clockOut, Parent parent, BankData bankData, User user, Collaborator collaborator) {
+        this.name = name;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.voterRegist = voterRegist;
+        this.birthday = birthday;
+        this.reservist = reservist;
+        this.cnh = cnh;
+        this.raceColor = raceColor;
+        this.religion = religion;
+        this.bloodDonor = bloodDonor;
+        this.nacionality = nacionality;
+        this.languages = languages;
+        this.overtime = overtime;
+        this.clockIn = clockIn;
+        this.clockOut = clockOut;
+        this.parent = parent;
+        this.bankData = bankData;
+        this.user = user;
+        this.collaborator = collaborator;
+    }
+
     public Person(Builder builder) {
         this.name = builder.name;
         this.cpf = builder.cpf;
@@ -192,6 +214,8 @@ public class Person extends EntityId {
     public Collaborator getCollaborator() {
         return collaborator;
     }
+
+
 
     public static class Builder {
         private String name;
