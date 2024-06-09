@@ -7,7 +7,6 @@ import br.com.PortalRh.Projeto.model.User;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
 
 public record PersonDTO(
     long id,

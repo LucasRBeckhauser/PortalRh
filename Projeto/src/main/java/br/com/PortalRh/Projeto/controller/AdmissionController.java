@@ -1,9 +1,7 @@
 package br.com.PortalRh.Projeto.controller;
 
 import br.com.PortalRh.Projeto.model.Admission;
-import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.model.dtos.AdmissionDTO;
-import br.com.PortalRh.Projeto.model.dtos.BankDataDTO;
 import br.com.PortalRh.Projeto.service.AdmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,5 +1,7 @@
 package br.com.PortalRh.Projeto.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -13,7 +15,7 @@ public class Children extends EntityId {
     private String name;
 
     @Column(name = "age")
-    private Integer age;
+    private LocalDate age;
     
     @ManyToOne
     @JoinColumn(name = "person_id")
@@ -21,7 +23,7 @@ public class Children extends EntityId {
 
     public Children() {}
 
-    public Children(String name, Integer age, Person person) {
+    public Children(String name, LocalDate age, Person person) {
         this.name = name;
         this.age = age;
         this.person = person;
@@ -35,11 +37,11 @@ public class Children extends EntityId {
         this.name = name;
     }
 
-    public Integer getAge() {
+    public LocalDate getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(LocalDate age) {
         this.age = age;
     }
 
