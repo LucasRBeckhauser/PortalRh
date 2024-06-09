@@ -41,12 +41,11 @@ public class Collaborator extends EntityId {
 
     public Collaborator() {}
 
-    public Collaborator(double wage, String pisPasep, ContractModality contractModelity, Shift shift, Person person, JobPosition jobPosition, Admission admission, Demission demission) {
+    public Collaborator(double wage, String pisPasep, ContractModality contractModality, Shift shift, JobPosition jobPosition, Admission admission, Demission demission) {
         this.wage = wage;
         this.pisPasep = pisPasep;
-        this.contractModality = contractModelity;
+        this.contractModality = contractModality;
         this.shift = shift;
-        this.person = person;
         this.jobPosition = jobPosition;
         this.admission = admission;
         this.demission = demission;
