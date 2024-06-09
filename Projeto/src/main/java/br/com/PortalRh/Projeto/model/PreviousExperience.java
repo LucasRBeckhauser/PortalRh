@@ -9,17 +9,17 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "previous_experiences")
 public class PreviousExperience extends EntityId {
-    @Column(name = "company")
+    @Column(name = "company", nullable = false)
     private String company;
 
-    @Column(name = "experience_time")
+    @Column(name = "experience_time", nullable = false)
     private Integer experienceTime;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public PreviousExperience() {}

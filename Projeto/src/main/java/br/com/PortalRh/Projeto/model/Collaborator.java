@@ -12,31 +12,31 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "collaborators")
 public class Collaborator extends EntityId {
-    @Column(name = "wage")
+    @Column(name = "wage", nullable = false)
     private double wage;
     
-    @Column(name = "pis_pasep")
+    @Column(name = "pis_pasep", nullable = false)
     private String pisPasep;
 
-    @Column(name = "contract_modality")
+    @Column(name = "contract_modality", nullable = false)
     private ContractModality contractModality;
 
-    @Column(name = "shift")
+    @Column(name = "shift", nullable = false)
     private Shift shift;
 
     @OneToOne(mappedBy = "collaborator", cascade = CascadeType.ALL)
     private Person person;
 
     @OneToOne
-    @JoinColumn(name = "job_position_id")
+    @JoinColumn(name = "job_position_id", nullable = false)
     private JobPosition jobPosition;
 
     @OneToOne
-    @JoinColumn(name = "admission_id")
+    @JoinColumn(name = "admission_id", nullable = false)
     private Admission admission;
 
     @OneToOne
-    @JoinColumn(name = "demission_id")
+    @JoinColumn(name = "demission_id", nullable = false)
     private Demission demission;
 
     public Collaborator() {}

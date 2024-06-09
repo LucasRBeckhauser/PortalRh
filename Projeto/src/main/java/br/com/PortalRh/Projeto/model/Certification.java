@@ -9,20 +9,20 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "certificates")
 public class Certification extends EntityId {
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "skills")
+    @Column(name = "skills", nullable = false)
     private String skills;
 
-    @Column(name = "workload")
+    @Column(name = "workload", nullable = false)
     private Integer workload;
 
-    @Column(name = "certificate_description")
+    @Column(name = "certificate_description", nullable = false)
     private String certificateDescription;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public Certification() {}

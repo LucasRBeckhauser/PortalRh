@@ -11,14 +11,14 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "children")
 public class Children extends EntityId {
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "age")
+    @Column(name = "age", nullable = false)
     private LocalDate age;
     
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public Children() {}

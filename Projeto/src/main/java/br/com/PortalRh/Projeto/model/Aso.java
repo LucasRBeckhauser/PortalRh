@@ -11,34 +11,34 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "aso")
 public class Aso extends EntityId {
-    @Column(name = "health_history")
+    @Column(name = "health_history", nullable = false)
     private String healthHistory;
 
-    @Column(name = "medical_processes")
+    @Column(name = "medical_processes", nullable = false)
     private String medicalProcesses;
 
-    @Column(name = "supplementary_exams_date")
+    @Column(name = "supplementary_exams_date", nullable = false)
     private LocalDate supplementaryExamsDate;
 
-    @Column(name = "responsible_doctor_name")
+    @Column(name = "responsible_doctor_name", nullable = false)
     private String responsibleDoctorName;
 
-    @Column(name = "responsible_doctor_crm")
+    @Column(name = "responsible_doctor_crm", nullable = false)
     private String responsibleDoctorCrm;
 
-    @Column(name = "coordinating_doctor_name")
+    @Column(name = "coordinating_doctor_name", nullable = false)
     private String coordinatingDoctorName;
 
-    @Column(name = "coordinating_doctor_crm")
+    @Column(name = "coordinating_doctor_crm", nullable = false)
     private String coordinatingDoctorCrm;
 
-    @Column(name = "occupational_risks")
+    @Column(name = "occupational_risks", nullable = false)
     private String occupationalRisks;
 
-    @Column(name = "final_judgment")
+    @Column(name = "final_judgment", nullable = false)
     private String finalJudgment;
 
-    @Column(name = "doctor_signature_date")
+    @Column(name = "doctor_signature_date", nullable = false)
     private LocalDate doctorSignatureDate;
 
     @OneToOne(mappedBy = "aso", cascade = CascadeType.ALL)

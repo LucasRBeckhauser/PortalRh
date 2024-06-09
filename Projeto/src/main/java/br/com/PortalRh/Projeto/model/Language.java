@@ -9,11 +9,11 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "languages")
 public class Language extends EntityId{
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public Language() {}

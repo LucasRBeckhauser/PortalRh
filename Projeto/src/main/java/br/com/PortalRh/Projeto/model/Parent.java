@@ -9,16 +9,16 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "parents")
 public class Parent extends EntityId {
-    @Column(name = "fathers_name")
+    @Column(name = "fathers_name", nullable = false)
     private String fathersName;
   
-    @Column(name = "fathers_phone")
+    @Column(name = "fathers_phone", nullable = false)
     private String fathersPhone;
   
-    @Column(name = "mothers_name")
+    @Column(name = "mothers_name", nullable = false)
     private String mothersName;
 
-    @Column(name = "mothers_phone")
+    @Column(name = "mothers_phone", nullable = false)
     private String mothersPhone;
 
     @OneToOne(mappedBy = "parent", cascade = CascadeType.ALL)

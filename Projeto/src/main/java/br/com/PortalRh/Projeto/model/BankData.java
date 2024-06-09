@@ -13,16 +13,16 @@ import jakarta.persistence.Table;
 @Table(name = "bank_datas")
 public class BankData extends EntityId {
     @Enumerated(EnumType.STRING)
-    @Column (name = "accountType" )
+    @Column (name = "accountType", nullable = false)
     private AccountType accountType;
 
-    @Column (name = "bank")
+    @Column (name = "bank", nullable = false)
     private String bank;
 
-    @Column (name = "agency")
+    @Column (name = "agency", nullable = false)
     private String agency;
 
-    @Column(name = "account")
+    @Column(name = "account", nullable = false)
     private String account;
 
     @OneToOne(mappedBy = "bankData", cascade = CascadeType.ALL)

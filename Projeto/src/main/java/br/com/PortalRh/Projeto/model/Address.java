@@ -10,29 +10,29 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "Adresses")
 public class Address extends EntityId{
-    @Column(name = "house_number")
+    @Column(name = "house_number", nullable = false)
     private String houseNumber;
 
-    @Column(name = "street_name")
+    @Column(name = "street_name", nullable = false)
     private String streetName;
 
-    @Column(name = "complement")
+    @Column(name = "complement", nullable = false)
     private String complement;
 
-    @Column(name = "neighborhood")
+    @Column(name = "neighborhood", nullable = false)
     private String neighborhood;
 
-    @Column(name = "city")
+    @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "state")
+    @Column(name = "state", nullable = false)
     private State state;
 
-    @Column(name = "cep")
+    @Column(name = "cep", nullable = false)
     private String cep;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public Address() {}

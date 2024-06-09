@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
@@ -15,10 +16,11 @@ import jakarta.persistence.Table;
 public class Admission extends EntityId{
     
     @CreationTimestamp
+    @Column(name = "admission_date", nullable = false)
     private LocalDate AdmissionDate;
 
     @OneToOne
-    @JoinColumn(name = "aso_id")
+    @JoinColumn(name = "aso_id", nullable = false)
     private Aso aso;
 
     @OneToOne(mappedBy = "admission", cascade = CascadeType.ALL)

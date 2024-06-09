@@ -14,49 +14,49 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "people")
 public class Person extends EntityId {
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "cpf")
+    @Column(name = "cpf", nullable = false)
     private String cpf;
 
-    @Column(name = "rg")
+    @Column(name = "rg", nullable = false)
     private String rg;
 
-    @Column(name = "voter_regist")
+    @Column(name = "voter_regist", nullable = false)
     private String voterRegist;
 
-    @Column(name = "birthday")
+    @Column(name = "birthday", nullable = false)
     private LocalDate birthday;
 
-    @Column(name = "reservist")
+    @Column(name = "reservist", nullable = false)
     private String reservist;
 
-    @Column(name = "cnh")
+    @Column(name = "cnh", nullable = false)
     private String cnh;
 
-    @Column(name = "race_color")
+    @Column(name = "race_color", nullable = false)
     private String raceColor;
 
-    @Column(name = "religion")
+    @Column(name = "religion", nullable = false)
     private String religion;
 
-    @Column(name = "blood_donor")
+    @Column(name = "blood_donor", nullable = false)
     private Boolean bloodDonor;
 
-    @Column(name = "nacionality")
+    @Column(name = "nacionality", nullable = false)
     private String nacionality;
 
-    @Column(name = "languages")
+    @Column(name = "languages", nullable = false)
     private String languages;
 
-    @Column(name = "overtime")
+    @Column(name = "overtime", nullable = false)
     private Integer overtime;
 
-    @Column(name = "clock_in")
+    @Column(name = "clock_in", nullable = false)
     private LocalTime clockIn;
 
-    @Column(name = "clockOut")
+    @Column(name = "clockOut", nullable = false)
     private LocalTime clockOut;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)

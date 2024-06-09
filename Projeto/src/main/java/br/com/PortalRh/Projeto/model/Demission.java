@@ -9,9 +9,10 @@ import org.hibernate.annotations.CreationTimestamp;
 @Table(name = "demissions")
 public class Demission extends EntityId{
     @CreationTimestamp
+    @Column(name = "demission_date", nullable = false)
     private LocalDate demissionDate;
 
-    @Column (name = "reason_demission")
+    @Column (name = "reason_demission", nullable = false)
     private String reasonDemission;
 
     @OneToOne(mappedBy = "demission", cascade = CascadeType.ALL)

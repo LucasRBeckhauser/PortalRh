@@ -7,14 +7,14 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class SocialMedia extends EntityId {
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String name;
 
-    @Column(name = "url")
+    @Column(name = "url", nullable = false)
     private String url;
 
     @ManyToOne
-    @JoinColumn(name = "person_id")
+    @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
     public SocialMedia() {}

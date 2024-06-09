@@ -7,13 +7,13 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "job_position")
 public class JobPosition extends EntityId {
-    @Column (name = "description")
+    @Column (name = "description", nullable = false)
     private String description;
 
-    @Column(name = "level")
+    @Column(name = "level", nullable = false)
     private String level;
 
-    @Column (name = "comission")
+    @Column (name = "comission", nullable = false)
     private Boolean commission;
 
     @Enumerated(EnumType.STRING)
