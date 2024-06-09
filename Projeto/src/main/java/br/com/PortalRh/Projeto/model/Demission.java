@@ -2,12 +2,8 @@ package br.com.PortalRh.Projeto.model;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "demissions")
@@ -15,15 +11,18 @@ public class Demission extends EntityId{
     @CreationTimestamp
     private LocalDate demissionDate;
 
+    @Column (name = "reason_demission")
+    private String reasonDemission;
+
     @OneToOne(mappedBy = "demission", cascade = CascadeType.ALL)
     private Collaborator collaborator;
 
     public Demission() {
     }
 
-    public Demission(LocalDate demissionDate, Collaborator collaborator) {
+    public Demission(LocalDate demissionDate, String reasonDemission) {
         this.demissionDate = demissionDate;
-        this.collaborator = collaborator;
+        this.reasonDemission = reasonDemission;
     }
 
     public LocalDate getDemissionDate() {
@@ -40,6 +39,14 @@ public class Demission extends EntityId{
 
     public void setCollaborator(Collaborator collaborator) {
         this.collaborator = collaborator;
+    }
+
+    public String getReasonDemission() {
+        return reasonDemission;
+    }
+
+    public void setReasonDemission(String reasonDemission) {
+        this.reasonDemission = reasonDemission;
     }
 
     @Override

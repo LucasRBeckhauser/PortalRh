@@ -24,12 +24,11 @@ public class JobPosition extends EntityId {
 
     public JobPosition() {}
 
-    public JobPosition(String description, String level, Boolean commission, JobType positionType, Collaborator collaborator) {
+    public JobPosition(String description, String level, Boolean commission, JobType positionType) {
         this.description = description;
         this.level = level;
         this.commission = commission;
         this.positionType = positionType;
-        this.collaborator = collaborator;
     }
 
     public String getDescription() {

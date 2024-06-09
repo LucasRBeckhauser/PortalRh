@@ -26,10 +26,9 @@ public class Admission extends EntityId{
 
     public Admission() {}
 
-    public Admission(LocalDate admissionDate, Aso aso, Collaborator collaborator) {
+    public Admission(LocalDate admissionDate, Aso aso) {
         AdmissionDate = admissionDate;
         this.aso = aso;
-        this.collaborator = collaborator;
     }
 
     public LocalDate getAdmissionDate() {

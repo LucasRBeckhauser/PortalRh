@@ -30,12 +30,7 @@ public class BankData extends EntityId {
 
     public BankData() {}
 
-    public BankData(
-        AccountType accountType, 
-        String bank, 
-        String agency, 
-        String account
-        ) {
+    public BankData(AccountType accountType, String bank, String agency, String account) {
         this.accountType = accountType;
         this.bank = bank;
         this.agency = agency;
