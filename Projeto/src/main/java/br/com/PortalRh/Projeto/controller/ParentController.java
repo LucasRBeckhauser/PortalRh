@@ -19,7 +19,7 @@ import br.com.PortalRh.Projeto.service.ParentService;
 
 @RestController
 @RequestMapping("/api/parent")
-public class ParentController {
+public class ParentController extends AbstractController{
 
     @Autowired
     private ParentService parentService;

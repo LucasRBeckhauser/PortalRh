@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/jobPositions")
-public class JobPositionController {
+public class JobPositionController extends AbstractController{
 
 
     @Autowired

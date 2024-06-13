@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/admissions")
-public class AdmissionController {
+public class AdmissionController extends AbstractController{
 
     @Autowired
     private AdmissionService admissionService;

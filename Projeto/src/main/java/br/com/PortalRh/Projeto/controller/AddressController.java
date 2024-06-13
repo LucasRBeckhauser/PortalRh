@@ -19,7 +19,7 @@ import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController
 @RequestMapping("/api/address")
-public class AddressController {
+public class AddressController extends AbstractController{
 
     @Autowired
     private AddressService addressService;

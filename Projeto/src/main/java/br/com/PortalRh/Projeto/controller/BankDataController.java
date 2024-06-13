@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/bankDatas")
-public class BankDataController {
+public class BankDataController extends AbstractController{
     @Autowired
     private BankDataService bankDataService;
 

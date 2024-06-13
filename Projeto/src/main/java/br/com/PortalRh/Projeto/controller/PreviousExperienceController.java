@@ -19,7 +19,7 @@ import br.com.PortalRh.Projeto.service.PreviousExperienceService;
 
 @RestController
 @RequestMapping("/api/previous-experiences")
-public class PreviousExperienceController {
+public class PreviousExperienceController extends AbstractController{
 
     @Autowired
     private PreviousExperienceService previousExperienceService;

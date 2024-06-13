@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
 public class User extends EntityId {
-    @Column (name = "usarname", nullable = false)
+    @Column (name = "username", nullable = false)
     private String username;
 
     @Column (name = "password", nullable = false)

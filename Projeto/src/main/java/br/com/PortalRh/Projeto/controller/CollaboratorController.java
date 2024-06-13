@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/collaborator")
-public class CollaboratorController {
+public class CollaboratorController extends AbstractController{
 
     @Autowired
     private CollaboratorService collaboratorService;

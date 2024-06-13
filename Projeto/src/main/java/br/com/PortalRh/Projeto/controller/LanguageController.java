@@ -19,7 +19,7 @@ import br.com.PortalRh.Projeto.service.LanguageService;
 
 @RestController
 @RequestMapping("/api/language")
-public class LanguageController {
+public class LanguageController extends AbstractController{
 
     @Autowired
     private LanguageService languageService;

@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/demissions")
-public class DemissionController {
+public class DemissionController extends AbstractController{
 
     @Autowired
     private DemissionService demissionService;
