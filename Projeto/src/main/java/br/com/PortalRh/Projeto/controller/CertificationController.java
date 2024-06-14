@@ -18,7 +18,7 @@ import br.com.PortalRh.Projeto.model.dtos.CertificationDTO;
 import br.com.PortalRh.Projeto.service.CertificationService;
 
 @RestController
-@RequestMapping("api/certification")
+@RequestMapping("api/certifications")
 public class CertificationController {
     @Autowired
     private CertificationService certificationService;

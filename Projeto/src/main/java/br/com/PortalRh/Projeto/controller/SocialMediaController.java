@@ -18,7 +18,7 @@ import br.com.PortalRh.Projeto.model.dtos.SocialMediaDTO;
 import br.com.PortalRh.Projeto.service.SocialMediaService;
 
 @RestController
-@RequestMapping("/api/social-media")
+@RequestMapping("/api/social-medias")
 public class SocialMediaController {
 
     @Autowired
