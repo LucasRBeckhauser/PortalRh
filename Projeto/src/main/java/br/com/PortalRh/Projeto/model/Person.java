@@ -56,7 +56,7 @@ public class Person extends EntityId {
     @Column(name = "clock_in", nullable = false)
     private LocalTime clockIn;
 
-    @Column(name = "clockOut", nullable = false)
+    @Column(name = "clock_out", nullable = false)
     private LocalTime clockOut;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)

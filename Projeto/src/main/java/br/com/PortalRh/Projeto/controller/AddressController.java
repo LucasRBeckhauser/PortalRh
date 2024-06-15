@@ -19,6 +19,7 @@ import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController
 @RequestMapping("api/address")
+
 public class AddressController {
 
     @Autowired

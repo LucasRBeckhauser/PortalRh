@@ -19,6 +19,7 @@ import br.com.PortalRh.Projeto.service.SocialMediaService;
 
 @RestController
 @RequestMapping("api/socialMedias")
+
 public class SocialMediaController {
 
     @Autowired
