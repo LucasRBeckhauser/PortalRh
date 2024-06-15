@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/collaborator")
+@RequestMapping("api/collaborators")
 public class CollaboratorController extends AbstractController{
 
     @Autowired

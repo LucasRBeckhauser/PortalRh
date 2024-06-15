@@ -18,7 +18,7 @@ import br.com.PortalRh.Projeto.model.dtos.ChildrenDTO;
 import br.com.PortalRh.Projeto.service.ChildrenService;
 
 @RestController
-@RequestMapping("/api/children")
+@RequestMapping("api/childrens")
 public class ChildrenController extends AbstractController{
 
     @Autowired

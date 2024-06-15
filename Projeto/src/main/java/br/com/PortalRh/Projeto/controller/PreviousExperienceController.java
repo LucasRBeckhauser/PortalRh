@@ -18,8 +18,9 @@ import br.com.PortalRh.Projeto.model.dtos.PreviousExperienceDTO;
 import br.com.PortalRh.Projeto.service.PreviousExperienceService;
 
 @RestController
-@RequestMapping("/api/previous-experiences")
+@RequestMapping("api/previousExperiences")
 public class PreviousExperienceController extends AbstractController{
+
 
     @Autowired
     private PreviousExperienceService previousExperienceService;
