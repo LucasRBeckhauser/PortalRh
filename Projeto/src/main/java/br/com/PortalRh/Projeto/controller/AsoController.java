@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping ("api/Aso's")
+@RequestMapping ("api/asos")
+
 public class AsoController {
 
     @Autowired

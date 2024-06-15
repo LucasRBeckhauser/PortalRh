@@ -18,7 +18,7 @@ import br.com.PortalRh.Projeto.model.dtos.ParentDTO;
 import br.com.PortalRh.Projeto.service.ParentService;
 
 @RestController
-@RequestMapping("/api/parents")
+@RequestMapping("api/parents")
 public class ParentController {
 
     @Autowired

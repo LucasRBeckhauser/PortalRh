@@ -18,7 +18,8 @@ import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController
-@RequestMapping("/api/addresses")
+@RequestMapping("api/address")
+
 public class AddressController {
 
     @Autowired
