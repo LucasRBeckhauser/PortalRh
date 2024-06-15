@@ -11,12 +11,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/persons")
-public class PersonController {
+public class PersonController extends AbstractController{
+
     @Autowired
     private PersonService personService;
 
     @PostMapping
     public ResponseEntity<Person> createPerson(@RequestBody PersonDTO personDTO) {
+
+//        Person person = new Person.Builder()
+//                .cnh("7868768")
+//                .cpf("776786786")
+//                .languages("hjhh")
+//                .build();
+
+
         return personService.create(personDTO);
     }
 

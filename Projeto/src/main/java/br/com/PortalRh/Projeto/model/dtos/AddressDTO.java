@@ -10,6 +10,11 @@ public record AddressDTO(
     String neighborhood,
     String city,
     State state,
+
+
+    @Size(min = 8, max = 8, message = "O cep deve ter 8 dígitos")
     String cep,
+    @Valid
+    @NotNull(message = "A pessoa não pode nulo")
     Person person
 ) {}

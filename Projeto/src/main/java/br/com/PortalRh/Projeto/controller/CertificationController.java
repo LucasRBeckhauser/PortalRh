@@ -19,7 +19,8 @@ import br.com.PortalRh.Projeto.service.CertificationService;
 
 @RestController
 @RequestMapping("api/certifications")
-public class CertificationController {
+public class CertificationController extends AbstractController{
+
     @Autowired
     private CertificationService certificationService;
 

@@ -11,8 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping ("api/asos")
-
-public class AsoController {
+public class AsoController extends AbstractController{
 
     @Autowired
     private AsoService asoService;
