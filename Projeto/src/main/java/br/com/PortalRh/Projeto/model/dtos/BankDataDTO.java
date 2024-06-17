@@ -1,6 +1,9 @@
 package br.com.PortalRh.Projeto.model.dtos;
 
 import br.com.PortalRh.Projeto.model.enums.AccountType;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record BankDataDTO(
     @Valid

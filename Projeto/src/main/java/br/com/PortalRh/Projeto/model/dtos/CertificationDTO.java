@@ -1,6 +1,9 @@
 package br.com.PortalRh.Projeto.model.dtos;
 
 import br.com.PortalRh.Projeto.model.Person;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record CertificationDTO(
         @NotBlank(message = "O título não pode estar em branco")

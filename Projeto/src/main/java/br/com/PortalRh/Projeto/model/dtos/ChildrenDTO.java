@@ -3,6 +3,10 @@ package br.com.PortalRh.Projeto.model.dtos;
 import java.time.LocalDate;
 
 import br.com.PortalRh.Projeto.model.Person;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import org.springframework.validation.annotation.Validated;
 
 public record ChildrenDTO(

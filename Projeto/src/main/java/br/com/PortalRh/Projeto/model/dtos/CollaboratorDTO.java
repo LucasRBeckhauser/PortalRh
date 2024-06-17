@@ -5,6 +5,8 @@ import br.com.PortalRh.Projeto.model.Demission;
 import br.com.PortalRh.Projeto.model.JobPosition;
 import br.com.PortalRh.Projeto.model.enums.ContractModality;
 import br.com.PortalRh.Projeto.model.enums.Shift;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 public record CollaboratorDTO(
         @NotNull(message = "A remuneração não pode ser nula")
