@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import br.com.PortalRh.Projeto.validation.constraints.Address.cep;
 
 @Entity
 @Table(name = "Adresses")
@@ -28,7 +27,7 @@ public class Address extends EntityId{
 
     @Column(name = "state", nullable = false)
     private State state;
-    @cep
+
     @Column(name = "cep", nullable = false)
     private String cep;
 
