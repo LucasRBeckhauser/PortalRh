@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.User;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class UserSpecification implements Specification <User> {
+public class PasswordSpecification implements Specification <User> {
 
 
     @Override
