@@ -37,16 +37,7 @@ public class Address extends EntityId{
 
     public Address() {}
 
-    public Address(
-            String houseNumber,
-            String streetName,
-            String complement,
-            String neighborhood,
-            String city,
-            State state,
-            String cep,
-            Person person
-    ) {
+    public Address(String houseNumber, String streetName, String complement, String neighborhood, String city, State state, String cep, Person person) {
         this.houseNumber = houseNumber;
         this.streetName = streetName;
         this.complement = complement;
@@ -55,6 +46,15 @@ public class Address extends EntityId{
         this.state = state;
         this.cep = cep;
         this.person = person;
+    }
+
+    public Address(String houseNumber, String streetName, String complement, String neighborhood, String city, State state) {
+        this.houseNumber = houseNumber;
+        this.streetName = streetName;
+        this.complement = complement;
+        this.neighborhood = neighborhood;
+        this.city = city;
+        this.state = state;
     }
 
     public String getHouseNumber() {

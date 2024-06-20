@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.service;
 
 import br.com.PortalRh.Projeto.model.Admission;
-import br.com.PortalRh.Projeto.model.dtos.AdmissionDTO;
+import br.com.PortalRh.Projeto.controller.dtos.AdmissionDTO;
 import br.com.PortalRh.Projeto.repository.AdmissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

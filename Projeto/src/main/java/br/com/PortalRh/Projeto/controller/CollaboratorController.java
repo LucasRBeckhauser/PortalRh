@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.controller;
 
 import br.com.PortalRh.Projeto.model.Collaborator;
-import br.com.PortalRh.Projeto.model.dtos.CollaboratorDTO;
+import br.com.PortalRh.Projeto.controller.dtos.CollaboratorDTO;
 import br.com.PortalRh.Projeto.service.CollaboratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

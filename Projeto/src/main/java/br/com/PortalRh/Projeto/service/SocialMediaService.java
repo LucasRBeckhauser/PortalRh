@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.PortalRh.Projeto.model.SocialMedia;
-import br.com.PortalRh.Projeto.model.dtos.SocialMediaDTO;
+import br.com.PortalRh.Projeto.controller.dtos.SocialMediaDTO;
 import br.com.PortalRh.Projeto.repository.SocialMediaRepository;
 
 @Service

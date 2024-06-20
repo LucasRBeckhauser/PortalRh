@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model.dtos;
+package br.com.PortalRh.Projeto.controller.dtos;
 
 import java.time.LocalDate;
 

@@ -3,12 +3,12 @@ package br.com.PortalRh.Projeto.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.PortalRh.Projeto.controller.dtos.AddressDTO2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.PortalRh.Projeto.model.Address;
-import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.repository.AddressRepository;
 
 @Service
@@ -20,25 +20,23 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    public ResponseEntity<Address> create(AddressDTO addressDTO) {
+    public ResponseEntity<Address> create(AddressDTO2 addressDTO) {
         Address address = new Address(
-            addressDTO.houseNumber(),
-            addressDTO.streetName(),
-            addressDTO.complement(),
-            addressDTO.neighborhood(),
-            addressDTO.city(),
-            addressDTO.state(),
-            addressDTO.cep(),
-            addressDTO.person()
+            addressDTO.getHouseNumber(),
+            addressDTO.getStreetName(),
+            addressDTO.getComplement(),
+            addressDTO.getNeighborhood(),
+            addressDTO.getCity(),
+            addressDTO.getState()
         );
 
         addressRepository.save(address);
         return ResponseEntity.ok(address);
     }
 
-    public ResponseEntity<List<Address>> findAll() {
+    public List<Address> findAll() {
         List<Address> addresses = addressRepository.findAll();
-        return ResponseEntity.ok(addresses);
+        return addresses;
     }
 
     public ResponseEntity<Address> findById(Long id) {
@@ -50,7 +48,7 @@ public class AddressService {
         }
     }
 
-    public ResponseEntity<Address> update(AddressDTO addressDTO, Long id) {
+    public ResponseEntity<Address> update(AddressDTO2 addressDTO, Long id) {
         Optional<Address> optionalAddress = addressRepository.findById(id);
 
         if (optionalAddress.isPresent()) {

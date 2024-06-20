@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.service;
 
 import br.com.PortalRh.Projeto.model.Demission;
-import br.com.PortalRh.Projeto.model.dtos.DemissionDTO;
+import br.com.PortalRh.Projeto.controller.dtos.DemissionDTO;
 import br.com.PortalRh.Projeto.repository.DemissionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

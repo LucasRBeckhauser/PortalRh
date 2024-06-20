@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.PortalRh.Projeto.model.PreviousExperience;
-import br.com.PortalRh.Projeto.model.dtos.PreviousExperienceDTO;
+import br.com.PortalRh.Projeto.controller.dtos.PreviousExperienceDTO;
 import br.com.PortalRh.Projeto.service.PreviousExperienceService;
 
 @RestController

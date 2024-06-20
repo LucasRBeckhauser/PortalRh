@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model.dtos;
+package br.com.PortalRh.Projeto.controller.dtos;
 
 import org.hibernate.validator.constraints.URL;
 

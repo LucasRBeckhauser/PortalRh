@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.controller;
 
 import br.com.PortalRh.Projeto.model.JobPosition;
-import br.com.PortalRh.Projeto.model.dtos.JobPositionDTO;
+import br.com.PortalRh.Projeto.controller.dtos.JobPositionDTO;
 import br.com.PortalRh.Projeto.service.JobPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

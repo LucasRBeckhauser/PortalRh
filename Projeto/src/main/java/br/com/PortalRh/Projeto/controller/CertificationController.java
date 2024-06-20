@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.PortalRh.Projeto.model.Certification;
-import br.com.PortalRh.Projeto.model.dtos.CertificationDTO;
+import br.com.PortalRh.Projeto.controller.dtos.CertificationDTO;
 import br.com.PortalRh.Projeto.service.CertificationService;
 
 @RestController
