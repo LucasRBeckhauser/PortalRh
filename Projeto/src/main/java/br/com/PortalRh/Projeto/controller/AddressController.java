@@ -2,7 +2,7 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
-import br.com.PortalRh.Projeto.controller.dtos.AddressDTO2;
+import br.com.PortalRh.Projeto.controller.dtos.AddressDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,15 +26,15 @@ public class AddressController extends AbstractController{
     private AddressService addressService;
 
     @PostMapping
-    public ResponseEntity<Address> createAddress(@RequestBody AddressDTO2 addressDTO) {
+    public ResponseEntity<Address> createAddress(@RequestBody AddressDTO addressDTO) {
         return addressService.create(addressDTO);
     }
 
     @GetMapping
-    public ResponseEntity<List<AddressDTO2>> getAllAddresses() {
+    public ResponseEntity<List<AddressDTO>> getAllAddresses() {
         List<Address> all = addressService.findAll();
-        List<AddressDTO2> addressDTO2s = AddressDTO2.fromEntityList(all);
-        return ResponseEntity.ok(addressDTO2s);
+        List<AddressDTO> addressDTOs = AddressDTO.fromEntityList(all);
+        return ResponseEntity.ok(addressDTOs);
     }
 
     @GetMapping("/{id}")
@@ -43,7 +43,7 @@ public class AddressController extends AbstractController{
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Address> updateAddress(@RequestBody AddressDTO2 addressDTO, @PathVariable Long id) {
+    public ResponseEntity<Address> updateAddress(@RequestBody AddressDTO addressDTO, @PathVariable Long id) {
         return addressService.update(addressDTO, id);
     }
 

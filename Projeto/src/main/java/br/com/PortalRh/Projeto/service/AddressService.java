@@ -3,7 +3,7 @@ package br.com.PortalRh.Projeto.service;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.PortalRh.Projeto.controller.dtos.AddressDTO2;
+import br.com.PortalRh.Projeto.controller.dtos.AddressDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
-    public ResponseEntity<Address> create(AddressDTO2 addressDTO) {
+    public ResponseEntity<Address> create(AddressDTO addressDTO) {
         Address address = new Address(
             addressDTO.getHouseNumber(),
             addressDTO.getStreetName(),
@@ -48,19 +48,17 @@ public class AddressService {
         }
     }
 
-    public ResponseEntity<Address> update(AddressDTO2 addressDTO, Long id) {
+    public ResponseEntity<Address> update(AddressDTO addressDTO, Long id) {
         Optional<Address> optionalAddress = addressRepository.findById(id);
 
         if (optionalAddress.isPresent()) {
             Address address = optionalAddress.get();
-            address.setHouseNumber(addressDTO.houseNumber());
-            address.setStreetName(addressDTO.streetName());
-            address.setComplement(addressDTO.complement());
-            address.setNeighborhood(addressDTO.neighborhood());
-            address.setCity(addressDTO.city());
-            address.setState(addressDTO.state());
-            address.setCep(addressDTO.cep());
-            address.setPerson(addressDTO.person());
+            address.setHouseNumber(addressDTO.getHouseNumber());
+            address.setStreetName(addressDTO.getStreetName());
+            address.setComplement(addressDTO.getComplement());
+            address.setNeighborhood(addressDTO.getNeighborhood());
+            address.setCity(addressDTO.getCity());
+            address.setState(addressDTO.getState());
 
             addressRepository.save(address);
             return ResponseEntity.ok(address);
