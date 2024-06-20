@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.PortalRh.Projeto.model.Parent;
-import br.com.PortalRh.Projeto.model.dtos.ParentDTO;
+import br.com.PortalRh.Projeto.controller.dtos.ParentDTO;
 import br.com.PortalRh.Projeto.service.ParentService;
 
 @RestController

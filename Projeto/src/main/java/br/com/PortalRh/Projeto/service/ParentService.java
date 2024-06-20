@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.PortalRh.Projeto.model.Parent;
-import br.com.PortalRh.Projeto.model.dtos.ParentDTO;
+import br.com.PortalRh.Projeto.controller.dtos.ParentDTO;
 import br.com.PortalRh.Projeto.repository.ParentRepository;
 
 @Service

@@ -1,7 +1,7 @@
 package br.com.PortalRh.Projeto.service;
 
 import br.com.PortalRh.Projeto.model.Person;
-import br.com.PortalRh.Projeto.model.dtos.PersonDTO;
+import br.com.PortalRh.Projeto.controller.dtos.PersonDTO;
 import br.com.PortalRh.Projeto.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

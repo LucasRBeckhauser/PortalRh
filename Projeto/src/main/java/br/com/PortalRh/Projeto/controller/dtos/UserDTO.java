@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model.dtos;
+package br.com.PortalRh.Projeto.controller.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

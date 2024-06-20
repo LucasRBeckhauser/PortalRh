@@ -2,6 +2,7 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
+import br.com.PortalRh.Projeto.controller.dtos.AddressDTO2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.PortalRh.Projeto.model.Address;
-import br.com.PortalRh.Projeto.model.dtos.AddressDTO;
 import br.com.PortalRh.Projeto.service.AddressService;
 
 @RestController
@@ -26,13 +26,15 @@ public class AddressController extends AbstractController{
     private AddressService addressService;
 
     @PostMapping
-    public ResponseEntity<Address> createAddress(@RequestBody AddressDTO addressDTO) {
+    public ResponseEntity<Address> createAddress(@RequestBody AddressDTO2 addressDTO) {
         return addressService.create(addressDTO);
     }
 
     @GetMapping
-    public ResponseEntity<List<Address>> getAllAddresses() {
-        return addressService.findAll();
+    public ResponseEntity<List<AddressDTO2>> getAllAddresses() {
+        List<Address> all = addressService.findAll();
+        List<AddressDTO2> addressDTO2s = AddressDTO2.fromEntityList(all);
+        return ResponseEntity.ok(addressDTO2s);
     }
 
     @GetMapping("/{id}")
@@ -41,7 +43,7 @@ public class AddressController extends AbstractController{
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Address> updateAddress(@RequestBody AddressDTO addressDTO, @PathVariable Long id) {
+    public ResponseEntity<Address> updateAddress(@RequestBody AddressDTO2 addressDTO, @PathVariable Long id) {
         return addressService.update(addressDTO, id);
     }
 

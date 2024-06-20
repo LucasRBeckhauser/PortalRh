@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.PortalRh.Projeto.model.PreviousExperience;
-import br.com.PortalRh.Projeto.model.dtos.PreviousExperienceDTO;
+import br.com.PortalRh.Projeto.controller.dtos.PreviousExperienceDTO;
 import br.com.PortalRh.Projeto.repository.PreviousExperienceRepository;
 
 @Service

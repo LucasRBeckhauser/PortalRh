@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.PortalRh.Projeto.model.Language;
-import br.com.PortalRh.Projeto.model.dtos.LanguageDTO;
+import br.com.PortalRh.Projeto.controller.dtos.LanguageDTO;
 import br.com.PortalRh.Projeto.service.LanguageService;
 
 @RestController

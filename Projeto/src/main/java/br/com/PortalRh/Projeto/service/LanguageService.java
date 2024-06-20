@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.PortalRh.Projeto.model.Language;
-import br.com.PortalRh.Projeto.model.dtos.LanguageDTO;
+import br.com.PortalRh.Projeto.controller.dtos.LanguageDTO;
 import br.com.PortalRh.Projeto.repository.LanguageRepository;
 
 @Service

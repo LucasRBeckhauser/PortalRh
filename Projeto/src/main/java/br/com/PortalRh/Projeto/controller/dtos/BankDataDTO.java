@@ -1,4 +1,4 @@
-package br.com.PortalRh.Projeto.model.dtos;
+package br.com.PortalRh.Projeto.controller.dtos;
 
 import br.com.PortalRh.Projeto.model.enums.AccountType;
 import jakarta.validation.Valid;
