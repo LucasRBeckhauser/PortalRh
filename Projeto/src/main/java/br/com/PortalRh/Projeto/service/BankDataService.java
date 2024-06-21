@@ -31,9 +31,9 @@ public class BankDataService {
         return ResponseEntity.ok(bankData);
     }
 
-    public ResponseEntity<List<BankData>> findAll() {
+    public List<BankData> findAll() {
         List<BankData> bankDatas = bankDataRepository.findAll();
-        return ResponseEntity.ok(bankDatas);
+        return bankDatas;
     }
 
     public ResponseEntity<BankData> findById(Long id) {

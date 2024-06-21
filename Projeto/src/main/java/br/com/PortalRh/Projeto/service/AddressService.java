@@ -13,6 +13,7 @@ import br.com.PortalRh.Projeto.repository.AddressRepository;
 
 @Service
 public class AddressService {
+
     @Autowired
     private AddressRepository addressRepository;
 

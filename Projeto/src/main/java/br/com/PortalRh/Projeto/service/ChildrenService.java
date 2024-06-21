@@ -31,9 +31,9 @@ public class ChildrenService {
         return ResponseEntity.ok(children);
     }
 
-    public ResponseEntity<List<Children>> findAll() {
-        List<Children> children = childrenRepository.findAll();
-        return ResponseEntity.ok(children);
+    public List<Children> findAll() {
+        List<Children> childrens = childrenRepository.findAll();
+        return childrens;
     }
 
     public ResponseEntity<Children> findById(Long id) {

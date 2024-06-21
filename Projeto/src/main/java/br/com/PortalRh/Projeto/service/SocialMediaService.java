@@ -31,9 +31,9 @@ public class SocialMediaService {
         return ResponseEntity.ok(socialMedia);
     }
 
-    public ResponseEntity<List<SocialMedia>> findAll() {
+    public List<SocialMedia> findAll() {
         List<SocialMedia> socialMedias = socialMediaRepository.findAll();
-        return ResponseEntity.ok(socialMedias);
+        return socialMedias;
     }
 
     public ResponseEntity<SocialMedia> findById(Long id) {

@@ -2,7 +2,6 @@ package br.com.PortalRh.Projeto.controller.dtos;
 
 import br.com.PortalRh.Projeto.model.Address;
 import br.com.PortalRh.Projeto.model.enums.State;
-
 import java.util.ArrayList;
 import java.util.List;
 
