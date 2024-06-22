@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,31 +17,31 @@ public class AsoService {
     @Autowired
     private AsoRepository asoRepository;
 
-    public AsoService (AsoRepository asoRepository) {
+    public AsoService(AsoRepository asoRepository) {
         this.asoRepository = asoRepository;
     }
 
     public ResponseEntity<Aso> create(AsoDTO asoDTO) {
         Aso aso = new Aso(
-            asoDTO.healthHistory(),
-            asoDTO.medicalProcesses(),
-            asoDTO.supplementaryExamsDate(),
-            asoDTO.responsibleDoctorName(),
-            asoDTO.responsibleDoctorCrm(),
-            asoDTO.coordinatingDoctorName(),
-            asoDTO.coordinatingDoctorCrm(),
-            asoDTO.occupationalRisks(),
-            asoDTO.finalJudgment(),
-            asoDTO.doctorSignatureDate()
+                asoDTO.getHealthHistory(),
+                asoDTO.getMedicalProcesses(),
+                asoDTO.getSupplementaryExamsDate(),
+                asoDTO.getResponsibleDoctorName(),
+                asoDTO.getResponsibleDoctorCrm(),
+                asoDTO.getCoordinatingDoctorName(),
+                asoDTO.getCoordinatingDoctorCrm(),
+                asoDTO.getOccupationalRisks(),
+                asoDTO.getFinalJudgment(),
+                asoDTO.getDoctorSignatureDate()
         );
 
         asoRepository.save(aso);
         return ResponseEntity.ok(aso);
     }
 
-    public ResponseEntity<List<Aso>> findAll () {
+    public List<Aso> findAll() {
         List <Aso> asos = asoRepository.findAll();
-        return ResponseEntity.ok(asos);
+        return asos;
     }
 
     public ResponseEntity<Aso> findById (Long id) {
@@ -57,16 +58,16 @@ public class AsoService {
 
         if (optionalAso.isPresent()) {
             Aso aso = optionalAso.get();
-            aso.setHealthHistory(asoDTO.healthHistory());
-            aso.setMedicalProcesses(asoDTO.medicalProcesses());
-            aso.setSupplementaryExamsDate(asoDTO.supplementaryExamsDate());
-            aso.setResponsibleDoctorName(aso.getResponsibleDoctorName());
-            aso.setResponsibleDoctorCrm(asoDTO.responsibleDoctorCrm());
-            aso.setCoordinatingDoctorName(asoDTO.coordinatingDoctorName());
-            aso.setCoordinatingDoctorCrm(asoDTO.coordinatingDoctorCrm());
-            aso.setOccupationalRisks(asoDTO.occupationalRisks());
-            aso.setFinalJudgment(asoDTO.finalJudgment());
-            aso.setDoctorSignatureDate(asoDTO.doctorSignatureDate());
+            aso.setHealthHistory(asoDTO.getHealthHistory());
+            aso.setMedicalProcesses(asoDTO.getMedicalProcesses());
+            aso.setSupplementaryExamsDate(asoDTO.getSupplementaryExamsDate());
+            aso.setResponsibleDoctorName(asoDTO.getResponsibleDoctorName());
+            aso.setResponsibleDoctorCrm(asoDTO.getResponsibleDoctorCrm());
+            aso.setCoordinatingDoctorName(asoDTO.getCoordinatingDoctorName());
+            aso.setCoordinatingDoctorCrm(asoDTO.getCoordinatingDoctorCrm());
+            aso.setOccupationalRisks(asoDTO.getOccupationalRisks());
+            aso.setFinalJudgment(asoDTO.getFinalJudgment());
+            aso.setDoctorSignatureDate(asoDTO.getDoctorSignatureDate());
 
             asoRepository.save(aso);
             return ResponseEntity.ok(aso);

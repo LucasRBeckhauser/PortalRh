@@ -32,9 +32,9 @@ public class PreviousExperienceService {
         return ResponseEntity.ok(previousExperience);
     }
 
-    public ResponseEntity<List<PreviousExperience>> findAll() {
+    public List<PreviousExperience> findAll() {
         List<PreviousExperience> previousExperiences = previousExperienceRepository.findAll();
-        return ResponseEntity.ok(previousExperiences);
+        return previousExperiences;
     }
 
     public ResponseEntity<PreviousExperience> findById(Long id) {

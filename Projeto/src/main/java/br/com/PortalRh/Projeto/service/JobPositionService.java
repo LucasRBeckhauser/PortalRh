@@ -30,9 +30,9 @@ public class JobPositionService {
         return ResponseEntity.ok(jobPosition);
     }
 
-    public ResponseEntity<List<JobPosition>> findAll() {
+    public List<JobPosition> findAll() {
         List<JobPosition> jobPositions = jobPositionRepository.findAll();
-        return ResponseEntity.ok(jobPositions);
+        return jobPositions;
     }
 
     public ResponseEntity<JobPosition> findById(Long id) {

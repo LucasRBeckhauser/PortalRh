@@ -33,9 +33,9 @@ public class CertificationService {
         return ResponseEntity.ok(certification);
     }
 
-    public ResponseEntity<List<Certification>> findAll() {
-        List<Certification> addresses = certificationRepository.findAll();
-        return ResponseEntity.ok(addresses);
+    public List<Certification> findAll() {
+        List<Certification> certifications = certificationRepository.findAll();
+        return certifications;
     }
 
     public ResponseEntity<Certification> findById(Long id) {

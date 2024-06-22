@@ -29,9 +29,9 @@ public class DemissionService {
         return ResponseEntity.ok(demission);
     }
 
-    public ResponseEntity<List<Demission>> findAll() {
+    public List<Demission> findAll() {
         List<Demission> demissions = demissionRepository.findAll();
-        return ResponseEntity.ok(demissions);
+        return demissions;
     }
 
     public ResponseEntity<Demission> findById(Long id) {

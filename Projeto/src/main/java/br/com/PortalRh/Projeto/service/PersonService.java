@@ -46,9 +46,9 @@ public class PersonService {
         return ResponseEntity.ok(person);
     }
 
-    public ResponseEntity<List<Person>> findAll() {
+    public List<Person> findAll() {
         List<Person> people = personRepository.findAll();
-        return ResponseEntity.ok(people);
+        return people;
     }
 
     public ResponseEntity<Person> findById(Long id) {

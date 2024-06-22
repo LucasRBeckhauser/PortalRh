@@ -30,9 +30,9 @@ public class LanguageService {
         return ResponseEntity.ok(language);
     }
 
-    public ResponseEntity<List<Language>> findAll() {
+    public List<Language> findAll() {
         List<Language> languages = languageRepository.findAll();
-        return ResponseEntity.ok(languages);
+        return languages;
     }
 
     public ResponseEntity<Language> findById(Long id) {

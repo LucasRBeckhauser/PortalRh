@@ -32,9 +32,9 @@ public class ParentService {
         return ResponseEntity.ok(parent);
     }
 
-    public ResponseEntity<List<Parent>> findAll() {
+    public List<Parent> findAll() {
         List<Parent> parents = parentRepository.findAll();
-        return ResponseEntity.ok(parents);
+        return parents;
     }
 
     public ResponseEntity<Parent> findById(Long id) {

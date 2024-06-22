@@ -35,9 +35,9 @@ public class CollaboratorService {
         return ResponseEntity.ok(collaborator);
     }
 
-    public ResponseEntity<List<Collaborator>> findAll() {
+    public List<Collaborator> findAll() {
         List<Collaborator> collaborators = collaboratorRepository.findAll();
-        return ResponseEntity.ok(collaborators);
+        return collaborators;
     }
 
     public ResponseEntity<Collaborator> findById(Long id) {
