@@ -1,14 +1,68 @@
 package br.com.PortalRh.Projeto.controller.dtos;
 
+import br.com.PortalRh.Projeto.model.Admission;
 import br.com.PortalRh.Projeto.model.Aso;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
-
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public record AdmissionDTO(
-        @NotNull(message = "A data de admissão não pode ser nula.")
-        LocalDate AdmissionDate,
-        @Valid
-        @NotNull(message = "Atestado de Saúde Ocupacional não pode ser nulo.")
-        Aso aso) {}
+public class AdmissionDTO{
+        LocalDate admissionDate;
+        Aso aso;
+
+        public AdmissionDTO() {
+        }
+
+
+        public AdmissionDTO(LocalDate admissionDate, Aso aso) {
+                this.admissionDate = admissionDate;
+                this.aso = aso;
+        }
+
+        public LocalDate getAdmissionDate() {
+                return admissionDate;
+        }
+
+        public void setAdmissionDate(LocalDate admissionDate) {
+                this.admissionDate = admissionDate;
+        }
+
+        public Aso getAso() {
+                return aso;
+        }
+
+        public void setAso(Aso aso) {
+                this.aso = aso;
+        }
+
+        public static AdmissionDTO fromEntity(Admission admission){
+                return new AdmissionDTO(
+                    admission.getAdmissionDate(),
+                    admission.getAso()
+                );
+        }
+
+        public static List<AdmissionDTO> fromEntityList(List<Admission> admissions){
+                List<AdmissionDTO> admissionDTOList = new ArrayList<>();
+                for (Admission admission : admissions) {
+                        admissionDTOList.add(fromEntity(admission));
+                }
+                return admissionDTOList;
+        }
+
+        public Admission toEntity() {
+                Admission admission = new Admission();
+                admission.setAdmissionDate(this.admissionDate);
+                admission.setAso(this.aso);
+                return admission;
+        }
+
+        public static List<Admission> toEntityList(List<AdmissionDTO> admissionDTOS) {
+                List<Admission> admissions = new ArrayList<>();
+                for (AdmissionDTO admissionDTO : admissionDTOS) {
+                        admissions.add(admissionDTO.toEntity());
+                }
+                return admissions;
+        }
+
+}

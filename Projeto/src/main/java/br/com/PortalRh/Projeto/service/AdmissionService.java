@@ -22,16 +22,16 @@ public class AdmissionService {
 
     public ResponseEntity<Admission> create(AdmissionDTO admissionDTO) {
         Admission admission = new Admission(
-                admissionDTO.AdmissionDate(),
-                admissionDTO.aso()
+                admissionDTO.getAdmissionDate(),
+                admissionDTO.getAso()
         );
         admissionRepository.save(admission);
         return ResponseEntity.ok(admission);
     }
 
-    public ResponseEntity<List<Admission>> findAll() {
+    public List<Admission> findAll() {
         List<Admission> admissions = admissionRepository.findAll();
-        return ResponseEntity.ok(admissions);
+        return admissions;
     }
 
     public ResponseEntity<Admission> findById(Long id) {
@@ -48,8 +48,8 @@ public class AdmissionService {
 
         if (optionalAdmission.isPresent()) {
             Admission admission = optionalAdmission.get();
-            admission.setAdmissionDate(admissionDTO.AdmissionDate());
-            admission.setAso(admissionDTO.aso());
+            admission.setAdmissionDate(admissionDTO.getAdmissionDate());
+            admission.setAso(admissionDTO.getAso());
 
 
             admissionRepository.save(admission);
