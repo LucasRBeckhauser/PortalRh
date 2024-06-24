@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.controller;
 
+
 import br.com.PortalRh.Projeto.model.Admission;
 import br.com.PortalRh.Projeto.controller.dtos.AdmissionDTO;
 import br.com.PortalRh.Projeto.service.AdmissionService;
@@ -23,7 +24,11 @@ public class AdmissionController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Admission>> getAllAdmission() {return admissionService.findAll();}
+    public ResponseEntity<List<AdmissionDTO>> getAdmission() {
+        List<Admission> all = admissionService.findAll();
+        List<AdmissionDTO> admissionDTOS = AdmissionDTO.fromEntityList(all);
+        return ResponseEntity.ok(admissionDTOS);
+    }
 
     @PutMapping ("/{id}")
     public ResponseEntity <Admission> updateAdmission (@RequestBody AdmissionDTO admissionDTO, @PathVariable Long id) {
