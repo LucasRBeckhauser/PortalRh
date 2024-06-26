@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.controller;
 
+
 import br.com.PortalRh.Projeto.model.Person;
 import br.com.PortalRh.Projeto.controller.dtos.PersonDTO;
 import br.com.PortalRh.Projeto.service.PersonService;
@@ -30,8 +31,10 @@ public class PersonController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Person>> getAllPerson() {
-        return personService.findAll();
+    public ResponseEntity<List<PersonDTO>> getAllPerson() {
+        List<Person> all = personService.findAll();
+        List<PersonDTO> personDTOS = PersonDTO.fromEntityList(all);
+        return ResponseEntity.ok(personDTOS);
     }
 
     @GetMapping("/{id}")
