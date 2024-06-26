@@ -1,5 +1,7 @@
 package br.com.PortalRh.Projeto.controller;
 
+import br.com.PortalRh.Projeto.controller.dtos.BankDataDTO;
+import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.model.Demission;
 import br.com.PortalRh.Projeto.controller.dtos.DemissionDTO;
 import br.com.PortalRh.Projeto.service.DemissionService;
@@ -23,7 +25,11 @@ public class DemissionController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Demission>> getAllDemission() {return demissionService.findAll();}
+    public ResponseEntity<List<DemissionDTO>> getAlldemissions() {
+        List<Demission> all = demissionService.findAll();
+        List<DemissionDTO> demissionDTOS = DemissionDTO.fromEntityList(all);
+        return ResponseEntity.ok(demissionDTOS);
+    }
 
     @PutMapping ("/{id}")
     public ResponseEntity <Demission> updateDemission (@RequestBody DemissionDTO demissionDTO, @PathVariable Long id) {

@@ -22,8 +22,8 @@ public class DemissionService {
 
     public ResponseEntity<Demission> create(DemissionDTO demissionDTO) {
         Demission demission = new Demission(
-                demissionDTO.demissionDate(),
-                demissionDTO.reasonDemission()
+                demissionDTO.getDemissionDate(),
+                demissionDTO.getReasonDemission()
         );
         demissionRepository.save(demission);
         return ResponseEntity.ok(demission);
@@ -48,8 +48,8 @@ public class DemissionService {
 
         if (optionalDemission.isPresent()) {
             Demission demission = optionalDemission.get();
-            demission.setReasonDemission(demissionDTO.reasonDemission());
-            demission.setDemissionDate(demissionDTO.demissionDate());
+            demission.setReasonDemission(demissionDTO.getReasonDemission());
+            demission.setDemissionDate(demissionDTO.getDemissionDate());
 
 
             demissionRepository.save(demission);
