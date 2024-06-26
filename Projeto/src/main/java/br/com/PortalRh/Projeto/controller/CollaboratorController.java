@@ -1,5 +1,6 @@
 package br.com.PortalRh.Projeto.controller;
 
+
 import br.com.PortalRh.Projeto.model.Collaborator;
 import br.com.PortalRh.Projeto.controller.dtos.CollaboratorDTO;
 import br.com.PortalRh.Projeto.service.CollaboratorService;
@@ -23,7 +24,11 @@ public class CollaboratorController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Collaborator>> getAllCollaborator() {return collaboratorService.findAll();}
+    public ResponseEntity<List<CollaboratorDTO>> getAllCollaborators() {
+        List<Collaborator> all = collaboratorService.findAll();
+        List<CollaboratorDTO> collaboratorDTOS = CollaboratorDTO.fromEntityList(all);
+        return ResponseEntity.ok(collaboratorDTOS);
+    }
 
     @PutMapping ("/{id}")
     public ResponseEntity <Collaborator> updateCollaborator (@RequestBody CollaboratorDTO collaboratorDTO, @PathVariable Long id) {
