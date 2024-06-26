@@ -2,6 +2,7 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,14 +30,12 @@ public class ChildrenController extends AbstractController{
         return childrenService.create(childrenDTO);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Children>> getAllChildren() {
-        return childrenService.findAll();
-    }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Children> getChildrenById(@PathVariable Long id) {
-        return childrenService.findById(id);
+    @GetMapping
+    public ResponseEntity<List<ChildrenDTO>> getAllChildrens() {
+        List<Children> all = childrenService.findAll();
+        List<ChildrenDTO> childrenDTOS = ChildrenDTO.fromEntityList(all);
+        return ResponseEntity.ok(childrenDTOS);
     }
 
     @PutMapping("/{id}")

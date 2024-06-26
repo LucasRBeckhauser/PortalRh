@@ -2,6 +2,8 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
+import br.com.PortalRh.Projeto.controller.dtos.BankDataDTO;
+import br.com.PortalRh.Projeto.model.BankData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,8 +32,10 @@ public class CertificationController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Certification>> getAllAddresses() {
-        return certificationService.findAll();
+    public ResponseEntity<List<CertificationDTO>> getAllCertifications() {
+        List<Certification> all = certificationService.findAll();
+        List<CertificationDTO> certificationDTOS = CertificationDTO.fromEntityList(all);
+        return ResponseEntity.ok(certificationDTOS);
     }
 
     @GetMapping("/{id}")

@@ -22,9 +22,9 @@ public class ChildrenService {
 
     public ResponseEntity<Children> create(ChildrenDTO childrenDTO) {
         Children children = new Children(
-            childrenDTO.name(),
-            childrenDTO.age(),
-            childrenDTO.person()
+            childrenDTO.getName(),
+            childrenDTO.getAge(),
+            childrenDTO.getPerson()
         );
 
         childrenRepository.save(children);
@@ -50,9 +50,9 @@ public class ChildrenService {
 
         if (optionalChildren.isPresent()) {
             Children children = optionalChildren.get();
-            children.setName(childrenDTO.name());
-            children.setAge(childrenDTO.age());
-            children.setPerson(childrenDTO.person());
+            children.setName(childrenDTO.getName());
+            children.setAge(childrenDTO.getAge());
+            children.setPerson(childrenDTO.getPerson());
 
             childrenRepository.save(children);
             return ResponseEntity.ok(children);

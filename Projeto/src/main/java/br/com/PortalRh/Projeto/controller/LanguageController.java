@@ -30,8 +30,10 @@ public class LanguageController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Language>> getAllLanguages() {
-        return languageService.findAll();
+    public ResponseEntity<List<LanguageDTO>> getAllLanguages() {
+        List<Language> all = languageService.findAll();
+        List<LanguageDTO> languageDTOS = LanguageDTO.fromEntityList(all);
+        return ResponseEntity.ok(languageDTOS);
     }
 
     @GetMapping("/{id}")

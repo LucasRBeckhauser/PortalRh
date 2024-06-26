@@ -21,10 +21,10 @@ public class JobPositionService {
 
     public ResponseEntity<JobPosition> create(JobPositionDTO jobPositionDTO) {
         JobPosition jobPosition = new JobPosition(
-                jobPositionDTO.description(),
-                jobPositionDTO.level(),
-                jobPositionDTO.commission(),
-                jobPositionDTO.positionType()
+                jobPositionDTO.getDescription(),
+                jobPositionDTO.getLevel(),
+                jobPositionDTO.getCommission(),
+                jobPositionDTO.getPositionType()
         );
         jobPositionRepository.save(jobPosition);
         return ResponseEntity.ok(jobPosition);
@@ -49,10 +49,10 @@ public class JobPositionService {
 
         if (optionalJobPosition.isPresent()) {
             JobPosition jobPosition = optionalJobPosition.get();
-            jobPosition.setPositionType(jobPositionDTO.positionType());
-            jobPosition.setCommission(jobPositionDTO.commission());
-            jobPosition.setDescription(jobPositionDTO.description());
-            jobPosition.setLevel(jobPositionDTO.level());
+            jobPosition.setPositionType(jobPositionDTO.getPositionType());
+            jobPosition.setCommission(jobPositionDTO.getCommission());
+            jobPosition.setDescription(jobPositionDTO.getDescription());
+            jobPosition.setLevel(jobPositionDTO.getLevel());
 
             jobPositionRepository.save(jobPosition);
             return ResponseEntity.ok(jobPosition);

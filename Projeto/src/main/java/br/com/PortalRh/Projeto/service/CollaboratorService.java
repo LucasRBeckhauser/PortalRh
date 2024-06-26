@@ -22,13 +22,13 @@ public class CollaboratorService {
 
     public ResponseEntity<Collaborator> create(CollaboratorDTO collaboratorDTO) {
         Collaborator collaborator = new Collaborator(
-                collaboratorDTO.wage(),
-                collaboratorDTO.pisPasep(),
-                collaboratorDTO.contractModality(),
-                collaboratorDTO.shift(),
-                collaboratorDTO.jobPosition(),
-                collaboratorDTO.admission(),
-                collaboratorDTO.demission()
+                collaboratorDTO.getWage(),
+                collaboratorDTO.getPisPasep(),
+                collaboratorDTO.getContractModality(),
+                collaboratorDTO.getShift(),
+                collaboratorDTO.getJobPosition(),
+                collaboratorDTO.getAdmission(),
+                collaboratorDTO.getDemission()
 
         );
         collaboratorRepository.save(collaborator);
@@ -54,13 +54,13 @@ public class CollaboratorService {
 
         if (optionalCollaborator.isPresent()) {
             Collaborator collaborator = optionalCollaborator.get();
-            collaborator.setWage(collaboratorDTO.wage());
-            collaborator.setPisPasep(collaboratorDTO.pisPasep());
-            collaborator.setContractModality(collaboratorDTO.contractModality());
-            collaborator.setShift(collaboratorDTO.shift());
-            collaborator.setJobPosition(collaboratorDTO.jobPosition());
-            collaborator.setAdmission(collaboratorDTO.admission());
-            collaborator.setDemission(collaboratorDTO.demission());
+            collaborator.setWage(collaboratorDTO.getWage());
+            collaborator.setPisPasep(collaboratorDTO.getPisPasep());
+            collaborator.setContractModality(collaboratorDTO.getContractModality());
+            collaborator.setShift(collaboratorDTO.getShift());
+            collaborator.setJobPosition(collaboratorDTO.getJobPosition());
+            collaborator.setAdmission(collaboratorDTO.getAdmission());
+            collaborator.setDemission(collaboratorDTO.getDemission());
 
             collaboratorRepository.save(collaborator);
             return ResponseEntity.ok(collaborator);
