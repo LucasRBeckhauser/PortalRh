@@ -22,10 +22,10 @@ public class ParentService {
 
     public ResponseEntity<Parent> create(ParentDTO parentDTO) {
         Parent parent = new Parent(
-            parentDTO.fathersName(),
-            parentDTO.fathersPhone(),
-            parentDTO.mothersName(),
-            parentDTO.mothersPhone()
+            parentDTO.getFathersName(),
+            parentDTO.getFathersPhone(),
+            parentDTO.getMothersName(),
+            parentDTO.getMothersPhone()
         );
 
         parentRepository.save(parent);
@@ -51,10 +51,10 @@ public class ParentService {
 
         if (optionalParent.isPresent()) {
             Parent parent = optionalParent.get();
-            parent.setFathersName(parentDTO.fathersName());
-            parent.setFathersPhone(parentDTO.fathersPhone());
-            parent.setMothersName(parentDTO.mothersName());
-            parent.setMothersPhone(parentDTO.mothersPhone());
+            parent.setFathersName(parentDTO.getFathersName());
+            parent.setFathersPhone(parentDTO.getFathersPhone());
+            parent.setMothersName(parentDTO.getMothersName());
+            parent.setMothersPhone(parentDTO.getMothersPhone());
 
             parentRepository.save(parent);
             return ResponseEntity.ok(parent);

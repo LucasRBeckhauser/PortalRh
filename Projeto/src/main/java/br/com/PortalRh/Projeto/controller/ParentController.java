@@ -2,6 +2,8 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
+import br.com.PortalRh.Projeto.controller.dtos.LanguageDTO;
+import br.com.PortalRh.Projeto.model.Language;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,8 +32,10 @@ public class ParentController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<Parent>> getAllParents() {
-        return parentService.findAll();
+    public ResponseEntity<List<ParentDTO>> getAllParents() {
+        List<Parent> all = parentService.findAll();
+        List<ParentDTO> parentDTOS = ParentDTO.fromEntityList(all);
+        return ResponseEntity.ok(parentDTOS);
     }
 
     @GetMapping("/{id}")
