@@ -22,11 +22,11 @@ public class CertificationService {
 
     public ResponseEntity<Certification> create(CertificationDTO certificationDTO) {
         Certification certification = new Certification(
-            certificationDTO.title(),
-            certificationDTO.skills(),
-            certificationDTO.workload(),
-            certificationDTO.certificateDescription(),
-            certificationDTO.person()
+            certificationDTO.getTitle(),
+            certificationDTO.getSkills(),
+            certificationDTO.getWorkload(),
+            certificationDTO.getCertificateDescription(),
+            certificationDTO.getPerson()
         );
 
         certificationRepository.save(certification);
@@ -52,11 +52,11 @@ public class CertificationService {
 
         if (optionalCertification.isPresent()) {
             Certification certification = optionalCertification.get();
-            certification.setTitle(certificationDTO.title());
-            certification.setSkills(certificationDTO.skills());
-            certification.setWorkload(certificationDTO.workload());
-            certification.setCertificateDescription(certificationDTO.certificateDescription());
-            certification.setPerson(certificationDTO.person());
+            certification.setTitle(certificationDTO.getTitle());
+            certification.setSkills(certificationDTO.getSkills());
+            certification.setWorkload(certificationDTO.getWorkload());
+            certification.setCertificateDescription(certificationDTO.getCertificateDescription());
+            certification.setPerson(certificationDTO.getPerson());
 
             certificationRepository.save(certification);
             return ResponseEntity.ok(certification);
