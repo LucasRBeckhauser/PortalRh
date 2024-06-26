@@ -1,5 +1,7 @@
 package br.com.PortalRh.Projeto.controller;
 
+import br.com.PortalRh.Projeto.controller.dtos.AddressDTO;
+import br.com.PortalRh.Projeto.model.Address;
 import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.controller.dtos.BankDataDTO;
 import br.com.PortalRh.Projeto.service.BankDataService;
@@ -22,7 +24,11 @@ public class BankDataController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<BankData>> getAllBankData() {return bankDataService.findAll();}
+    public ResponseEntity<List<BankDataDTO>> getAllBanksdatas() {
+        List<BankData> all = bankDataService.findAll();
+        List<BankDataDTO> bankDataDTOS = BankDataDTO.fromEntityList(all);
+        return ResponseEntity.ok(bankDataDTOS);
+    }
 
     @PutMapping ("/{id}")
     public ResponseEntity <BankData> updateBankData (@RequestBody BankDataDTO bankDataDTO, @PathVariable Long id) {

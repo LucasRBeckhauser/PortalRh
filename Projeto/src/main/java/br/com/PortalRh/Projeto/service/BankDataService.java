@@ -21,10 +21,10 @@ public class BankDataService {
 
     public ResponseEntity<BankData> create(BankDataDTO bankDataDTO) {
         BankData bankData = new BankData(
-                bankDataDTO.accountType(),
-                bankDataDTO.bank(),
-                bankDataDTO.agency(),
-                bankDataDTO.account()
+                bankDataDTO.getAccountType(),
+                bankDataDTO.getBank(),
+                bankDataDTO.getAgency(),
+                bankDataDTO.getAccount()
         );
 
         bankDataRepository.save(bankData);
@@ -50,10 +50,10 @@ public class BankDataService {
 
         if (optionalBankData.isPresent()) {
             BankData bankData = optionalBankData.get();
-            bankData.setBank(bankDataDTO.bank());
-            bankData.setAccount(bankDataDTO.bank());
-            bankData.setAccountType(bankDataDTO.accountType());
-            bankData.setAgency(bankDataDTO.agency());
+            bankData.setBank(bankDataDTO.getBank());
+            bankData.setAccount(bankDataDTO.getAccount());
+            bankData.setAccountType(bankDataDTO.getAccountType());
+            bankData.setAgency(bankDataDTO.getAgency());
 
             bankDataRepository.save(bankData);
             return ResponseEntity.ok(bankData);
