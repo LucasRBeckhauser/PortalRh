@@ -50,6 +50,18 @@ public class ChildrenDTO {
         public void setPerson(Person person) {
                 this.person = person;
         }
+
+//To string:
+
+
+    @Override
+    public String toString() {
+        return "ChildrenDTO{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", person=" + person +
+                '}';
+    }
 }
 
 

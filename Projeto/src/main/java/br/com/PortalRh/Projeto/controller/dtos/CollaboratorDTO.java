@@ -89,6 +89,22 @@ public class CollaboratorDTO {
         public void setDemission(Demission demission) {
                 this.demission = demission;
         }
+
+//To string:
+
+
+        @Override
+        public String toString() {
+                return "CollaboratorDTO{" +
+                        "wage=" + wage +
+                        ", pisPasep='" + pisPasep + '\'' +
+                        ", contractModality=" + contractModality +
+                        ", shift=" + shift +
+                        ", jobPosition=" + jobPosition +
+                        ", admission=" + admission +
+                        ", demission=" + demission +
+                        '}';
+        }
 }
 
 

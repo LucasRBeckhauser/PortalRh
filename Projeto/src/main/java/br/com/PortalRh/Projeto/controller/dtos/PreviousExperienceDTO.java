@@ -56,6 +56,18 @@ public class PreviousExperienceDTO {
     public void setPerson(Person person) {
         this.person = person;
     }
+
+//To string:
+
+    @Override
+    public String toString() {
+        return "PreviousExperienceDTO{" +
+                "company='" + company + '\'' +
+                ", experienceTime=" + experienceTime +
+                ", description='" + description + '\'' +
+                ", person=" + person +
+                '}';
+    }
 }
 
 

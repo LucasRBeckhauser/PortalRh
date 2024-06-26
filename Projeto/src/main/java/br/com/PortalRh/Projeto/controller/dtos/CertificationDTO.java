@@ -63,6 +63,18 @@ public class CertificationDTO{
         public void setPerson(Person person) {
                 this.person = person;
         }
+
+ //To string:
+        @Override
+        public String toString() {
+                return "CertificationDTO{" +
+                        "title='" + title + '\'' +
+                        ", skills='" + skills + '\'' +
+                        ", workload=" + workload +
+                        ", certificateDescription='" + certificateDescription + '\'' +
+                        ", person=" + person +
+                        '}';
+        }
 }
 //        @NotBlank(message = "O título não pode estar em branco")
 //        String title,

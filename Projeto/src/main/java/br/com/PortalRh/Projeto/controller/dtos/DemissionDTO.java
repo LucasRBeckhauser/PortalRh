@@ -35,6 +35,16 @@ public class DemissionDTO {
         public void setReasonDemission(String reasonDemission) {
                 this.reasonDemission = reasonDemission;
         }
+
+//To string:
+
+        @Override
+        public String toString() {
+                return "DemissionDTO{" +
+                        "demissionDate=" + demissionDate +
+                        ", reasonDemission='" + reasonDemission + '\'' +
+                        '}';
+        }
 }
 
 

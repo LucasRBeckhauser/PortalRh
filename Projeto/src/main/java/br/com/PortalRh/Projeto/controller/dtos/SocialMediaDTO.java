@@ -47,6 +47,16 @@ public class SocialMediaDTO{
     public void setPerson(Person person) {
         this.person = person;
     }
+
+//To string:
+    @Override
+    public String toString() {
+        return "SocialMediaDTO{" +
+                "name='" + name + '\'' +
+                ", url='" + url + '\'' +
+                ", person=" + person +
+                '}';
+    }
 }
 
 

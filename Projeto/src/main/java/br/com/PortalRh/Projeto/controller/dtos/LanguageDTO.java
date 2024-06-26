@@ -37,6 +37,16 @@ public class LanguageDTO{
     public void setPerson(Person person) {
         this.person = person;
     }
+
+//To string:
+
+    @Override
+    public String toString() {
+        return "LanguageDTO{" +
+                "name='" + name + '\'' +
+                ", person=" + person +
+                '}';
+    }
 }
 
 

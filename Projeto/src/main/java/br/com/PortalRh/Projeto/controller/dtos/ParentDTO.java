@@ -56,6 +56,17 @@ public class ParentDTO {
         this.mothersPhone = mothersPhone;
     }
 
+//To string:
+
+    @Override
+    public String toString() {
+        return "ParentDTO{" +
+                "fathersName='" + fathersName + '\'' +
+                ", fathersPhone='" + fathersPhone + '\'' +
+                ", mothersName='" + mothersName + '\'' +
+                ", mothersPhone='" + mothersPhone + '\'' +
+                '}';
+    }
 }
 
 

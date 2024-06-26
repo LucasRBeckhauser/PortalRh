@@ -11,11 +11,18 @@ public class BankDataDTO {
     String agency;
     String account;
 
-//Constructors , Getters and Setters :
+//Constructors :
 
     public BankDataDTO() {
     }
 
+    public BankDataDTO(AccountType accountType, String bank, String agency, String account) {
+        this.accountType = accountType;
+        this.bank = bank;
+        this.agency = agency;
+        this.account = account;
+    }
+//Getters and Setters:
     public AccountType getAccountType() {
         return accountType;
     }
@@ -48,15 +55,15 @@ public class BankDataDTO {
         this.account = account;
     }
 
-    public BankDataDTO(AccountType accountType, String bank, String agency, String account) {
-        this.accountType = accountType;
-        this.bank = bank;
-        this.agency = agency;
-        this.account = account;
-
-
-
-
+//To string
+    @Override
+    public String toString() {
+        return "BankDataDTO{" +
+                "accountType=" + accountType +
+                ", bank='" + bank + '\'' +
+                ", agency='" + agency + '\'' +
+                ", account='" + account + '\'' +
+                '}';
     }
 }
 

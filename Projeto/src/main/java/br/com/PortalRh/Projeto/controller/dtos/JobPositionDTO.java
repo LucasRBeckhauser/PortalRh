@@ -64,6 +64,19 @@ public class JobPositionDTO{
     public void setCollaborator(CollaboratorDTO collaborator) {
         this.collaborator = collaborator;
     }
+
+//To string:
+
+    @Override
+    public String toString() {
+        return "JobPositionDTO{" +
+                "description='" + description + '\'' +
+                ", level='" + level + '\'' +
+                ", commission=" + commission +
+                ", positionType=" + positionType +
+                ", collaborator=" + collaborator +
+                '}';
+    }
 }
 
 

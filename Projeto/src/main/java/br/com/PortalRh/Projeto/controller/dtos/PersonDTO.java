@@ -217,6 +217,33 @@ public class PersonDTO {
     public void setCollaborator(Collaborator collaborator) {
         this.collaborator = collaborator;
     }
+
+//To string:
+
+    @Override
+    public String toString() {
+        return "PersonDTO{" +
+                "name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", rg='" + rg + '\'' +
+                ", voterRegist='" + voterRegist + '\'' +
+                ", birthday=" + birthday +
+                ", reservist='" + reservist + '\'' +
+                ", cnh='" + cnh + '\'' +
+                ", raceColor='" + raceColor + '\'' +
+                ", religion='" + religion + '\'' +
+                ", bloodDonor=" + bloodDonor +
+                ", nationality='" + nationality + '\'' +
+                ", languages='" + languages + '\'' +
+                ", overtime=" + overtime +
+                ", clockIn=" + clockIn +
+                ", clockOut=" + clockOut +
+                ", parent=" + parent +
+                ", bankData=" + bankData +
+                ", user=" + user +
+                ", collaborator=" + collaborator +
+                '}';
+    }
 }
 
 
