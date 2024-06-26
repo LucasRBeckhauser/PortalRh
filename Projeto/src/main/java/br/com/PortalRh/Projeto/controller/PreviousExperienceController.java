@@ -2,6 +2,8 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
+import br.com.PortalRh.Projeto.controller.dtos.PersonDTO;
+import br.com.PortalRh.Projeto.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,8 +33,10 @@ public class PreviousExperienceController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<PreviousExperience>> getAllPreviousExperiences() {
-        return previousExperienceService.findAll();
+    public ResponseEntity<List<PreviousExperienceDTO>> getAllPreviousExperience() {
+        List<PreviousExperience> all = previousExperienceService.findAll();
+        List<PreviousExperienceDTO> previousExperienceDTOS = PreviousExperienceDTO.fromEntityList(all);
+        return ResponseEntity.ok(previousExperienceDTOS);
     }
 
     @GetMapping("/{id}")

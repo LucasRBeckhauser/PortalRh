@@ -22,10 +22,10 @@ public class PreviousExperienceService {
 
     public ResponseEntity<PreviousExperience> create(PreviousExperienceDTO previousExperienceDTO) {
         PreviousExperience previousExperience = new PreviousExperience(
-            previousExperienceDTO.company(),
-            previousExperienceDTO.experienceTime(),
-            previousExperienceDTO.description(),
-            previousExperienceDTO.person()
+            previousExperienceDTO.getCompany(),
+            previousExperienceDTO.getExperienceTime(),
+            previousExperienceDTO.getDescription(),
+            previousExperienceDTO.getPerson()
         );
 
         previousExperienceRepository.save(previousExperience);
@@ -51,10 +51,10 @@ public class PreviousExperienceService {
 
         if (optionalPreviousExperience.isPresent()) {
             PreviousExperience previousExperience = optionalPreviousExperience.get();
-            previousExperience.setCompany(previousExperienceDTO.company());
-            previousExperience.setExperienceTime(previousExperienceDTO.experienceTime());
-            previousExperience.setDescription(previousExperienceDTO.description());
-            previousExperience.setPerson(previousExperienceDTO.person());
+            previousExperience.setCompany(previousExperienceDTO.getCompany());
+            previousExperience.setExperienceTime(previousExperienceDTO.getExperienceTime());
+            previousExperience.setDescription(previousExperienceDTO.getDescription());
+            previousExperience.setPerson(previousExperienceDTO.getPerson());
 
             previousExperienceRepository.save(previousExperience);
             return ResponseEntity.ok(previousExperience);
