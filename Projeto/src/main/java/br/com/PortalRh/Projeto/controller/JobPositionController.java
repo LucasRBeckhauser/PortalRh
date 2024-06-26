@@ -1,5 +1,7 @@
 package br.com.PortalRh.Projeto.controller;
 
+import br.com.PortalRh.Projeto.controller.dtos.DemissionDTO;
+import br.com.PortalRh.Projeto.model.Demission;
 import br.com.PortalRh.Projeto.model.JobPosition;
 import br.com.PortalRh.Projeto.controller.dtos.JobPositionDTO;
 import br.com.PortalRh.Projeto.service.JobPositionService;
@@ -23,8 +25,10 @@ public class JobPositionController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<JobPosition>> getAllJobPosition() {
-        return jobPositionService.findAll();
+    public ResponseEntity<List<JobPositionDTO>> getAllJobPositions() {
+        List<JobPosition> all = jobPositionService.findAll();
+        List<JobPositionDTO> jobPositionDTOS = JobPositionDTO.fromEntityList(all);
+        return ResponseEntity.ok(jobPositionDTOS);
     }
 
     @GetMapping("/{id}")
