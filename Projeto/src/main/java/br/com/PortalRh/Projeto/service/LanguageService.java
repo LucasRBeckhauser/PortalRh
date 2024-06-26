@@ -22,8 +22,8 @@ public class LanguageService {
 
     public ResponseEntity<Language> create(LanguageDTO languageDTO) {
         Language language = new Language(
-            languageDTO.name(),
-            languageDTO.person()
+            languageDTO.getName(),
+            languageDTO.getPerson()
         );
 
         languageRepository.save(language);
@@ -49,8 +49,8 @@ public class LanguageService {
 
         if (optionalLanguage.isPresent()) {
             Language language = optionalLanguage.get();
-            language.setName(languageDTO.name());
-            language.setPerson(languageDTO.person());
+            language.setName(languageDTO.getName());
+            language.setPerson(languageDTO.getPerson());
 
             languageRepository.save(language);
             return ResponseEntity.ok(language);
