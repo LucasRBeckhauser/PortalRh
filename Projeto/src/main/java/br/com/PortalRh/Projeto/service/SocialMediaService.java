@@ -22,9 +22,9 @@ public class SocialMediaService {
 
     public ResponseEntity<SocialMedia> create(SocialMediaDTO socialMediaDTO) {
         SocialMedia socialMedia = new SocialMedia(
-            socialMediaDTO.name(),
-            socialMediaDTO.url(),
-            socialMediaDTO.person()
+            socialMediaDTO.getName(),
+            socialMediaDTO.getUrl(),
+            socialMediaDTO.getPerson()
         );
 
         socialMediaRepository.save(socialMedia);
@@ -50,9 +50,9 @@ public class SocialMediaService {
 
         if (optionalSocialMedia.isPresent()) {
             SocialMedia socialMedia = optionalSocialMedia.get();
-            socialMedia.setName(socialMediaDTO.name());
-            socialMedia.setUrl(socialMediaDTO.url());
-            socialMedia.setPerson(socialMediaDTO.person());
+            socialMedia.setName(socialMediaDTO.getName());
+            socialMedia.setUrl(socialMediaDTO.getUrl());
+            socialMedia.setPerson(socialMediaDTO.getPerson());
 
             socialMediaRepository.save(socialMedia);
             return ResponseEntity.ok(socialMedia);

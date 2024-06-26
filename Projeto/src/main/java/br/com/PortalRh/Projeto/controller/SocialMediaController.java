@@ -2,6 +2,8 @@ package br.com.PortalRh.Projeto.controller;
 
 import java.util.List;
 
+import br.com.PortalRh.Projeto.controller.dtos.PersonDTO;
+import br.com.PortalRh.Projeto.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,8 +32,10 @@ public class SocialMediaController extends AbstractController{
     }
 
     @GetMapping
-    public ResponseEntity<List<SocialMedia>> getAllSocialMedia() {
-        return socialMediaService.findAll();
+    public ResponseEntity<List<SocialMediaDTO>> getAllSocialMedias() {
+        List<SocialMedia> all = socialMediaService.findAll();
+        List<SocialMediaDTO> socialMediaDTOS = SocialMediaDTO.fromEntityList(all);
+        return ResponseEntity.ok(socialMediaDTOS);
     }
 
     @GetMapping("/{id}")
