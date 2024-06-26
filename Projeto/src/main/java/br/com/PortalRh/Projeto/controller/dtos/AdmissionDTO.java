@@ -10,15 +10,16 @@ public class AdmissionDTO{
         LocalDate admissionDate;
         Aso aso;
 
+//Constructors:
         public AdmissionDTO() {
         }
-
 
         public AdmissionDTO(LocalDate admissionDate, Aso aso) {
                 this.admissionDate = admissionDate;
                 this.aso = aso;
         }
 
+//Getters and Setters:
         public LocalDate getAdmissionDate() {
                 return admissionDate;
         }
@@ -35,6 +36,7 @@ public class AdmissionDTO{
                 this.aso = aso;
         }
 
+//-----//
         public static AdmissionDTO fromEntity(Admission admission){
                 return new AdmissionDTO(
                     admission.getAdmissionDate(),

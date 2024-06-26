@@ -113,6 +113,8 @@ public class AsoDTO {
         this.doctorSignatureDate = doctorSignatureDate;
     }
 
+
+//-----------------//
     public static AsoDTO fromEntity(Aso aso){
         return new AsoDTO(
                 aso.getHealthHistory(),

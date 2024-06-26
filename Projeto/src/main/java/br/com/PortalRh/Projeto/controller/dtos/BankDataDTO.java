@@ -11,6 +11,7 @@ public class BankDataDTO {
     String agency;
     String account;
 
+//Constructors , Getters and Setters :
 
     public BankDataDTO() {
     }

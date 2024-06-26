@@ -13,6 +13,7 @@ public class AddressDTO {
     String city;
     State state;
 
+//Constructors:
     public AddressDTO(){}
 
     public AddressDTO(String houseNumber, String streetName, String complement, String neighborhood, String city, State state) {
@@ -24,6 +25,7 @@ public class AddressDTO {
         this.state = state;
     }
 
+//Getters and Setters:
     public String getHouseNumber() {
         return houseNumber;
     }
