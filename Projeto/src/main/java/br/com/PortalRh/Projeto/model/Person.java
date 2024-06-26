@@ -117,27 +117,27 @@ public class Person extends EntityId {
         this.collaborator = collaborator;
     }
 
-    public Person(Builder builder) {
-        this.name = builder.name;
-        this.cpf = builder.cpf;
-        this.rg = builder.rg;
-        this.voterRegist = builder.voterRegist;
-        this.birthday = builder.birthday;
-        this.reservist = builder.reservist;
-        this.cnh = builder.cnh;
-        this.raceColor = builder.raceColor;
-        this.religion = builder.religion;
-        this.bloodDonor = builder.bloodDonor;
-        this.nacionality = builder.nacionality;
-        this.languages = builder.languages;
-        this.overtime = builder.overtime;
-        this.clockIn = builder.clockIn;
-        this.clockOut = builder.clockOut;
-        this.parent = builder.parent;
-        this.bankData = builder.bankData;
-        this.user = builder.user;
-        this.collaborator = builder.collaborator;
-    }
+//    public Person(Builder builder) {
+//        this.name = builder.name;
+//        this.cpf = builder.cpf;
+//        this.rg = builder.rg;
+//        this.voterRegist = builder.voterRegist;
+//        this.birthday = builder.birthday;
+//        this.reservist = builder.reservist;
+//        this.cnh = builder.cnh;
+//        this.raceColor = builder.raceColor;
+//        this.religion = builder.religion;
+//        this.bloodDonor = builder.bloodDonor;
+//        this.nacionality = builder.nacionality;
+//        this.languages = builder.languages;
+//        this.overtime = builder.overtime;
+//        this.clockIn = builder.clockIn;
+//        this.clockOut = builder.clockOut;
+//        this.parent = builder.parent;
+//        this.bankData = builder.bankData;
+//        this.user = builder.user;
+//        this.collaborator = builder.collaborator;
+//    }
 
     public String getName() {
         return name;
@@ -215,128 +215,226 @@ public class Person extends EntityId {
         return collaborator;
     }
 
-
-
-    public static class Builder {
-        private String name;
-        private String cpf;
-        private String rg;
-        private String voterRegist;
-        private LocalDate birthday;
-        private String reservist;
-        private String cnh;
-        private String raceColor;
-        private String religion;
-        private Boolean bloodDonor;
-        private String nacionality;
-        private String languages;
-        private Integer overtime;
-        private LocalTime clockIn;
-        private LocalTime clockOut;
-        private Parent parent;
-        private BankData bankData;
-        private User user;
-        private Collaborator collaborator;
-
-        public Builder() {}
-
-        public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-    
-        public Builder cpf(String cpf) {
-            this.cpf = cpf;
-            return this;
-        }
-    
-        public Builder rg(String rg) {
-            this.rg = rg;
-            return this;
-        }
-    
-        public Builder voterRegist(String voterRegist) {
-            this.voterRegist = voterRegist;
-            return this;
-        }
-    
-        public Builder birthday(LocalDate birthday) {
-            this.birthday = birthday;
-            return this;
-        }
-    
-        public Builder reservist(String reservist) {
-            this.reservist = reservist;
-            return this;
-        }
-    
-        public Builder cnh(String cnh) {
-            this.cnh = cnh;
-            return this;
-        }
-    
-        public Builder raceColor(String raceColor) {
-            this.raceColor = raceColor;
-            return this;
-        }
-    
-        public Builder religion(String religion) {
-            this.religion = religion;
-            return this;
-        }
-    
-        public Builder bloodDonor(Boolean bloodDonor) {
-            this.bloodDonor = bloodDonor;
-            return this;
-        }
-    
-        public Builder nacionality(String nacionality) {
-            this.nacionality = nacionality;
-            return this;
-        }
-    
-        public Builder languages(String languages) {
-            this.languages = languages;
-            return this;
-        }
-    
-        public Builder overtime(Integer overtime) {
-            this.overtime = overtime;
-            return this;
-        }
-    
-        public Builder clockIn(LocalTime clockIn) {
-            this.clockIn = clockIn;
-            return this;
-        }
-    
-        public Builder clockOut(LocalTime clockOut) {
-            this.clockOut = clockOut;
-            return this;
-        }
-
-        public Builder parent(Parent parent) {
-            this.parent = parent;
-            return this;
-        }
-    
-        public Builder bankData(BankData bankData) {
-            this.bankData = bankData;
-            return this;
-        }
-    
-        public Builder user(User user) {
-            this.user = user;
-            return this;
-        }
-    
-        public Builder collaborator(Collaborator collaborator) {
-            this.collaborator = collaborator;
-            return this;
-        }
-
-        public Person build() {
-            return new Person(this);
-        }
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public void setVoterRegist(String voterRegist) {
+        this.voterRegist = voterRegist;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setReservist(String reservist) {
+        this.reservist = reservist;
+    }
+
+    public void setCnh(String cnh) {
+        this.cnh = cnh;
+    }
+
+    public void setRaceColor(String raceColor) {
+        this.raceColor = raceColor;
+    }
+
+    public void setReligion(String religion) {
+        this.religion = religion;
+    }
+
+    public void setBloodDonor(Boolean bloodDonor) {
+        this.bloodDonor = bloodDonor;
+    }
+
+    public void setNacionality(String nacionality) {
+        this.nacionality = nacionality;
+    }
+
+    public void setLanguages(String languages) {
+        this.languages = languages;
+    }
+
+    public void setOvertime(Integer overtime) {
+        this.overtime = overtime;
+    }
+
+    public void setClockIn(LocalTime clockIn) {
+        this.clockIn = clockIn;
+    }
+
+    public void setClockOut(LocalTime clockOut) {
+        this.clockOut = clockOut;
+    }
+
+    public void setPreviousExperiences(List<PreviousExperience> previousExperiences) {
+        this.previousExperiences = previousExperiences;
+    }
+
+    public void setLanguage(List<Language> language) {
+        this.language = language;
+    }
+
+    public void setSocialMedia(List<SocialMedia> socialMedia) {
+        this.socialMedia = socialMedia;
+    }
+
+    public void setCertification(List<Certification> certification) {
+        this.certification = certification;
+    }
+
+    public void setChildren(List<Children> children) {
+        this.children = children;
+    }
+
+    public void setAddres(List<Address> addres) {
+        this.addres = addres;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
+    }
+
+    public void setBankData(BankData bankData) {
+        this.bankData = bankData;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setCollaborator(Collaborator collaborator) {
+        this.collaborator = collaborator;
+    }
+
+    //    public static class Builder {
+//        private String name;
+//        private String cpf;
+//        private String rg;
+//        private String voterRegist;
+//        private LocalDate birthday;
+//        private String reservist;
+//        private String cnh;
+//        private String raceColor;
+//        private String religion;
+//        private Boolean bloodDonor;
+//        private String nacionality;
+//        private String languages;
+//        private Integer overtime;
+//        private LocalTime clockIn;
+//        private LocalTime clockOut;
+//        private Parent parent;
+//        private BankData bankData;
+//        private User user;
+//        private Collaborator collaborator;
+//
+//        public Builder() {}
+//
+//        public Builder name(String name) {
+//            this.name = name;
+//            return this;
+//        }
+//
+//        public Builder cpf(String cpf) {
+//            this.cpf = cpf;
+//            return this;
+//        }
+//
+//        public Builder rg(String rg) {
+//            this.rg = rg;
+//            return this;
+//        }
+//
+//        public Builder voterRegist(String voterRegist) {
+//            this.voterRegist = voterRegist;
+//            return this;
+//        }
+//
+//        public Builder birthday(LocalDate birthday) {
+//            this.birthday = birthday;
+//            return this;
+//        }
+//
+//        public Builder reservist(String reservist) {
+//            this.reservist = reservist;
+//            return this;
+//        }
+//
+//        public Builder cnh(String cnh) {
+//            this.cnh = cnh;
+//            return this;
+//        }
+//
+//        public Builder raceColor(String raceColor) {
+//            this.raceColor = raceColor;
+//            return this;
+//        }
+//
+//        public Builder religion(String religion) {
+//            this.religion = religion;
+//            return this;
+//        }
+//
+//        public Builder bloodDonor(Boolean bloodDonor) {
+//            this.bloodDonor = bloodDonor;
+//            return this;
+//        }
+//
+//        public Builder nacionality(String nacionality) {
+//            this.nacionality = nacionality;
+//            return this;
+//        }
+//
+//        public Builder languages(String languages) {
+//            this.languages = languages;
+//            return this;
+//        }
+//
+//        public Builder overtime(Integer overtime) {
+//            this.overtime = overtime;
+//            return this;
+//        }
+//
+//        public Builder clockIn(LocalTime clockIn) {
+//            this.clockIn = clockIn;
+//            return this;
+//        }
+//
+//        public Builder clockOut(LocalTime clockOut) {
+//            this.clockOut = clockOut;
+//            return this;
+//        }
+//
+//        public Builder parent(Parent parent) {
+//            this.parent = parent;
+//            return this;
+//        }
+//
+//        public Builder bankData(BankData bankData) {
+//            this.bankData = bankData;
+//            return this;
+//        }
+//
+//        public Builder user(User user) {
+//            this.user = user;
+//            return this;
+//        }
+//
+//        public Builder collaborator(Collaborator collaborator) {
+//            this.collaborator = collaborator;
+//            return this;
+//        }
+//
+//        public Person build() {
+//            return new Person(this);
+//        }
+//    }
 }
