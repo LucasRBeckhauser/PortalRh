@@ -1,75 +1,37 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.entities.PrevExp;
+import br.com.PortalRh.Projeto.entities.SocialMedia;
+import br.com.PortalRh.Projeto.repository.PrevExpRepository;
+import br.com.PortalRh.Projeto.repository.SocialMediaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
-import br.com.PortalRh.Projeto.model.SocialMedia;
-import br.com.PortalRh.Projeto.controller.dtos.SocialMediaDTO;
-import br.com.PortalRh.Projeto.repository.SocialMediaRepository;
-
 @Service
 public class SocialMediaService {
+
     @Autowired
-    private SocialMediaRepository socialMediaRepository;
+    private SocialMediaRepository repository;
 
-    public SocialMediaService(SocialMediaRepository socialMediaRepository) {
-        this.socialMediaRepository = socialMediaRepository;
-    }
+    public SocialMedia salvar (SocialMedia entity){return repository.save(entity); }
 
-    public ResponseEntity<SocialMedia> create(SocialMediaDTO socialMediaDTO) {
-        SocialMedia socialMedia = new SocialMedia(
-            socialMediaDTO.name(),
-            socialMediaDTO.url(),
-            socialMediaDTO.person()
-        );
+    public List<SocialMedia> buscaTodos(){return repository.findAll(); }
 
-        socialMediaRepository.save(socialMedia);
-        return ResponseEntity.ok(socialMedia);
-    }
+    public SocialMedia buscaPorId(Long id){return repository.findById(id).orElse(null); }
 
-    public List<SocialMedia> findAll() {
-        List<SocialMedia> socialMedias = socialMediaRepository.findAll();
-        return socialMedias;
-    }
+    public SocialMedia alterar(Long id, SocialMedia alterado){
+        Optional<SocialMedia> encontrado = repository.findById(id);
+        if (encontrado.isPresent()){
+            SocialMedia socialMedia = encontrado.get();
+            socialMedia.setName(alterado.getName());
+            socialMedia.setUrl(alterado.getUrl());
 
-    public ResponseEntity<SocialMedia> findById(Long id) {
-        Optional<SocialMedia> socialMedia = socialMediaRepository.findById(id);
-        if (socialMedia.isPresent()) {
-            return ResponseEntity.ok(socialMedia.get());
-        } else {
-            return ResponseEntity.notFound().build();
         }
+        return null;
     }
 
-    public ResponseEntity<SocialMedia> update(SocialMediaDTO socialMediaDTO, Long id) {
-        Optional<SocialMedia> optionalSocialMedia = socialMediaRepository.findById(id);
-
-        if (optionalSocialMedia.isPresent()) {
-            SocialMedia socialMedia = optionalSocialMedia.get();
-            socialMedia.setName(socialMediaDTO.name());
-            socialMedia.setUrl(socialMediaDTO.url());
-            socialMedia.setPerson(socialMediaDTO.person());
-
-            socialMediaRepository.save(socialMedia);
-            return ResponseEntity.ok(socialMedia);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    public ResponseEntity<Void> delete(Long id) {
-        Optional<SocialMedia> optionalSocialMedia = socialMediaRepository.findById(id);
-
-        if (optionalSocialMedia.isPresent()) {
-            socialMediaRepository.delete(optionalSocialMedia.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    public void remover(Long id) { repository.deleteById(id);}
 }
-
