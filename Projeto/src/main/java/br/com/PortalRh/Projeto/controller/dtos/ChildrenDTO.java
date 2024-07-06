@@ -11,8 +11,11 @@ import org.springframework.cglib.core.Local;
 import org.springframework.validation.annotation.Validated;
 
 public class ChildrenDTO {
+        @NotBlank(message = "O nome não pode estar em branco")
         String name;
+        @NotNull(message = "A idade não pode ser nula")
         LocalDate age;
+        @NotNull(message = "A pessoa não pode ser nula")
         Person person;
 
  //Constructors:

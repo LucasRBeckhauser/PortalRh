@@ -7,8 +7,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class SocialMediaDTO{
+    @NotBlank(message = "O nome da organização não pode estar em branco")
     String name;
+    @URL(message = "A URL deve ser válida")
     String url;
+    @NotNull(message = "A pessoa não pode ser nula")
     Person person;
 
 //Constructors:

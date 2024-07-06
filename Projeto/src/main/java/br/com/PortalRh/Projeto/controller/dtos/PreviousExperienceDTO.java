@@ -7,9 +7,15 @@ import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
 public class PreviousExperienceDTO {
+    @NotBlank(message = "O nome da empresa não pode estar em branco")
     String company;
+    @NotNull(message = "O tempo de experiência não pode ser nulo")
+    @PositiveOrZero(message = "O tempo de experiência não pode ser negativo")
     Integer experienceTime;
+    @NotBlank(message = "A descrição da experiência não pode estar em branco")
+    @Size(min = 10, max = 1000, message = "A descrição deve ter entre 10 e 1000 caracteres")
     String description;
+    @NotNull(message = "A pessoa não pode ser nula")
     Person person;
 
 //Constructors:

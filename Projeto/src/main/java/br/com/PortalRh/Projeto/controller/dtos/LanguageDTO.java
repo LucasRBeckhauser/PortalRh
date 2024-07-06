@@ -6,7 +6,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class LanguageDTO{
+    @NotBlank(message = "O nome do idioma não pode estar em branco")
     String name;
+    @Valid @NotNull(message = "A pessoa não pode ser nula")
     Person person;
 
 //Constructors:

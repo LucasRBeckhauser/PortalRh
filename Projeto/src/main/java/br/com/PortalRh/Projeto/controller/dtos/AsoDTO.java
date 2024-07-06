@@ -1,12 +1,14 @@
 package br.com.PortalRh.Projeto.controller.dtos;
 
 import br.com.PortalRh.Projeto.model.Aso;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AsoDTO {
-
+    @NotNull(message = "O histórico de saúde não pode ser nulo.")
     String healthHistory;
     String medicalProcesses;
     LocalDate supplementaryExamsDate;
