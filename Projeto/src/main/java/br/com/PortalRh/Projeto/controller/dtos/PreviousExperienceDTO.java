@@ -3,6 +3,7 @@ package br.com.PortalRh.Projeto.controller.dtos;
 import br.com.PortalRh.Projeto.model.Person;
 import br.com.PortalRh.Projeto.model.PreviousExperience;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class PreviousExperienceDTO{
     String company;
     
 
-    Integer experienceTime;
+    LocalDate experienceTime;
     
 
     String description;
@@ -21,7 +22,7 @@ public class PreviousExperienceDTO{
 
     public PreviousExperienceDTO() {}
 
-    public PreviousExperienceDTO(String company, Integer experienceTime, String description, Person person) {
+    public PreviousExperienceDTO(String company, LocalDate experienceTime, String description, Person person) {
         this.company = company;
         this.experienceTime = experienceTime;
         this.description = description;
@@ -36,11 +37,11 @@ public class PreviousExperienceDTO{
         this.company = company;
     }
 
-    public Integer getExperienceTime() {
+    public LocalDate getExperienceTime() {
         return experienceTime;
     }
 
-    public void setExperienceTime(Integer experienceTime) {
+    public void setExperienceTime(LocalDate experienceTime) {
         this.experienceTime = experienceTime;
     }
 
