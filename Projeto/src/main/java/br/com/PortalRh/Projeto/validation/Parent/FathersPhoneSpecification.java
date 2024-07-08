@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Parent;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class fathersPhoneSpecification implements Specification <Parent> {
+public class FathersPhoneSpecification implements Specification <Parent> {
     @Override
     public ValidationResult isSatisfiedBy(Parent candidate) {
         String fathersPhone = candidate.getFathersPhone();

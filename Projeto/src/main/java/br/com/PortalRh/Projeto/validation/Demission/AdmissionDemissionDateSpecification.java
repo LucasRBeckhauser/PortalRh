@@ -7,10 +7,10 @@ import br.com.PortalRh.Projeto.validation.ValidationResult;
 
 import java.time.LocalDate;
 
-public class admissionDemissionDateSpecification implements Specification<Admission> {
+public class AdmissionDemissionDateSpecification implements Specification<Admission> {
     private final Demission demission;
 
-    public admissionDemissionDateSpecification(Demission demission) {
+    public AdmissionDemissionDateSpecification(Demission demission) {
         this.demission = demission;
     }
     @Override

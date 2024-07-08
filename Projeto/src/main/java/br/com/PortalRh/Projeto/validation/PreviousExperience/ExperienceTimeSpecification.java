@@ -5,7 +5,7 @@ import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 import java.time.LocalDate;
 
-public class experienceTimeSpecification implements Specification <PreviousExperience> {
+public class ExperienceTimeSpecification implements Specification <PreviousExperience> {
     @Override
     public ValidationResult isSatisfiedBy(PreviousExperience candidate) {
         LocalDate experienceTime = candidate.getExperienceTime();
