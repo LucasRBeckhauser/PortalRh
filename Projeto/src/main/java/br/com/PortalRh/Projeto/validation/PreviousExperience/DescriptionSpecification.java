@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.PreviousExperience;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class descriptionSpecification implements Specification<PreviousExperience> {
+public class DescriptionSpecification implements Specification<PreviousExperience> {
     @Override
     public ValidationResult isSatisfiedBy(PreviousExperience candidate) {
         String description = candidate.getDescription();

@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Children;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class nameSpecification implements Specification<Children> {
+public class NameSpecification implements Specification<Children> {
     @Override
     public ValidationResult isSatisfiedBy(Children children) {
         String name = children.getName();

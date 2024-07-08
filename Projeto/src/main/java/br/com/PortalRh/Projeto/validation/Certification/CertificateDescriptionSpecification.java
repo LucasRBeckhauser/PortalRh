@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Certification;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class certificateDescriptionSpecification implements Specification <Certification> {
+public class CertificateDescriptionSpecification implements Specification <Certification> {
     @Override
     public ValidationResult isSatisfiedBy(Certification certification) {
         String certificateDescription = certification.getCertificateDescription();

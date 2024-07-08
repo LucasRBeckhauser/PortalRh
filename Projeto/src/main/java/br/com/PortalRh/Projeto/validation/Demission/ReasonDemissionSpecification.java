@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Demission;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class reasonDemissionSpecification implements Specification <Demission> {
+public class ReasonDemissionSpecification implements Specification <Demission> {
     @Override
     public ValidationResult isSatisfiedBy(Demission demission) {
         String reasonDemission = demission.getReasonDemission();

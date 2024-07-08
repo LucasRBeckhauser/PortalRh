@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Address;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class cepSpecification implements Specification<Address> {
+public class CepSpecification implements Specification<Address> {
 
 
     @Override

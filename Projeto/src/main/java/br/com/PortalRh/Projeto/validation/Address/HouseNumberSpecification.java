@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Address;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class houseNumberSpecification implements Specification <Address> {
+public class HouseNumberSpecification implements Specification <Address> {
     @Override
     public ValidationResult isSatisfiedBy(Address candidate) {
         String houseNumber = candidate.getHouseNumber();

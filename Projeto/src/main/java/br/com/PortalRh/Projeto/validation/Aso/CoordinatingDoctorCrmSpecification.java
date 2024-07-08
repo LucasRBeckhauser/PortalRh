@@ -4,7 +4,7 @@ import br.com.PortalRh.Projeto.model.Aso;
 import br.com.PortalRh.Projeto.validation.Specification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 
-public class coordinatingDoctorCrmSpecification implements Specification <Aso> {
+public class CoordinatingDoctorCrmSpecification implements Specification <Aso> {
     @Override
     public ValidationResult isSatisfiedBy(Aso aso) {
         String coordinatingDoctor = aso.getCoordinatingDoctorCrm();
