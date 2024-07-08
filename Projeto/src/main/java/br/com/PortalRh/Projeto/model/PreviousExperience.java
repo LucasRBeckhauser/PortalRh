@@ -6,6 +6,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "previous_experiences")
 public class PreviousExperience extends EntityId {
@@ -13,7 +15,7 @@ public class PreviousExperience extends EntityId {
     private String company;
 
     @Column(name = "experience_time", nullable = false)
-    private Integer experienceTime;
+    private LocalDate experienceTime;
 
     @Column(name = "description", nullable = false)
     private String description;
@@ -24,7 +26,7 @@ public class PreviousExperience extends EntityId {
 
     public PreviousExperience() {}
 
-    public PreviousExperience(String company, Integer experienceTime, String description, Person person) {
+    public PreviousExperience(String company, LocalDate experienceTime, String description, Person person) {
         this.company = company;
         this.experienceTime = experienceTime;
         this.description = description;
@@ -39,11 +41,11 @@ public class PreviousExperience extends EntityId {
         this.company = company;
     }
 
-    public Integer getExperienceTime() {
+    public LocalDate getExperienceTime() {
         return experienceTime;
     }
 
-    public void setExperienceTime(Integer experienceTime) {
+    public void setExperienceTime(LocalDate experienceTime) {
         this.experienceTime = experienceTime;
     }
 
