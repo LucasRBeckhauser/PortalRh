@@ -13,8 +13,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "admissions")
-public class Admission extends EntityId{
-    
+public class Admission extends EntityId {
+
     @CreationTimestamp
     @Column(name = "admission_date", nullable = false)
     private LocalDate AdmissionDate;
@@ -26,7 +26,8 @@ public class Admission extends EntityId{
     @OneToOne(mappedBy = "admission", cascade = CascadeType.ALL)
     private Collaborator collaborator;
 
-    public Admission() {}
+    public Admission() {
+    }
 
     public Admission(LocalDate admissionDate, Aso aso) {
         AdmissionDate = admissionDate;
@@ -61,4 +62,39 @@ public class Admission extends EntityId{
     public String toString() {
         return "Admission [AdmissionDate=" + AdmissionDate + ", aso=" + aso + ", collaborator=" + collaborator + "]";
     }
+
+    public static class Builder {
+        private LocalDate AdmissionDate;
+        private Aso aso;
+
+        private Builder() {
+        }
+
+        public static Builder create() {
+            return new Builder();
+        }
+
+        public static Builder from(Admission admission) {
+            Builder builder = new Builder();
+            builder.AdmissionDate = admission.AdmissionDate;
+            builder.aso = admission.aso;
+            return builder;
+        }
+
+        public Builder AdmissionDate(LocalDate AdmissionDate) {
+            this.AdmissionDate = AdmissionDate;
+            return this;
+        }
+
+        public Builder age(Aso aso) {
+            this.aso = aso;
+            return this;
+        }
+
+        public Admission build() {
+            return new Admission(AdmissionDate, aso);
+        }
+
+    }
+
 }
