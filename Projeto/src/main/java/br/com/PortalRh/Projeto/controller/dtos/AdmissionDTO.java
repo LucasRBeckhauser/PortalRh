@@ -2,12 +2,19 @@ package br.com.PortalRh.Projeto.controller.dtos;
 
 import br.com.PortalRh.Projeto.model.Admission;
 import br.com.PortalRh.Projeto.model.Aso;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdmissionDTO{
+        @DateTimeFormat
         LocalDate admissionDate;
+        @Valid
+        @NotBlank(message = "O A.S.O. não pode estar em branco")
         Aso aso;
 
 //Constructors:

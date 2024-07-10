@@ -19,9 +19,9 @@ public class CollaboratorDTO {
         Shift shift;
         @Valid @NotNull(message = "O cargo não pode ser nulo")
         JobPosition jobPosition;
-        @Valid @NotNull(message = "A admissão não pode ser nula")
+        @Valid
         Admission admission;
-        @Valid @NotNull(message = "A demissão não pode ser nula")
+        @Valid
         Demission demission;
 
 //constructors:
