@@ -1,8 +1,12 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
 import br.com.PortalRh.Projeto.model.JobPosition;
 import br.com.PortalRh.Projeto.controller.dtos.JobPositionDTO;
 import br.com.PortalRh.Projeto.repository.JobPositionRepository;
+import br.com.PortalRh.Projeto.validation.BankData.AccountSpecification;
+import br.com.PortalRh.Projeto.validation.JobPosition.DescriptionSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,6 +30,12 @@ public class JobPositionService {
                 jobPositionDTO.getCommission(),
                 jobPositionDTO.getPositionType()
         );
+
+        ValidationResult descriptionValidationResult = new DescriptionSpecification().isSatisfiedBy(jobPosition);
+        if (!descriptionValidationResult.isValid()) {
+            throw new ValidationException(descriptionValidationResult.getMessage());
+        }
+
         jobPositionRepository.save(jobPosition);
         return ResponseEntity.ok(jobPosition);
     }
