@@ -3,6 +3,9 @@ package br.com.PortalRh.Projeto.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
+import br.com.PortalRh.Projeto.validation.Children.NameSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,6 +29,11 @@ public class ChildrenService {
             childrenDTO.getAge(),
             childrenDTO.getPerson()
         );
+
+        ValidationResult nameValidation = new NameSpecification().isSatisfiedBy(children);
+        if (!nameValidation.isValid()) {
+            throw new ValidationException(nameValidation.getMessage());
+        }
 
         childrenRepository.save(children);
         return ResponseEntity.ok(children);
