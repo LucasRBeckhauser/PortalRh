@@ -13,7 +13,7 @@ public class passwordSpecification implements Specification <User> {
         if (password != null && password.length() >= 10) {
             return new ValidationResult(true, "Password is valid.");
         } else {
-            return new ValidationResult(false, "Password is invalidd.");
+            return new ValidationResult(false, "Password is invalid.");
         }
     }
 }

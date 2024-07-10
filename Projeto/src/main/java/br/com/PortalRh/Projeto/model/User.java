@@ -26,6 +26,11 @@ public class User extends EntityId {
         this.person = person;
     }
 
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public String getUsername() {
         return username;
     }
