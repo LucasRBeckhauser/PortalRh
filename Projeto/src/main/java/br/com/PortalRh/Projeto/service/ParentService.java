@@ -3,6 +3,10 @@ package br.com.PortalRh.Projeto.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
+import br.com.PortalRh.Projeto.validation.Parent.FathersPhoneSpecification;
+import br.com.PortalRh.Projeto.validation.Parent.MothersPhoneSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,16 +25,28 @@ public class ParentService {
     }
 
     public ResponseEntity<Parent> create(ParentDTO parentDTO) {
+
         Parent parent = new Parent(
-            parentDTO.getFathersName(),
-            parentDTO.getFathersPhone(),
-            parentDTO.getMothersName(),
-            parentDTO.getMothersPhone()
+                parentDTO.getFathersName(),
+                parentDTO.getFathersPhone(),
+                parentDTO.getMothersName(),
+                parentDTO.getMothersPhone()
         );
+
+        ValidationResult mothersPhoneValidation = new MothersPhoneSpecification().isSatisfiedBy(parent);
+        if (!mothersPhoneValidation.isValid()) {
+            throw new ValidationException(mothersPhoneValidation.getMessage());
+        }
+
+        ValidationResult fathersPhoneValidation = new FathersPhoneSpecification().isSatisfiedBy(parent);
+        if (!fathersPhoneValidation.isValid()) {
+            throw new ValidationException(fathersPhoneValidation.getMessage());
+        }
 
         parentRepository.save(parent);
         return ResponseEntity.ok(parent);
     }
+
 
     public List<Parent> findAll() {
         List<Parent> parents = parentRepository.findAll();

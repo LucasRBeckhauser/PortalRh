@@ -1,8 +1,12 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
 import br.com.PortalRh.Projeto.model.BankData;
 import br.com.PortalRh.Projeto.controller.dtos.BankDataDTO;
 import br.com.PortalRh.Projeto.repository.BankDataRepository;
+import br.com.PortalRh.Projeto.validation.BankData.AccountSpecification;
+import br.com.PortalRh.Projeto.validation.BankData.AgencySpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -26,6 +30,16 @@ public class BankDataService {
                 bankDataDTO.getAgency(),
                 bankDataDTO.getAccount()
         );
+
+        ValidationResult accountValidationResult = new AccountSpecification().isSatisfiedBy(bankData);
+        if (!accountValidationResult.isValid()) {
+            throw new ValidationException(accountValidationResult.getMessage());
+        }
+
+        ValidationResult agencyValidationResult = new AgencySpecification().isSatisfiedBy(bankData);
+        if (!agencyValidationResult.isValid()) {
+            throw new ValidationException(agencyValidationResult.getMessage());
+        }
 
         bankDataRepository.save(bankData);
         return ResponseEntity.ok(bankData);
