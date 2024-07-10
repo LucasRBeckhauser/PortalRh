@@ -3,6 +3,9 @@ package br.com.PortalRh.Projeto.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
+import br.com.PortalRh.Projeto.validation.Certification.CertificateDescriptionSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,11 @@ public class CertificationService {
             certificationDTO.getCertificateDescription(),
             certificationDTO.getPerson()
         );
+
+        ValidationResult certificateDescriptionValidation = new CertificateDescriptionSpecification().isSatisfiedBy(certification);
+        if (!certificateDescriptionValidation.isValid()) {
+            throw new ValidationException(certificateDescriptionValidation.getMessage());
+        }
 
         certificationRepository.save(certification);
         return ResponseEntity.ok(certification);

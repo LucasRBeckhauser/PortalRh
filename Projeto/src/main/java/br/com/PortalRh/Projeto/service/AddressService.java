@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.PortalRh.Projeto.controller.dtos.AddressDTO;
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
+import br.com.PortalRh.Projeto.validation.Address.CepSpecification;
+import br.com.PortalRh.Projeto.validation.Address.HouseNumberSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,6 +34,16 @@ public class AddressService {
             addressDTO.getCity(),
             addressDTO.getState()
         );
+
+        ValidationResult cepValidation = new CepSpecification().isSatisfiedBy(address);
+        if (!cepValidation.isValid()) {
+            throw new ValidationException(cepValidation.getMessage());
+        }
+
+        ValidationResult houseNumberValidation = new HouseNumberSpecification().isSatisfiedBy(address);
+        if (!houseNumberValidation.isValid()) {
+            throw new ValidationException(houseNumberValidation.getMessage());
+        }
 
         addressRepository.save(address);
         return ResponseEntity.ok(address);
