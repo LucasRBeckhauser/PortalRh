@@ -1,8 +1,13 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
 import br.com.PortalRh.Projeto.model.Aso;
 import br.com.PortalRh.Projeto.controller.dtos.AsoDTO;
 import br.com.PortalRh.Projeto.repository.AsoRepository;
+import br.com.PortalRh.Projeto.validation.Aso.CoordinatingDoctorCrmSpecification;
+import br.com.PortalRh.Projeto.validation.Aso.FinalJudgmentSpecification;
+import br.com.PortalRh.Projeto.validation.Aso.ResponsibleDoctorCrmSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -34,6 +39,24 @@ public class AsoService {
                 asoDTO.getFinalJudgment(),
                 asoDTO.getDoctorSignatureDate()
         );
+
+        // Validate responsible doctor's CRM
+        ValidationResult responsibleDoctorCrmValidation = new ResponsibleDoctorCrmSpecification().isSatisfiedBy(aso);
+        if (!responsibleDoctorCrmValidation.isValid()) {
+            throw new ValidationException(responsibleDoctorCrmValidation.getMessage());
+        }
+
+        // Validate coordinating doctor's CRM
+        ValidationResult coordinatingDoctorCrmValidation = new CoordinatingDoctorCrmSpecification().isSatisfiedBy(aso);
+        if (!coordinatingDoctorCrmValidation.isValid()) {
+            throw new ValidationException(coordinatingDoctorCrmValidation.getMessage());
+        }
+
+        // Validate final judgment length
+        ValidationResult finalJudgmentValidation = new FinalJudgmentSpecification().isSatisfiedBy(aso);
+        if (!finalJudgmentValidation.isValid()) {
+            throw new ValidationException(finalJudgmentValidation.getMessage());
+        }
 
         asoRepository.save(aso);
         return ResponseEntity.ok(aso);
