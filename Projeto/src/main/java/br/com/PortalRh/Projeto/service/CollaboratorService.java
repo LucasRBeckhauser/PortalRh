@@ -1,8 +1,11 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
 import br.com.PortalRh.Projeto.model.Collaborator;
 import br.com.PortalRh.Projeto.controller.dtos.CollaboratorDTO;
 import br.com.PortalRh.Projeto.repository.CollaboratorRepository;
+import br.com.PortalRh.Projeto.validation.Collaborator.PisPasepSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,6 +34,13 @@ public class CollaboratorService {
                 collaboratorDTO.getDemission()
 
         );
+
+        ValidationResult pisPasepValidationResult = new PisPasepSpecification().isSatisfiedBy(collaborator);
+        if (!pisPasepValidationResult.isValid()) {
+            throw new ValidationException(pisPasepValidationResult.getMessage());
+        }
+
+
         collaboratorRepository.save(collaborator);
         return ResponseEntity.ok(collaborator);
     }

@@ -1,8 +1,11 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.enterprise.ValidationException;
 import br.com.PortalRh.Projeto.model.Demission;
 import br.com.PortalRh.Projeto.controller.dtos.DemissionDTO;
 import br.com.PortalRh.Projeto.repository.DemissionRepository;
+import br.com.PortalRh.Projeto.validation.Demission.ReasonDemissionSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,13 @@ public class DemissionService {
                 demissionDTO.getDemissionDate(),
                 demissionDTO.getReasonDemission()
         );
+        ValidationResult reasonValidation = new ReasonDemissionSpecification().isSatisfiedBy(demission);
+        if (!reasonValidation.isValid()) {
+            throw new ValidationException(reasonValidation.getMessage());
+        }
+
+
+
         demissionRepository.save(demission);
         return ResponseEntity.ok(demission);
     }
