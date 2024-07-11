@@ -1,10 +1,5 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.Parent;
-import br.com.PortalRh.Projeto.repository.ParentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -22,9 +17,8 @@ import br.com.PortalRh.Projeto.repository.ParentRepository;
 
 @Service
 public class ParentService {
-
     @Autowired
-    private ParentRepository repository;
+    private ParentRepository parentRepository;
 
     public ParentService(ParentRepository parentRepository) {
         this.parentRepository = parentRepository;
@@ -54,9 +48,19 @@ public class ParentService {
     }
 
 
-    public List<Parent> buscaTodos(){return repository.findAll(); }
+    public List<Parent> findAll() {
+        List<Parent> parents = parentRepository.findAll();
+        return parents;
+    }
 
-    public Parent buscaPorId(Long id){return repository.findById(id).orElse(null); }
+    public ResponseEntity<Parent> findById(Long id) {
+        Optional<Parent> parent = parentRepository.findById(id);
+        if (parent.isPresent()) {
+            return ResponseEntity.ok(parent.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
     public ResponseEntity<Parent> update(ParentDTO parentDTO, Long id) {
         Optional<Parent> optionalParent = parentRepository.findById(id);
@@ -75,5 +79,14 @@ public class ParentService {
         }
     }
 
-    public void remover(Long id) { repository.deleteById(id);}
+    public ResponseEntity<Void> delete(Long id) {
+        Optional<Parent> optionalParent = parentRepository.findById(id);
+
+        if (optionalParent.isPresent()) {
+            parentRepository.delete(optionalParent.get());
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
