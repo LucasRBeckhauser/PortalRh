@@ -16,21 +16,39 @@ public class SocialMediaService {
     @Autowired
     private SocialMediaRepository repository;
 
-    public SocialMedia salvar (SocialMedia entity){return repository.save(entity); }
+    public SocialMediaService(SocialMediaRepository socialMediaRepository) {
+        this.socialMediaRepository = socialMediaRepository;
+    }
+
+    public ResponseEntity<SocialMedia> create(SocialMediaDTO socialMediaDTO) {
+        SocialMedia socialMedia = new SocialMedia(
+            socialMediaDTO.name(),
+            socialMediaDTO.url(),
+            socialMediaDTO.person()
+        );
+
+        socialMediaRepository.save(socialMedia);
+        return ResponseEntity.ok(socialMedia);
+    }
 
     public List<SocialMedia> buscaTodos(){return repository.findAll(); }
 
     public SocialMedia buscaPorId(Long id){return repository.findById(id).orElse(null); }
 
-    public SocialMedia alterar(Long id, SocialMedia alterado){
-        Optional<SocialMedia> encontrado = repository.findById(id);
-        if (encontrado.isPresent()){
-            SocialMedia socialMedia = encontrado.get();
-            socialMedia.setName(alterado.getName());
-            socialMedia.setUrl(alterado.getUrl());
+    public ResponseEntity<SocialMedia> update(SocialMediaDTO socialMediaDTO, Long id) {
+        Optional<SocialMedia> optionalSocialMedia = socialMediaRepository.findById(id);
 
+        if (optionalSocialMedia.isPresent()) {
+            SocialMedia socialMedia = optionalSocialMedia.get();
+            socialMedia.setName(socialMediaDTO.name());
+            socialMedia.setUrl(socialMediaDTO.url());
+            socialMedia.setPerson(socialMediaDTO.person());
+
+            socialMediaRepository.save(socialMedia);
+            return ResponseEntity.ok(socialMedia);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
     public void remover(Long id) { repository.deleteById(id);}

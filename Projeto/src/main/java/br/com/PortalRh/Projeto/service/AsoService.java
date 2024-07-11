@@ -1,7 +1,12 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.Aso;
+import br.com.PortalRh.Projeto.model.Aso;
+import br.com.PortalRh.Projeto.controller.dtos.AsoDTO;
 import br.com.PortalRh.Projeto.repository.AsoRepository;
+import br.com.PortalRh.Projeto.validation.Aso.CoordinatingDoctorCrmSpecification;
+import br.com.PortalRh.Projeto.validation.Aso.FinalJudgmentSpecification;
+import br.com.PortalRh.Projeto.validation.Aso.ResponsibleDoctorCrmSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +19,27 @@ public class AsoService {
     @Autowired
     private AsoRepository repository;
 
-    public Aso salvar (Aso entity){return repository.save(entity); }
+    public AsoService(AsoRepository asoRepository) {
+        this.asoRepository = asoRepository;
+    }
+
+    public ResponseEntity<Aso> create(AsoDTO asoDTO) {
+        Aso aso = new Aso(
+                asoDTO.getHealthHistory(),
+                asoDTO.getMedicalProcesses(),
+                asoDTO.getSupplementaryExamsDate(),
+                asoDTO.getResponsibleDoctorName(),
+                asoDTO.getResponsibleDoctorCrm(),
+                asoDTO.getCoordinatingDoctorName(),
+                asoDTO.getCoordinatingDoctorCrm(),
+                asoDTO.getOccupationalRisks(),
+                asoDTO.getFinalJudgment(),
+                asoDTO.getDoctorSignatureDate()
+        );
+
+        asoRepository.save(aso);
+        return ResponseEntity.ok(aso);
+    }
 
     public List<Aso> buscaTodos(){return repository.findAll(); }
 

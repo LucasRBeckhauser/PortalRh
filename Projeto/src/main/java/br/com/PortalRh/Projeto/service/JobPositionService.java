@@ -1,7 +1,11 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.entities.JobPosition;
+import br.com.PortalRh.Projeto.model.JobPosition;
+import br.com.PortalRh.Projeto.controller.dtos.JobPositionDTO;
 import br.com.PortalRh.Projeto.repository.JobPositionRepository;
+import br.com.PortalRh.Projeto.validation.BankData.AccountSpecification;
+import br.com.PortalRh.Projeto.validation.JobPosition.DescriptionSpecification;
+import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,26 +16,42 @@ import java.util.Optional;
 public class JobPositionService {
 
     @Autowired
-    private JobPositionRepository repository;
+    public JobPositionRepository jobPositionRepository;
 
-    public JobPosition save (JobPosition entity){return repository.save(entity); }
+    public JobPositionService(JobPositionRepository jobPositionRepository) {
+        this.jobPositionRepository = jobPositionRepository;
+    }
+
+    public ResponseEntity<JobPosition> create(JobPositionDTO jobPositionDTO) {
+        JobPosition jobPosition = new JobPosition(
+                jobPositionDTO.description(),
+                jobPositionDTO.level(),
+                jobPositionDTO.commission(),
+                jobPositionDTO.positionType()
+        );
+        jobPositionRepository.save(jobPosition);
+        return ResponseEntity.ok(jobPosition);
+    }
 
     public List<JobPosition> getAll(){return repository.findAll(); }
 
     public JobPosition getById(Long id){return repository.findById(id).orElse(null); }
 
-    public JobPosition update(Long id, JobPosition changed){
-        Optional<JobPosition> found = repository.findById(id);
-        if (found.isPresent()){
+    public ResponseEntity<JobPosition> update(JobPositionDTO jobPositionDTO, Long id) {
+        Optional<JobPosition> optionalJobPosition = jobPositionRepository.findById(id);
 
-            JobPosition jobPosition = found.get();
-            jobPosition.setPositionType(changed.getPositionType());
-            jobPosition.setDescription(changed.getDescription());
-            jobPosition.setLevel(changed.getLevel());
-            jobPosition.setCommission(changed.getCommission());
+        if (optionalJobPosition.isPresent()) {
+            JobPosition jobPosition = optionalJobPosition.get();
+            jobPosition.setPositionType(jobPositionDTO.positionType());
+            jobPosition.setCommission(jobPositionDTO.commission());
+            jobPosition.setDescription(jobPositionDTO.description());
+            jobPosition.setLevel(jobPositionDTO.level());
 
+            jobPositionRepository.save(jobPosition);
+            return ResponseEntity.ok(jobPosition);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
     public void delete(Long id) { repository.deleteById(id);}

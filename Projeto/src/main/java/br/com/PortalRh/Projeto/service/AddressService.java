@@ -9,37 +9,36 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.PortalRh.Projeto.controller.dtos.AddressDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import br.com.PortalRh.Projeto.model.Address;
+import br.com.PortalRh.Projeto.repository.AddressRepository;
+
 @Service
 public class AddressService {
 
     @Autowired
-    private AddressRepository repository;
+    private AddressRepository addressRepository;
 
+    public AddressService(AddressRepository addressRepository) {
+        this.addressRepository = addressRepository;
+    }
 
-    public AddressDto salvar(AddressDto dto) {
-        Address address = new Address();
-        address.setHouseNumber(dto.getHouseNumber());
-        address.setStName(dto.getStName());
-        address.setComplement(dto.getComplement());
-        address.setNeighborhood(dto.getNeighborhood());
-        address.setCity(dto.getCity());
-        address.setState(dto.getState());
-        address.setCep(dto.getCep());
-        address.setCountry(dto.getCountry());
-
-
-        Address savedAddress = repository.save(address);
-
-        return new AddressDto(
-                savedAddress.getHouseNumber(),
-                savedAddress.getStName(),
-                savedAddress.getComplement(),
-                savedAddress.getNeighborhood(),
-                savedAddress.getCity(),
-                savedAddress.getState(),
-                savedAddress.getCep(),
-                savedAddress.getCountry()
+    public ResponseEntity<Address> create(AddressDTO addressDTO) {
+        Address address = new Address(
+            addressDTO.getHouseNumber(),
+            addressDTO.getStreetName(),
+            addressDTO.getComplement(),
+            addressDTO.getNeighborhood(),
+            addressDTO.getCity(),
+            addressDTO.getState()
         );
+
+        addressRepository.save(address);
+        return ResponseEntity.ok(address);
     }
 
     public List<Address> buscaTodos(){return repository.findAll(); }

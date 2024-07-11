@@ -8,31 +8,57 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import br.com.PortalRh.Projeto.model.Certification;
+import br.com.PortalRh.Projeto.controller.dtos.CertificationDTO;
+import br.com.PortalRh.Projeto.repository.CertificationRepository;
+
 @Service
 public class CertificationService {
 
     @Autowired
     private CertificationRepository repository;
 
-    public Certification salvar (Certification entity){return repository.save(entity); }
+    public CertificationService(CertificationRepository certificationRepository) {
+        this.certificationRepository = certificationRepository;
+    }
+
+    public ResponseEntity<Certification> create(CertificationDTO certificationDTO) {
+        Certification certification = new Certification(
+            certificationDTO.title(),
+            certificationDTO.skills(),
+            certificationDTO.workload(),
+            certificationDTO.certificateDescription(),
+            certificationDTO.person()
+        );
+
+        certificationRepository.save(certification);
+        return ResponseEntity.ok(certification);
+    }
 
     public List<Certification> buscaTodos(){return repository.findAll(); }
 
     public Certification buscaPorId(Long id){return repository.findById(id).orElse(null); }
 
-    public Certification alterar(Long id, Certification alterado){
-        Optional<Certification> encontrado = repository.findById(id);
-        if (encontrado.isPresent()){
-            Certification certification = encontrado.get();
+    public ResponseEntity<Certification> update(CertificationDTO certificationDTO, Long id) {
+        Optional<Certification> optionalCertification = certificationRepository.findById(id);
 
-            certification.setDescription(alterado.getDescription());
-            certification.setPerson(alterado.getPerson());
-            certification.setSkills(alterado.getSkills());
-            certification.setTitle(alterado.getTitle());
-            certification.setWorkload(alterado.getWorkload());
+        if (optionalCertification.isPresent()) {
+            Certification certification = optionalCertification.get();
+            certification.setTitle(certificationDTO.title());
+            certification.setSkills(certificationDTO.skills());
+            certification.setWorkload(certificationDTO.workload());
+            certification.setCertificateDescription(certificationDTO.certificateDescription());
+            certification.setPerson(certificationDTO.person());
 
+            certificationRepository.save(certification);
+            return ResponseEntity.ok(certification);
+        } else {
+            return ResponseEntity.notFound().build();
         }
-        return null;
     }
 
     public void remover(Long id) { repository.deleteById(id);}
