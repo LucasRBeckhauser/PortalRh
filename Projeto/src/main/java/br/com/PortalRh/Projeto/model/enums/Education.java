@@ -1,0 +1,12 @@
+package br.com.PortalRh.Projeto.model.enums;
+
+public enum Education {
+    FUNDAMENTALCOMPLETO,
+    FUNDAMENTALINCOMPLETO,
+    MEDIOCOMPLETO,
+    MEDIOINCOMPLETO,
+    GRADUACAOCOMPLETO,
+    GRADUACAOINCOMPLETO,
+    POSCOMPLETO,
+    POSINCOMPLETO;
+}
