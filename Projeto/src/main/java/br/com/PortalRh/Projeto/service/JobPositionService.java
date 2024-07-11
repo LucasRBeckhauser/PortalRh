@@ -1,6 +1,5 @@
 package br.com.PortalRh.Projeto.service;
 
-import br.com.PortalRh.Projeto.enterprise.ValidationException;
 import br.com.PortalRh.Projeto.model.JobPosition;
 import br.com.PortalRh.Projeto.controller.dtos.JobPositionDTO;
 import br.com.PortalRh.Projeto.repository.JobPositionRepository;
@@ -8,7 +7,6 @@ import br.com.PortalRh.Projeto.validation.BankData.AccountSpecification;
 import br.com.PortalRh.Projeto.validation.JobPosition.DescriptionSpecification;
 import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +14,7 @@ import java.util.Optional;
 
 @Service
 public class JobPositionService {
+
     @Autowired
     public JobPositionRepository jobPositionRepository;
 
@@ -25,44 +24,28 @@ public class JobPositionService {
 
     public ResponseEntity<JobPosition> create(JobPositionDTO jobPositionDTO) {
         JobPosition jobPosition = new JobPosition(
-                jobPositionDTO.getDescription(),
-                jobPositionDTO.getLevel(),
-                jobPositionDTO.getCommission(),
-                jobPositionDTO.getPositionType()
+                jobPositionDTO.description(),
+                jobPositionDTO.level(),
+                jobPositionDTO.commission(),
+                jobPositionDTO.positionType()
         );
-
-        ValidationResult descriptionValidationResult = new DescriptionSpecification().isSatisfiedBy(jobPosition);
-        if (!descriptionValidationResult.isValid()) {
-            throw new ValidationException(descriptionValidationResult.getMessage());
-        }
-
         jobPositionRepository.save(jobPosition);
         return ResponseEntity.ok(jobPosition);
     }
 
-    public List<JobPosition> findAll() {
-        List<JobPosition> jobPositions = jobPositionRepository.findAll();
-        return jobPositions;
-    }
+    public List<JobPosition> getAll(){return repository.findAll(); }
 
-    public ResponseEntity<JobPosition> findById(Long id) {
-        Optional<JobPosition> jobPosition = jobPositionRepository.findById(id);
-        if (jobPosition.isPresent()) {
-            return ResponseEntity.ok(jobPosition.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    public JobPosition getById(Long id){return repository.findById(id).orElse(null); }
 
     public ResponseEntity<JobPosition> update(JobPositionDTO jobPositionDTO, Long id) {
         Optional<JobPosition> optionalJobPosition = jobPositionRepository.findById(id);
 
         if (optionalJobPosition.isPresent()) {
             JobPosition jobPosition = optionalJobPosition.get();
-            jobPosition.setPositionType(jobPositionDTO.getPositionType());
-            jobPosition.setCommission(jobPositionDTO.getCommission());
-            jobPosition.setDescription(jobPositionDTO.getDescription());
-            jobPosition.setLevel(jobPositionDTO.getLevel());
+            jobPosition.setPositionType(jobPositionDTO.positionType());
+            jobPosition.setCommission(jobPositionDTO.commission());
+            jobPosition.setDescription(jobPositionDTO.description());
+            jobPosition.setLevel(jobPositionDTO.level());
 
             jobPositionRepository.save(jobPosition);
             return ResponseEntity.ok(jobPosition);
@@ -71,15 +54,5 @@ public class JobPositionService {
         }
     }
 
-    public ResponseEntity<Void> delete(Long id) {
-        Optional<JobPosition> optionalJobPosition = jobPositionRepository.findById(id);
-
-        if (optionalJobPosition.isPresent()) {
-            jobPositionRepository.delete(optionalJobPosition.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
+    public void delete(Long id) { repository.deleteById(id);}
 }

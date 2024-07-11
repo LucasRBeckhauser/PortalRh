@@ -1,13 +1,15 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.dto.AddressDto;
+import br.com.PortalRh.Projeto.entities.Address;
+import br.com.PortalRh.Projeto.repository.AddressRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
 import br.com.PortalRh.Projeto.controller.dtos.AddressDTO;
-import br.com.PortalRh.Projeto.enterprise.ValidationException;
-import br.com.PortalRh.Projeto.validation.Address.CepSpecification;
-import br.com.PortalRh.Projeto.validation.Address.HouseNumberSpecification;
-import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -35,61 +37,32 @@ public class AddressService {
             addressDTO.getState()
         );
 
-        ValidationResult cepValidation = new CepSpecification().isSatisfiedBy(address);
-        if (!cepValidation.isValid()) {
-            throw new ValidationException(cepValidation.getMessage());
-        }
-
-        ValidationResult houseNumberValidation = new HouseNumberSpecification().isSatisfiedBy(address);
-        if (!houseNumberValidation.isValid()) {
-            throw new ValidationException(houseNumberValidation.getMessage());
-        }
-
         addressRepository.save(address);
         return ResponseEntity.ok(address);
     }
 
-    public List<Address> findAll() {
-        List<Address> addresses = addressRepository.findAll();
-        return addresses;
-    }
+    public List<Address> buscaTodos(){return repository.findAll(); }
 
-    public ResponseEntity<Address> findById(Long id) {
-        Optional<Address> address = addressRepository.findById(id);
-        if (address.isPresent()) {
-            return ResponseEntity.ok(address.get());
-        } else {
-            return ResponseEntity.notFound().build();
+    public Address buscaPorId(Long id){return repository.findById(id).orElse(null); }
+
+    public Address alterar(Long id, Address alterado){
+        Optional<Address> encontrado = repository.findById(id);
+        if (encontrado.isPresent()){
+            Address address = encontrado.get();
+
+            address.setCity(alterado.getCity());
+            address.setComplement(alterado.getComplement());
+            address.setCountry(alterado.getCountry());
+            address.setState(alterado.getState());
+            address.setNeighborhood(alterado.getNeighborhood());
+            address.setHouseNumber(alterado.getHouseNumber());
+            address.setStName(alterado.getStName());
+            address.setCep(alterado.getCep());
+
+
         }
+        return null;
     }
 
-    public ResponseEntity<Address> update(AddressDTO addressDTO, Long id) {
-        Optional<Address> optionalAddress = addressRepository.findById(id);
-
-        if (optionalAddress.isPresent()) {
-            Address address = optionalAddress.get();
-            address.setHouseNumber(addressDTO.getHouseNumber());
-            address.setStreetName(addressDTO.getStreetName());
-            address.setComplement(addressDTO.getComplement());
-            address.setNeighborhood(addressDTO.getNeighborhood());
-            address.setCity(addressDTO.getCity());
-            address.setState(addressDTO.getState());
-
-            addressRepository.save(address);
-            return ResponseEntity.ok(address);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    public ResponseEntity<Void> delete(Long id) {
-        Optional<Address> optionalAddress = addressRepository.findById(id);
-
-        if (optionalAddress.isPresent()) {
-            addressRepository.delete(optionalAddress.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    public void remover(Long id) { repository.deleteById(id);}
 }

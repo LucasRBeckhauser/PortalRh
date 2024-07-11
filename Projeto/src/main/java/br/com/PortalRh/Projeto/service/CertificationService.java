@@ -1,11 +1,13 @@
 package br.com.PortalRh.Projeto.service;
 
+import br.com.PortalRh.Projeto.entities.Certification;
+import br.com.PortalRh.Projeto.repository.CertificationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
-import br.com.PortalRh.Projeto.enterprise.ValidationException;
-import br.com.PortalRh.Projeto.validation.Certification.CertificateDescriptionSpecification;
-import br.com.PortalRh.Projeto.validation.ValidationResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,8 +18,9 @@ import br.com.PortalRh.Projeto.repository.CertificationRepository;
 
 @Service
 public class CertificationService {
+
     @Autowired
-    private CertificationRepository certificationRepository;
+    private CertificationRepository repository;
 
     public CertificationService(CertificationRepository certificationRepository) {
         this.certificationRepository = certificationRepository;
@@ -25,46 +28,31 @@ public class CertificationService {
 
     public ResponseEntity<Certification> create(CertificationDTO certificationDTO) {
         Certification certification = new Certification(
-            certificationDTO.getTitle(),
-            certificationDTO.getSkills(),
-            certificationDTO.getWorkload(),
-            certificationDTO.getCertificateDescription(),
-            certificationDTO.getPerson()
+            certificationDTO.title(),
+            certificationDTO.skills(),
+            certificationDTO.workload(),
+            certificationDTO.certificateDescription(),
+            certificationDTO.person()
         );
-
-        ValidationResult certificateDescriptionValidation = new CertificateDescriptionSpecification().isSatisfiedBy(certification);
-        if (!certificateDescriptionValidation.isValid()) {
-            throw new ValidationException(certificateDescriptionValidation.getMessage());
-        }
 
         certificationRepository.save(certification);
         return ResponseEntity.ok(certification);
     }
 
-    public List<Certification> findAll() {
-        List<Certification> certifications = certificationRepository.findAll();
-        return certifications;
-    }
+    public List<Certification> buscaTodos(){return repository.findAll(); }
 
-    public ResponseEntity<Certification> findById(Long id) {
-        Optional<Certification> certification = certificationRepository.findById(id);
-        if (certification.isPresent()) {
-            return ResponseEntity.ok(certification.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    public Certification buscaPorId(Long id){return repository.findById(id).orElse(null); }
 
     public ResponseEntity<Certification> update(CertificationDTO certificationDTO, Long id) {
         Optional<Certification> optionalCertification = certificationRepository.findById(id);
 
         if (optionalCertification.isPresent()) {
             Certification certification = optionalCertification.get();
-            certification.setTitle(certificationDTO.getTitle());
-            certification.setSkills(certificationDTO.getSkills());
-            certification.setWorkload(certificationDTO.getWorkload());
-            certification.setCertificateDescription(certificationDTO.getCertificateDescription());
-            certification.setPerson(certificationDTO.getPerson());
+            certification.setTitle(certificationDTO.title());
+            certification.setSkills(certificationDTO.skills());
+            certification.setWorkload(certificationDTO.workload());
+            certification.setCertificateDescription(certificationDTO.certificateDescription());
+            certification.setPerson(certificationDTO.person());
 
             certificationRepository.save(certification);
             return ResponseEntity.ok(certification);
@@ -73,14 +61,5 @@ public class CertificationService {
         }
     }
 
-    public ResponseEntity<Void> delete(Long id) {
-        Optional<Certification> optionalCertification = certificationRepository.findById(id);
-
-        if (optionalCertification.isPresent()) {
-            certificationRepository.delete(optionalCertification.get());
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    public void remover(Long id) { repository.deleteById(id);}
 }
